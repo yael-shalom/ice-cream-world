@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICE CREAM PARLOR</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./js/index.js" defer></script>
+</head>
+
+<body>
+  <h1>WELCOME TO YOUR ICE CREAM PARLOR</h1>
+<div class="containBtn">
+  <button class="btn-sign-up" onclick="showSignUp()">Sign Up</button>
+  <button class="btn-sign-in" onclick="showLogin()">Sign In</button>
+</div>
+  <div id="sign-up" class="modal">
+    <span onclick="closeSignUp()" class="close"
+      title="Close Modal">&times;</span>
+    <form class="modal-content" onsubmit="register(event)">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <label for="username"><b>User name</b></label>
+        <input type="text" placeholder="Enter your name" id="username" name="username" required>
+        <div class="error"></div>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+        <div class="error"></div>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" id="psw-repeat" name="psw-repeat" required>
+        <div class="error"></div>
+        
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('sign-up').style.display='none'"
+            class="cancelbtn">Cancel</button>
+          <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div id="sign-in" class="modal">
+    <span onclick="closeSignIn()" class="close"
+      title="Close Modal">&times;</span>
+    <form class="modal-content" onsubmit="login(event)">
+      <div class="container">
+        <h1>Sign In</h1>
+        <p>Please fill in this form to enter with your account.</p>
+        <hr>
+        <label for="username-in"><b>User name</b></label>
+        <input type="text" placeholder="Enter your name" id="username-in" name="username" required>
+        <div class="error-in"></div>
+
+        <label for="psw-in"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="psw-in" name="psw" required>
+        <div class="error-in"></div>
+
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('sign-in').style.display='none'"
+            class="cancelbtn">Cancel</button>
+          <button type="submit" class="signupbtn">Sign In</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
