@@ -86,7 +86,4 @@ function register(event) {
     // console.log(form);
     // let x = new FormData(form);
     // console.log(x);
-
-    mi
-    ys
 }
