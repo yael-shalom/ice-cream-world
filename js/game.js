@@ -2,7 +2,7 @@ const cones = ['cone2', 'cone3', 'cone5', 'cone7', 'cone8', 'cone9', 'cone10', '
 const boys = ['boy1', 'happyboy1'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'chocolate', 'colorful1', 'colorful2',
-    'colorful3', 'concours', 'green-almonds', 'leaf', 'lemon', 'strawberries', 'strawberry', 'yellow-fruit'];
+    'colorful3', 'concours', 'green-almonds', 'leaf', 'lemon', 'strawberries', 'yellow-fruit'];
 var randomIceCream = {};
 
 randIceCream();
