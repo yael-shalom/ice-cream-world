@@ -1,9 +1,8 @@
-const cones = ['cone2','cone3','cone5','cone7','cone8','cone9','cone10','cone11'];
-const boys = ['boy1','happyboy1'];
-const balls = ['brown','lightblue','pink','purple','yellow'];
-const decorations = ['almonds','bege-nuts','blueberries','brown-nuts','candies','chocolate','colorful1','colorful2',
-'colorful3','concours','cream1','cream2','cream3','cream4','cream5','cream6','green-almonds','leaf','lemon','macron',
-'orange','strawberries','strawberry','sweet','yellow-fruit'];
+const cones = ['cone2', 'cone3', 'cone5', 'cone7', 'cone8', 'cone9', 'cone10', 'cone11'];
+const boys = ['boy1', 'happyboy1'];
+const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
+const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'chocolate', 'colorful1', 'colorful2',
+    'colorful3', 'concours', 'green-almonds', 'leaf', 'lemon', 'strawberries', 'yellow-fruit'];
 var randomIceCream = {};
 
 
@@ -28,17 +27,21 @@ function changeBackground() {
   }
   
 
-function randIceCream()
-{
-    randomIceCream['cone'] = cones[Math.floor(Math.random()*cones.length)];
-    randomIceCream['ball'] = balls[Math.floor(Math.random()*balls.length)];
-    randomIceCream['decoration'] = decorations[Math.floor(Math.random()*decorations.length)];
+function randIceCream() {
+    randomIceCream['cone'] = cones[Math.floor(Math.random() * cones.length)];
+    randomIceCream['ball'] = balls[Math.floor(Math.random() * balls.length)];
+    randomIceCream['decoration'] = decorations[Math.floor(Math.random() * decorations.length)];
 }
 
 showIceCream();
+<<<<<<< HEAD
 //תכתבי תיעוד על זה כי לא ממש הבנתי מה זה
 function showIceCream()
 {
+=======
+
+function showIceCream() {
+>>>>>>> ddb030c1454902dcd7d48e17ba288ff288c4c8e0
     const container = document.querySelector('.icecream-container');
     let c = document.createElement('img');
     c.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
@@ -57,4 +60,8 @@ function showIceCream()
 
 
 
+<<<<<<< HEAD
  
+=======
+function moveBy() { }
+>>>>>>> ddb030c1454902dcd7d48e17ba288ff288c4c8e0
