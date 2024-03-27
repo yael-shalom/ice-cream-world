@@ -88,7 +88,6 @@ function register(event) {
     // console.log(x);
 
 
-    
-    mi
-    ys
+
+ 
 }
