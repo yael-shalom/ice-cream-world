@@ -189,11 +189,6 @@ div.nav-list{
   color: white;
 }
 
-.payment-img {
-  width: 130px;
-  height: 100%;
-}
-
 .elements-btn {
   height: 60px;
   width: 60px;
@@ -201,4 +196,9 @@ div.nav-list{
   border-radius: 10px;
   margin-left: 5px;
   box-shadow: 2px 2px #00000040
+}
+
+.elements-icon {
+  width: 100%;
+  height: auto;
 }
