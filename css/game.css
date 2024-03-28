@@ -35,7 +35,7 @@ img {
 .container1 {
   display: inline-block;
   cursor: pointer;
-  margin-top: 0;;
+  
 }
 .bar1, .bar2, .bar3 {
   width: 60px;
@@ -158,4 +158,15 @@ z-index: 1;
 .flex-row {
   display: flex;
   flex-direction: row;
+}
+.cardsAndNav {
+  display: flex;
+}
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+
+div.nav-list{
+  width: 60px;
 }
