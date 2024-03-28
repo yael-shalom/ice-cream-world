@@ -32,26 +32,6 @@ function menue() {
   menu.classList.toggle("change");
   nav.classList.toggle("hidden");
 }
-// //פונקציה המזמנת את ההזמנה הבאה לביצוע
-// function play()
-// {
-// setInterval(changeBackground, 100000);
-// }
-
-
-
-// //פונקציה שמרנדמת גלידה לביצוע
-// function changeIceCream() {
-//     // הגרלת מספר אקראי בין 0 לאורך המערך -1
-//     randIceCream();
-//     // החלפת תמונת הרקע
-//     document.body.style.backgroundImage =// `url('${images[randomIndex]}')`
-    
-   
-//   }
-
-
-  
 
 //פןנקצית רינדום 
   function rand(from, to)

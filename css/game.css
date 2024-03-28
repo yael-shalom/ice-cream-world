@@ -29,9 +29,7 @@ img {
   margin-bottom: -15px;
 }
 
-/* .cardsAndNav{
-  display:flex;
-} */
+
 
 /*עיצוב השלוש קווים של התפריט*/
 .container1 {
@@ -131,11 +129,6 @@ img {
 .a_menu-container {
   display: inline-grid;
 } 
-
-.nav-list {
-  display: flex;
-  flex-direction: column;
-}
 
 .music {
   font-size:20px;
