@@ -11,49 +11,75 @@
 </head>
 
 <body>
-    <div class="icecream-container"> </div>
+    
+    <div class="icecream-container"><img src="../assets/images/buttons/backgroud-pink.png"> </div>
 
     <div class="cardsAndNav">
         <div>
 
             <div class="container1">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
-
-        <div class="nav-list hidden">
-
-            <div class="nav-list-item" title="דף הבית"><a href="index.html"><img class="menu-img img0" src="../assets/images/icons/home%20page.png" /></a></div>
-            <button id="myBtn" class="buttonNav"><div class="nav-list-item"><img class="menu-img img1" src="../assets/images/icons/how%20to.png" title="הוראות"/></div></button>
-            <div class="nav-list-item"><img class="menu-img img2" src="../assets/images/icons/new%20game.png" title="התחל משחק מחדש"/></div>
-            <button id="startGame" class="buttonNav"><div class="nav-list-item"><img class="menu-img img4" src="../assets/images/icons/exit.png" title="התחל משחק"/></div></button>
-            
-            <div class="dropdown">
-            <button  class="dropbtn buttonNav"><div class="nav-list-item"><img class="menu-img img3" src="../assets/images/icons/settings.png" title="הגדרות"/></div></button>
-            <div id="myDropdown" class="dropdown-content">
-                   <!-- הגדרות המוזיקה -->
-              <!-- Rounded switch -->
-               <div id="selectionDef">
-               <div class="def">
-               <div class="music">מוזיקת רקע</div>
-                    <label class="switch off" id="backgroundMus">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-               </div>
-               <div class="def">
-               <div class="music">צלילי משחק</div>
-               <label class="switch off" id="sounds">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-               </label>
-               </div>
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
             </div>
-          </div>
-       </div>
-    </div>
-  </div>
+
+            <div class="ice-cream-elements">
+                <div class="ice-cream-cones" title="גביעים">
+                    <img class="cone-img" src="../assets/images/buttons/cone-btn.png" />
+                </div>
+                
+                <div class="ice-cream-balls" title="כדורי גלידה">
+                    <img class="ball-img" src="../assets/images/buttons/ball-btn.png" />
+                </div>
+                
+                <div class="ice-cream-decorations" title="קישוטים">
+                    <img class="decoration-img" src="../assets/images/buttons/decoration-btn.png" />
+                </div>
+            </div>
+
+            <div class="nav-list hidden">
+
+                <div class="nav-list-item" title="דף הבית"><a href="index.html"><img class="menu-img img0"
+                            src="../assets/images/icons/home%20page.png" /></a></div>
+                <button id="myBtn" class="buttonNav">
+                    <div class="nav-list-item"><img class="menu-img img1" src="../assets/images/icons/how%20to.png"
+                            title="הוראות" /></div>
+                </button>
+                <div class="nav-list-item"><img class="menu-img img2" src="../assets/images/icons/new%20game.png"
+                        title="התחל משחק מחדש" /></div>
+                <button id="startGame" class="buttonNav">
+                    <div class="nav-list-item"><img class="menu-img img4" src="../assets/images/icons/exit.png"
+                            title="התחל משחק" /></div>
+                </button>
+
+                <div class="dropdown">
+                    <button class="dropbtn buttonNav">
+                        <div class="nav-list-item"><img class="menu-img img3" src="../assets/images/icons/settings.png"
+                                title="הגדרות" /></div>
+                    </button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <!-- הגדרות המוזיקה -->
+                        <!-- Rounded switch -->
+                        <div id="selectionDef">
+                            <div class="def">
+                                <div class="music">מוזיקת רקע</div>
+                                <label class="switch off" id="backgroundMus">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="def">
+                                <div class="music">צלילי משחק</div>
+                                <label class="switch off" id="sounds">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <audio class="au1 music">
             <source src="../assets/images/Sounds/happyMassage.mp3" />
@@ -62,6 +88,9 @@
         <audio class="au2 music">
             <source src="../assets/images/Sounds/sadMassage.mp3" />
         </audio>
-        <audio id="backgroundMusic"><source src="../assets/images/Sounds/backgroundMusic.mp3" /></audio>
-   </body>
+        <audio id="backgroundMusic">
+            <source src="../assets/images/Sounds/backgroundMusic.mp3" />
+        </audio>
+</body>
+
 </html>
