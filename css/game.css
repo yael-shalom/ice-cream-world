@@ -130,6 +130,11 @@ img {
   display: inline-grid;
 } 
 
+.nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .music {
   font-size:20px;
   font:bold 20px;
@@ -147,10 +152,6 @@ display: none;
 position: absolute;
 min-width: 160px;
 z-index: 1;
-}
-div {
-  display: block;
-  unicode-bidi: isolate;
 }
 
 .ice-cream-elements {
