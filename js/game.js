@@ -25,6 +25,14 @@ function changeBackground() {
     
    
   }
+
+  
+//פןנקצית רינדום 
+  function rand(b)
+  {
+    return Math.floor(Math.random() * b);
+
+  }
   
 
 function randIceCream() {
