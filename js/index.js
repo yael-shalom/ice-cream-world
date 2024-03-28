@@ -88,4 +88,11 @@ function register(event) {
     // console.log(form);
     // let x = new FormData(form);
     // console.log(x);
+<<<<<<< HEAD
+
+
+
+ 
+=======
+>>>>>>> ddb030c1454902dcd7d48e17ba288ff288c4c8e0
 }

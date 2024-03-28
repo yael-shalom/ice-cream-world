@@ -5,7 +5,27 @@ const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candi
     'colorful3', 'concours', 'green-almonds', 'leaf', 'lemon', 'strawberries', 'yellow-fruit'];
 var randomIceCream = {};
 
-randIceCream();
+
+
+
+//פונקציה המזמנת את ההזמנה הבאה לביצוע
+function play()
+{
+setInterval(changeBackground, 100000);
+}
+
+
+
+//פונקציה שמרנדמת גלידה לביצוע
+function changeBackground() {
+    // הגרלת מספר אקראי בין 0 לאורך המערך -1
+    randIceCream();
+    // החלפת תמונת הרקע
+    document.body.style.backgroundImage =// `url('${images[randomIndex]}')`
+    
+   
+  }
+  
 
 function randIceCream() {
     randomIceCream['cone'] = cones[Math.floor(Math.random() * cones.length)];
@@ -14,8 +34,14 @@ function randIceCream() {
 }
 
 showIceCream();
+<<<<<<< HEAD
+//תכתבי תיעוד על זה כי לא ממש הבנתי מה זה
+function showIceCream()
+{
+=======
 
 function showIceCream() {
+>>>>>>> ddb030c1454902dcd7d48e17ba288ff288c4c8e0
     const container = document.querySelector('.icecream-container');
     let c = document.createElement('img');
     c.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
@@ -32,4 +58,14 @@ function showIceCream() {
 
 }
 
+<<<<<<< HEAD
 function moveBy() { }
+=======
+
+
+<<<<<<< HEAD
+ 
+=======
+function moveBy() { }
+>>>>>>> ddb030c1454902dcd7d48e17ba288ff288c4c8e0
+>>>>>>> bd0367bcffe71972d9afc754597449090e30a706
