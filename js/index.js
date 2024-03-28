@@ -45,7 +45,8 @@ function login(event) {
         return;
     }
     if (users[usernameIn.value].password === passwordIn.value)
-        window.location = "http://127.0.0.1:5500/pages/game.html";//ניתוב לעמוד המשחק
+        // window.location = "http://127.0.0.1:5500/pages/game.html";//ניתוב לעמוד המשחק
+        window.open('../pages/game.html');
     else
         {
             errorsIn[1].textContent = "wrong password";
@@ -80,8 +81,9 @@ function register(event) {
 
     localStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
-    alert("the registering succeeded")
-    window.location = "http://127.0.0.1:5500/pages/game.html";//ניתוב לעמוד המשחק
+    alert("the registering succeeded");
+    window.open('../pages/game.html');
+    // window.location = "http://127.0.0.1:5500/pages/game.html";//ניתוב לעמוד המשחק
     // const form = event.target;
     // console.log(form);
     // let x = new FormData(form);
