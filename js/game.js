@@ -37,9 +37,20 @@ function changeIceCream() {
   }
   
 
-mn
+// mn
+//   //rand iceCream:
+// function randIceCream() {
+//     randomIceCream['cone'] = cones[rand(cones.length)];
+//     randomIceCream['ball'][0] = balls[rand(balls.length)];
+//     randomIceCream['ball'][1] = balls[rand(balls.length)];
+//     randomIceCream['ball'][2] = balls[rand(balls.length)];
+//     randomIceCream['decoration'] = decorations[rand(decorations.length)];
+
+// }
+
+
   //rand iceCream:
-function randIceCream() {
+  function randIceCream() {
     randomIceCream['cone'] = cones[rand(cones.length)];
     randomIceCream['ball'][0] = balls[rand(balls.length)];
     randomIceCream['ball'][1] = balls[rand(balls.length)];
