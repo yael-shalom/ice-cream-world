@@ -30,9 +30,9 @@ function changeIceCream() {
 
 
 //פןנקצית רינדום 
-  function rand(b)
+  function rand(from, to)
   {
-    return Math.floor(Math.random() * b);
+    return Math.floor(Math.random() * (to - from + 1)) + from;
 
   }
   
