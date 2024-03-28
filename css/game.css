@@ -112,3 +112,9 @@ div {
   display: block;
   unicode-bidi: isolate;
 }
+
+.ice-cream-elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
