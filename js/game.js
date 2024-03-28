@@ -34,14 +34,9 @@ function randIceCream() {
 }
 
 showIceCream();
-<<<<<<< HEAD
 //תכתבי תיעוד על זה כי לא ממש הבנתי מה זה
 function showIceCream()
 {
-=======
-
-function showIceCream() {
->>>>>>> ddb030c1454902dcd7d48e17ba288ff288c4c8e0
     const container = document.querySelector('.icecream-container');
     let c = document.createElement('img');
     c.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
@@ -57,15 +52,3 @@ function showIceCream() {
     container.appendChild(d);
 
 }
-
-<<<<<<< HEAD
-function moveBy() { }
-=======
-
-
-<<<<<<< HEAD
- 
-=======
-function moveBy() { }
->>>>>>> ddb030c1454902dcd7d48e17ba288ff288c4c8e0
->>>>>>> bd0367bcffe71972d9afc754597449090e30a706
