@@ -132,5 +132,13 @@ function showIceCream()
 }
 
 
+//open elements functions
+ function openDivElements(event)
+ {
 
- 
+ }
+
+function throeToGarbage()
+{
+  
+}
