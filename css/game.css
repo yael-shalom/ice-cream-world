@@ -188,3 +188,8 @@ div.nav-list{
   background-color: #f0ba18;
   color: white;
 }
+
+.payment-img {
+  width: 130px;
+  height: 100%;
+}
