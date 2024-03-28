@@ -6,13 +6,32 @@ const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candi
 var randomIceCream = {};
 let ballsAmount;
 let zIndex=0;
-
+init();
 randIceCream();
 console.log(randomIceCream);
 
 
+ //פונקציה של כל האירועי לחיצה
+function init(){
 
 
+    document.getElementById('startGame').addEventListener('click', () => this.startGame());
+    //שולח לפונקצית פתיחת ההוראות במודל
+    document.getElementById('myBtn').addEventListener('click', () => this.modall()); 
+    //שולח לפונקצית סגירת ההוראות
+    
+    menu = document.getElementsByClassName('container1')[0];
+    menu.addEventListener('click', () => this.menue());
+    nav = document.getElementsByClassName('nav-list')[0];
+    document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
+
+
+}
+
+function menue() {
+  menu.classList.toggle("change");
+  nav.classList.toggle("hidden");
+}
 // //פונקציה המזמנת את ההזמנה הבאה לביצוע
 // function play()
 // {
