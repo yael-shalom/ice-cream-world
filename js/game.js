@@ -19,7 +19,7 @@ setInterval(changeBackground, 100000);
 
 
 //פונקציה שמרנדמת גלידה לביצוע
-function changeBackground() {
+function changeIceCream() {
     // הגרלת מספר אקראי בין 0 לאורך המערך -1
     randIceCream();
     // החלפת תמונת הרקע
