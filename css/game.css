@@ -203,3 +203,19 @@ div.nav-list{
   width: 100%;
   height: auto;
 }
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.elements {
+  background-color: #fecfcf;
+  border-radius: 10px;
+  height: 100px;
+  width: 60px;
+  margin-left: 5px;
+  margin-top: 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px #00000040;
+}
