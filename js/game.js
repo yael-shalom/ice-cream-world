@@ -5,29 +5,31 @@ const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candi
     'colorful3', 'concours', 'green-almonds', 'leaf', 'lemon', 'strawberries', 'yellow-fruit'];
 var randomIceCream = {};
 let ballsAmount;
-randomIceCream();
-console.log(randIceCream);
+let zIndex=0;
+
+randIceCream();
+console.log(randomIceCream);
 
 
 
 
-//פונקציה המזמנת את ההזמנה הבאה לביצוע
-function play()
-{
-setInterval(changeBackground, 100000);
-}
+// //פונקציה המזמנת את ההזמנה הבאה לביצוע
+// function play()
+// {
+// setInterval(changeBackground, 100000);
+// }
 
 
 
-//פונקציה שמרנדמת גלידה לביצוע
-function changeIceCream() {
-    // הגרלת מספר אקראי בין 0 לאורך המערך -1
-    randIceCream();
-    // החלפת תמונת הרקע
-    document.body.style.backgroundImage =// `url('${images[randomIndex]}')`
+// //פונקציה שמרנדמת גלידה לביצוע
+// function changeIceCream() {
+//     // הגרלת מספר אקראי בין 0 לאורך המערך -1
+//     randIceCream();
+//     // החלפת תמונת הרקע
+//     document.body.style.backgroundImage =// `url('${images[randomIndex]}')`
     
    
-  }
+//   }
 
 
 //פןנקצית רינדום 
@@ -56,19 +58,22 @@ showIceCream();
 function showIceCream()
 {
     const container = document.querySelector('.icecream-container');
-    let c = document.createElement('img');
-    c.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
-    container.appendChild(c);
-    let b = document.createElement('img');
-    b.src = `../assets/images/balls/${randomIceCream['ball']}.png`;
-    b.style.zIndex = '1';
-    container.appendChild(b);
-    let d = document.createElement('img');
-    d.classList.add('decoration')
-    d.src = `../assets/images/decorations/${randomIceCream['decoration']}.png`;
-    d.style.zIndex = '2'
+    let cone = document.createElement('img');
+    cone.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
+    cone.style.zIndex = zIndex++;
+    container.appendChild(cone);
+    for (let i = 0; i < ballsAmount; i++) {
+    let ball = document.createElement('img');
+    ball.src = `../assets/images/balls/${randomIceCream['ball'][i]}.png`;
+    ball.style.zIndex = zIndex++;
+    container.appendChild(ball);
+    }
+    let decoration = document.createElement('img');
+    decoration.classList.add('decoration')
+    decoration.src = `../assets/images/decorations/${randomIceCream['decoration']}.png`;
+    decoration.style.zIndex = zIndex;
     container.appendChild(d);
-
+    zIndex = 0;
 }
 
 
