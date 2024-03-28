@@ -195,7 +195,8 @@ div.nav-list{
   background-color: #fd8182;
   border-radius: 10px;
   margin-left: 5px;
-  box-shadow: 2px 2px #00000040
+  box-shadow: 2px 2px #00000040;
+  cursor: pointer;
 }
 
 .elements-icon {
