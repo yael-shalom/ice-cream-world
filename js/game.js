@@ -19,13 +19,19 @@ function init(){
     //שולח לפונקצית פתיחת ההוראות במודל
     document.getElementById('myBtn').addEventListener('click', () => this.modall()); 
     //שולח לפונקצית סגירת ההוראות
-    
+    toggle = document.getElementById('backgroundMus').firstElementChild,
+    toggle.addEventListener('click', (ev) => this.music(ev));
+    toggle = document.getElementById('sounds').firstElementChild,
+    toggle.addEventListener('click', (ev) => this.music1());
     menu = document.getElementsByClassName('container1')[0];
     menu.addEventListener('click', () => this.menue());
     nav = document.getElementsByClassName('nav-list')[0];
     document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
 
 
+}
+function defenition () {
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
 function menue() {
