@@ -170,3 +170,21 @@ div {
 div.nav-list{
   width: 60px;
 }
+.show {
+  display: block;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: right;
+  font-size: 25px;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #f0ba18;
+  color: white;
+}
