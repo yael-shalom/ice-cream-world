@@ -26,3 +26,14 @@ img {
   height: auto;
   margin-bottom: -15px;
 }
+
+.cone-img {
+  height: 50px;
+  width: auto;
+}
+
+.ice-cream-elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
