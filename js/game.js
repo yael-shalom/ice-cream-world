@@ -46,8 +46,9 @@ console.log(randomIceCream);
   function randIceCream() {
     randomIceCream['cone'] = cones[rand(0, cones.length-1)];
     ballsAmount = rand(1,3);
+    randomIceCream['ball'] = [];
     for (let i = 0; i < ballsAmount; i++) {
-        randomIceCream['ball'][i] = balls[rand(0, balls.length-1)];
+        randomIceCream['ball'].push(balls[rand(0, balls.length-1)]);
     }
     randomIceCream['decoration'] = decorations[rand(0, decorations.length-1)];
 
@@ -72,7 +73,7 @@ function showIceCream()
     decoration.classList.add('decoration')
     decoration.src = `../assets/images/decorations/${randomIceCream['decoration']}.png`;
     decoration.style.zIndex = zIndex;
-    container.appendChild(d);
+    container.appendChild(decoration);
     zIndex = 0;
 }
 
