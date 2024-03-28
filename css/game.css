@@ -209,6 +209,10 @@ div.nav-list{
   flex-direction: column;
 }
 
+.none {
+  display: none;
+}
+
 .elements {
   background-color: #fecfcf;
   border-radius: 10px;
