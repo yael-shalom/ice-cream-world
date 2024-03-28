@@ -15,7 +15,7 @@ console.log(randomIceCream);
 function init(){
 
 
-    document.getElementById('startGame').addEventListener('click', () => this.startGame());
+    document.getElementById('startGame').addEventListener('click', () => this.play());
     //שולח לפונקצית פתיחת ההוראות במודל
     document.getElementById('myBtn').addEventListener('click', () => this.modall()); 
     //שולח לפונקצית סגירת ההוראות
@@ -32,11 +32,38 @@ function menue() {
   menu.classList.toggle("change");
   nav.classList.toggle("hidden");
 }
+
+ function closeModal1() {
+  const modal2 = document.getElementById("myModal1");
+  modal2.style.display = "none";
+
+  const modal1 = document.getElementById("Div1");
+  modal1.style.display = "block";
+}
+
+
+function closeAndStart() {
+  const modal3 = document.getElementById("Div1");
+  modal3.style.display = "none";
+  this.sortPlayers();
+}
+
+
+function menue() {
+  menu.classList.toggle("change");
+  nav.classList.toggle("hidden");
+}
+// When the user clicks on the button, open the modal
+function modall () {
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  modal.style.display = "block";
+}
 // //פונקציה המזמנת את ההזמנה הבאה לביצוע
-// function play()
-// {
-// setInterval(changeBackground, 100000);
-// }
+function play()
+{
+setInterval(changeBackground, 100000);
+}
 
 
 
