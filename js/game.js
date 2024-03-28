@@ -4,6 +4,7 @@ const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'chocolate', 'colorful1', 'colorful2',
     'colorful3', 'concours', 'green-almonds', 'leaf', 'lemon', 'strawberries', 'yellow-fruit'];
 var randomIceCream = {};
+let ballsAmount;
 randomIceCream();
 console.log(randIceCream);
 
@@ -41,11 +42,12 @@ function changeIceCream() {
 
   //rand iceCream:
   function randIceCream() {
-    randomIceCream['cone'] = cones[rand(cones.length)];
-    randomIceCream['ball'][0] = balls[rand(balls.length)];
-    randomIceCream['ball'][1] = balls[rand(balls.length)];
-    randomIceCream['ball'][2] = balls[rand(balls.length)];
-    randomIceCream['decoration'] = decorations[rand(decorations.length)];
+    randomIceCream['cone'] = cones[rand(0, cones.length-1)];
+    ballsAmount = rand(1,3);
+    for (let i = 0; i < ballsAmount; i++) {
+        randomIceCream['ball'][i] = balls[rand(0, balls.length-1)];
+    }
+    randomIceCream['decoration'] = decorations[rand(0, decorations.length-1)];
 
 }
 
