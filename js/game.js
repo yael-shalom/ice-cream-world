@@ -1,4 +1,4 @@
-const cones = ['cone2', 'cone3', 'cone5', 'cone7', 'cone8', 'cone9', 'cone10', 'cone11'];
+const cones = ['cone10', 'cone9', 'cone7', 'cone3'];
 const boys = ['boy1', 'happyboy1'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'chocolate', 'colorful1', 'colorful2',
@@ -6,6 +6,9 @@ const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candi
 var randomIceCream = {};
 let ballsAmount;
 let zIndex=0;
+const coneElements = document.querySelector('.cone-elements').children[1];
+const ballElements = document.querySelector('.ball-elements').children[1];
+const decorationElements = document.querySelector('.decoration-elements').children[1];
 init();
 randIceCream();
 console.log(randomIceCream);
@@ -28,6 +31,16 @@ function init(){
     nav = document.getElementsByClassName('nav-list')[0];
     document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
 
+    //הכנסת האלמנטים לתוך ה-דיבים שלהם
+    for (let i = 0; i < cones.length; i++) {
+      img = document.createElement('img');
+      img.src = `../assets/images/cones/icons/${cones[i]}.png`;
+      img.classList.add('elements-images');
+      img.id = cones[i];
+      coneElements.appendChild(img);
+    }
+    coneElements.firstChild.classList.add('border-radius-top');
+    coneElements.lastChild.classList.add('border-radius-bottom');
 
 }
 function defenition () {
@@ -70,21 +83,6 @@ function play()
 {
 setInterval(changeBackground, 100000);
 }
-
-
-
-// //פונקציה שמרנדמת גלידה לביצוע
-// function changeIceCream() {
-//     // הגרלת מספר אקראי בין 0 לאורך המערך -1
-//     randIceCream();
-//     // החלפת תמונת הרקע
-//     document.body.style.backgroundImage =// `url('${images[randomIndex]}')`
-    
-   
-//   }
-
-
-  
 
 //פןנקצית רינדום 
   function rand(from, to)
@@ -137,7 +135,7 @@ function showIceCream()
  {
   let x = event.currentTarget.parentElement.children[1];
   x.classList.remove('none');
-  x.classList.add('flex-col')
+  x.classList.add('flex-col');
  }
 
 function throeToGarbage()
