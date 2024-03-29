@@ -181,11 +181,13 @@ div.nav-list{
   width: 80%;
   text-align: right;
   font-size: 25px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #111;
 }
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #f0ba18;
+  background-color: #971699;
   color: white;
 }
 
@@ -197,8 +199,34 @@ div.nav-list{
   margin-left: 5px;
   box-shadow: 2px 2px #00000040
 }
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
 .elements-icon {
   width: 100%;
   height: auto;
 }
+
