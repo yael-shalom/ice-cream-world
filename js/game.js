@@ -20,7 +20,9 @@ function init() {
   document.getElementById('startGame').addEventListener('click', () => this.play());
   //שולח לפונקצית פתיחת ההוראות במודל
   document.getElementById('myBtn').addEventListener('click', () => this.modall());
+
   //שולח לפונקצית סגירת ההוראות
+  document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
   toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
   toggle = document.getElementById('sounds').firstElementChild,
@@ -28,7 +30,12 @@ function init() {
   menu = document.getElementsByClassName('container1')[0];
   menu.addEventListener('click', () => this.menue());
   nav = document.getElementsByClassName('nav-list')[0];
-  document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
+
+
+
+  //אירוע שפותח הגדרות
+  const def = document.getElementsByClassName('.dropbtn buttonNav');
+  def.addEventListener('click', () => this.defenition());
 
   //הכנסת האלמנטים לתוך ה-דיבים שלהם
   //cones
@@ -65,11 +72,32 @@ function init() {
   decorationElements.lastChild.classList.add('border-radius-bottom');
 
 }
-
 function defenition() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  const myD = document.getElementById(".myDropdown").classList.toggle("show");
+  // myD
 }
 
+function music(ev) {
+  let audio = document.getElementById('backgroundMusic');
+  let element = ev.target.parentElement;
+  if (element.classList.contains('off')) {
+    element.classList.remove('off');
+    element.classList.add('on');
+    audio.currentTime = 0;
+    audio.play();
+  }
+  else {
+    element.classList.remove('on');
+    element.classList.add('off');
+    audio.pause();
+  }
+
+}
+
+function music1() {
+  this.flag = !this.flag
+
+}
 function menue() {
   menu.classList.toggle("change");
   nav.classList.toggle("hidden");
@@ -79,8 +107,12 @@ function closeModal1() {
   const modal2 = document.getElementById("myModal1");
   modal2.style.display = "none";
 
-  const modal1 = document.getElementById("Div1");
-  modal1.style.display = "block";
+  // When the user clicks on <span> (x), close the modal
+}
+
+function closeModal() {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
 }
 
 
