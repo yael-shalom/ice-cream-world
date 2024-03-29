@@ -29,15 +29,17 @@ function init(){
     menu.addEventListener('click', () => this.menue());
     nav = document.getElementsByClassName('nav-list')[0];
   
-    document.getElementsByClassName('button')[1].addEventListener('click', () => this.closeAndStart());
+ 
    
      //אירוע שפותח הגדרות
-     document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
+     const def=document.getElementsByClassName('.dropbtn buttonNav');
+     def.addEventListener('click', () => this.defenition());
 
 
 }
 function defenition () {
-  document.getElementById("myDropdown").classList.toggle("show");
+  const myD =document.getElementById(".myDropdown").classList.toggle("show");
+  myD
 }
 
 function music(ev) {
