@@ -231,8 +231,6 @@ div.nav-list{
   height: auto;
 }
 
-<<<<<<< HEAD
-=======
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -252,7 +250,6 @@ div.nav-list{
   border-radius: 10px;
   box-shadow: 2px 2px #00000040;
 }
-<<<<<<< HEAD
 
 .elements-images {
   width: 100%;
@@ -269,6 +266,3 @@ div.nav-list{
 .border-radius-bottom {
   border-radius: 0px 0px 10px 10px
 }
-=======
->>>>>>> bc50b8e9798ce9996703e3bc9f5a4fe57a4db835
->>>>>>> 969b96463cf9fcee29f3dbbe41330c524f891707
