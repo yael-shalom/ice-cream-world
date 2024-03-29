@@ -1,8 +1,7 @@
 const cones = ['cone10', 'cone9', 'cone7', 'cone3'];
 const boys = ['boy1', 'happyboy1'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
-const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'chocolate', 'colorful1', 'colorful2',
-  'colorful3', 'concours', 'green-almonds', 'leaf', 'lemon', 'strawberries', 'yellow-fruit'];
+const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 var randomIceCream = {};
 let ballsAmount;
 let zIndex = 0;
@@ -57,7 +56,7 @@ function init() {
   //decorations
   for (let i = 0; i < decorations.length; i++) {
     img = document.createElement('img');
-    img.src = `../assets/images/decorations/${decorations[i]}.png`;
+    img.src = `../assets/images/decorations/icons/${decorations[i]}.png`;
     img.classList.add('elements-images');
     img.id = decorations[i];
     decorationElements.appendChild(img);
