@@ -160,5 +160,15 @@ function showIceCream()
 }
 
 
+//open elements functions
+ function openDivElements(event)
+ {
+  let x = event.currentTarget.parentElement.children[1];
+  x.classList.remove('none');
+  x.classList.add('flex-col')
+ }
 
- 
+function throeToGarbage()
+{
+
+}
