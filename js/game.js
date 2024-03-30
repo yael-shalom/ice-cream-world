@@ -8,6 +8,8 @@ let zIndex = 0;
 const coneElements = document.querySelector('.cone-elements').children[1];
 const ballElements = document.querySelector('.ball-elements').children[1];
 const decorationElements = document.querySelector('.decoration-elements').children[1];
+let createdIceCream = [];
+
 init();
 randIceCream();
 console.log(randomIceCream);
@@ -35,7 +37,7 @@ function init() {
 
   //אירוע שפותח הגדרות
   const def = document.getElementsByClassName('.dropbtn buttonNav');
-  def.addEventListener('click', () => this.defenition());
+  // def.addEventListener('click', () => this.defenition());
 
   //הכנסת האלמנטים לתוך ה-דיבים שלהם
   //cones
@@ -44,6 +46,7 @@ function init() {
     img.src = `../assets/images/cones/icons/${cones[i]}.png`;
     img.classList.add('elements-images');
     img.id = cones[i];
+    img.addEventListener('click', addItem);
     coneElements.appendChild(img);
   }
   coneElements.firstChild.classList.add('border-radius-top');
@@ -55,6 +58,7 @@ function init() {
     img.src = `../assets/images/balls/icons/${balls[i]}.png`;
     img.classList.add('elements-images');
     img.id = balls[i];
+    img.addEventListener('click', addItem);
     ballElements.appendChild(img);
   }
   ballElements.firstChild.classList.add('border-radius-top');
@@ -66,6 +70,7 @@ function init() {
     img.src = `../assets/images/decorations/icons/${decorations[i]}.png`;
     img.classList.add('elements-images');
     img.id = decorations[i];
+    img.addEventListener('click', addItem);
     decorationElements.appendChild(img);
   }
   decorationElements.firstChild.classList.add('border-radius-top');
@@ -191,4 +196,14 @@ function openDivElements(event) {
 
 function throeToGarbage() {
 
+}
+
+function addItem(event)
+{
+  createdIceCream.push(event.currentTarget.id);
+  typeOfImg = event.currentTarget.parentElement.parentElement.classList[1];
+  type = typeOfImg.substring(0,typeOfImg.indexOf('-'));
+  createdItem = document.querySelector('.created-container');
+  img = document.createElement('img');
+  img.src = `../assets/images/${type}s/${event.currentTarget.id}.png`;
 }
