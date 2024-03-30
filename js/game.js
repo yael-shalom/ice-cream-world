@@ -32,13 +32,13 @@ function init(){
  
    
      //אירוע שפותח הגדרות
-     const def=document.getElementsByClassName('.dropbtn buttonNav');
-     def.addEventListener('click', () => this.defenition());
+     const def=document.getElementsByClassName('dropbtn');
+     def.addEventListener('click', () => this.defenition1());
 
 
 }
-function defenition () {
-  const myD =document.getElementById(".myDropdown").classList.toggle("show");
+function defenition1 () {
+  const myD =document.getElementById("myDropdown").classList.toggle("show");
   myD
 }
 
@@ -98,7 +98,7 @@ function modall () {
 // //פונקציה המזמנת את ההזמנה הבאה לביצוע
 function play()
 {
-setInterval(changeBackground, 100000);
+setInterval(randIceCream, 100000);
 }
 
 
@@ -135,10 +135,11 @@ setInterval(changeBackground, 100000);
         randomIceCream['ball'].push(balls[rand(0, balls.length-1)]);
     }
     randomIceCream['decoration'] = decorations[rand(0, decorations.length-1)];
+    showIceCream();
 
 }
 
-showIceCream();
+
 //תכתבי תיעוד על זה כי לא ממש הבנתי מה זה
 function showIceCream()
 {
