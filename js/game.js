@@ -1,4 +1,4 @@
-const cones = ['cone10', 'cone9', 'cone7', 'cone3'];
+const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
 const boys = ['boy1', 'happyboy1'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
@@ -9,6 +9,7 @@ const coneElements = document.querySelector('.cone-elements').children[1];
 const ballElements = document.querySelector('.ball-elements').children[1];
 const decorationElements = document.querySelector('.decoration-elements').children[1];
 let createdIceCream = [];
+let amount = 0;
 
 init();
 randIceCream();
@@ -190,24 +191,50 @@ function showIceCream() {
 //open elements functions
 function openDivElements(event) {
   let x = event.currentTarget.parentElement.children[1];
-  x.classList.remove('none');
-  x.classList.add('flex-col');
+  if (amount % 2 == 0) {
+    x.classList.remove('none');
+    x.classList.add('flex-col');
+    amount++;
+  }
+  else {
+    x.classList.add('none');
+    x.classList.remove('flex-col');
+    amount--;
+  }
 }
 
 function throeToGarbage() {
-
+  createdItem = [];
+  document.querySelector('.created-container').innerHTML = "";
 }
 
-function addItem(event)
-{
+function addItem(event) {
   createdIceCream.push(event.currentTarget.id);
   typeOfImg = event.currentTarget.parentElement.parentElement.classList[1];
-  type = typeOfImg.substring(0,typeOfImg.indexOf('-'));
+  type = typeOfImg.substring(0, typeOfImg.indexOf('-'));
   createdItem = document.querySelector('.created-container');
   img = document.createElement('img');
   img.src = `../assets/images/${type}s/${event.currentTarget.id}.png`;
   img.style.zIndex = zIndex++;
-  if(decorations.includes(event.currentTarget.id))
+  if (decorations.includes(event.currentTarget.id))
     img.classList.add('decoration');
   createdItem.appendChild(img);
+  isRight();
+}
+
+function isRight()
+{
+  let flag = true;
+  if(randomIceCream['cone'] === createdIceCream[0])
+    for(let i = 0; i<randomIceCream['ball'].length; i++)
+  {
+    if(i-1>createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i+1])
+      flag = false;
+  }
+  if(flag)
+    if(randomIceCream['decoration']===createdIceCream[createdIceCream.length-1])
+      {
+       setTimeout(()=>{alert("good"); throeToGarbage();}, 1500) ;
+        return;
+      }
 }
