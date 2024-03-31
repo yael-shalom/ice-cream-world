@@ -206,4 +206,8 @@ function addItem(event)
   createdItem = document.querySelector('.created-container');
   img = document.createElement('img');
   img.src = `../assets/images/${type}s/${event.currentTarget.id}.png`;
+  img.style.zIndex = zIndex++;
+  if(decorations.includes(event.currentTarget.id))
+    img.classList.add('decoration');
+  createdItem.appendChild(img);
 }
