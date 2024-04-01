@@ -1,6 +1,6 @@
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
 const boys = ['boy1', 'happyboy1'];
-const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
+const balls = ['brown','lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 var randomIceCream = {};
 let ballsAmount;
@@ -21,18 +21,22 @@ function init() {
 
 
   document.getElementById('startGame').addEventListener('click', () => this.play());
+  document.getElementById('restartGame').addEventListener('click', () => this.play());
   //שולח לפונקצית פתיחת ההוראות במודל
   document.getElementById('myBtn').addEventListener('click', () => this.modall());
 
   //שולח לפונקצית סגירת ההוראות
-  document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
-  toggle = document.getElementById('backgroundMus').firstElementChild,
+    document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
+
+    toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
-  toggle = document.getElementById('sounds').firstElementChild,
+    toggle = document.getElementById('sounds').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music1());
-  menu = document.getElementsByClassName('container1')[0];
-  menu.addEventListener('click', () => this.menue());
-  nav = document.getElementsByClassName('nav-list')[0];
+    nav = document.getElementsByClassName('nav-list')[0];
+    menu = document.getElementsByClassName('container1')[0];
+    menu.addEventListener('click', () => this.menue());
+  
+        
 
 
 
@@ -78,11 +82,6 @@ function init() {
   decorationElements.lastChild.classList.add('border-radius-bottom');
 
 }
-function defenition() {
-  const myD = document.getElementById(".myDropdown").classList.toggle("show");
-  // myD
-}
-
 function music(ev) {
   let audio = document.getElementById('backgroundMusic');
   let element = ev.target.parentElement;
@@ -139,33 +138,34 @@ function modall() {
   var modal = document.getElementById("myModal");
   modal.style.display = "block";
 }
-// //פונקציה המזמנת את ההזמנה הבאה לביצוע
-function play() {
-  setInterval(changeBackground, 100000);
+
+function defenition () {
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
-//פןנקצית רינדום 
-function rand(from, to) {
-  return Math.floor(Math.random() * (to - from + 1)) + from;
-
+// //פונקציה המזמנת את ההזמנה הבאה לביצוע
+function play()
+{
+setInterval(randIceCream, 100000);
 }
 
 
 // mn
 
-//rand iceCream:
-function randIceCream() {
-  randomIceCream['cone'] = cones[rand(0, cones.length - 1)];
-  ballsAmount = rand(1, 3);
-  randomIceCream['ball'] = [];
-  for (let i = 0; i < ballsAmount; i++) {
-    randomIceCream['ball'].push(balls[rand(0, balls.length - 1)]);
-  }
-  randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
+  //rand iceCream:
+  function randIceCream() {
+    randomIceCream['cone'] = cones[rand(0, cones.length-1)];
+    ballsAmount = rand(1,3);
+    randomIceCream['ball'] = [];
+    for (let i = 0; i < ballsAmount; i++) {
+        randomIceCream['ball'].push(balls[rand(0, balls.length-1)]);
+    }
+    randomIceCream['decoration'] = decorations[rand(0, decorations.length-1)];
+    showIceCream();
 
 }
 
-showIceCream();
+
 //תכתבי תיעוד על זה כי לא ממש הבנתי מה זה
 function showIceCream() {
   const container = document.querySelector('.icecream-container');
