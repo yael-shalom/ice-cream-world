@@ -171,6 +171,7 @@ function showIceCream() {
   const container = document.querySelector('.icecream-container');
   let cone = document.createElement('img');
   cone.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
+  cone.classList.add('cone');
   cone.style.zIndex = zIndex++;
   container.appendChild(cone);
   for (let i = 0; i < ballsAmount; i++) {
@@ -220,6 +221,8 @@ function addItem(event) {
     img.classList.add('built-decoration');
   else
     img.classList.add('built-ice-cream')
+  if(cones.includes(event.currentTarget.id))
+    img.classList.add('cone');
   createdItem.appendChild(img);
   isRight();
 }
