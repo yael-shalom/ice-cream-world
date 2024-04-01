@@ -24,7 +24,7 @@ img {
 }
 
 .decoration {
-  width: 30px;
+  width: 35px;
   height: auto;
   margin-bottom: -15px;
 }
@@ -321,4 +321,11 @@ div.nav-list{
 
 .border-radius-bottom {
   border-radius: 0px 0px 10px 10px
+}
+
+.created-container {
+  display: flex;
+  flex-direction: column-reverse;
+  width: fit-content;
+  align-items: center;
 }
