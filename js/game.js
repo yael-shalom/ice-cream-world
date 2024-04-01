@@ -1,6 +1,6 @@
 const cones = ['cone10', 'cone9', 'cone7', 'cone3'];
 const boys = ['boy1', 'happyboy1'];
-const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
+const balls = ['brown','lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 var randomIceCream = {};
 let ballsAmount;
@@ -18,24 +18,27 @@ function init() {
 
 
   document.getElementById('startGame').addEventListener('click', () => this.play());
+  document.getElementById('restartGame').addEventListener('click', () => this.play());
   //שולח לפונקצית פתיחת ההוראות במודל
   document.getElementById('myBtn').addEventListener('click', () => this.modall());
 
   //שולח לפונקצית סגירת ההוראות
-  document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
-  toggle = document.getElementById('backgroundMus').firstElementChild,
+    document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
+
+    toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
-  toggle = document.getElementById('sounds').firstElementChild,
+    toggle = document.getElementById('sounds').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music1());
+    nav = document.getElementsByClassName('nav-list')[0];
     menu = document.getElementsByClassName('container1')[0];
     menu.addEventListener('click', () => this.menue());
-    nav = document.getElementsByClassName('nav-list')[0];
   
+        
+
  
    
-     //אירוע שפותח הגדרות
-     const def=document.getElementsByClassName('dropbtn');
-     def.addEventListener('click', () => this.defenition1());
+ 
+    document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
 
   //הכנסת האלמנטים לתוך ה-דיבים שלהם
   //cones
@@ -72,17 +75,6 @@ function init() {
   decorationElements.lastChild.classList.add('border-radius-bottom');
 
 }
-<<<<<<< HEAD
-function defenition1 () {
-  const myD =document.getElementById("myDropdown").classList.toggle("show");
-  myD
-=======
-function defenition() {
-  const myD = document.getElementById(".myDropdown").classList.toggle("show");
-  // myD
->>>>>>> e594dc1c0996edb0b48bf49629ccbcb9a3fa3c4d
-}
-
 function music(ev) {
   let audio = document.getElementById('backgroundMusic');
   let element = ev.target.parentElement;
@@ -139,27 +131,20 @@ function modall() {
   var modal = document.getElementById("myModal");
   modal.style.display = "block";
 }
+
+function defenition () {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
 // //פונקציה המזמנת את ההזמנה הבאה לביצוע
-<<<<<<< HEAD
 function play()
 {
 setInterval(randIceCream, 100000);
-=======
-function play() {
-  setInterval(changeBackground, 100000);
-}
-
-//פןנקצית רינדום 
-function rand(from, to) {
-  return Math.floor(Math.random() * (to - from + 1)) + from;
-
->>>>>>> e594dc1c0996edb0b48bf49629ccbcb9a3fa3c4d
 }
 
 
 // mn
 
-<<<<<<< HEAD
   //rand iceCream:
   function randIceCream() {
     randomIceCream['cone'] = cones[rand(0, cones.length-1)];
@@ -170,17 +155,6 @@ function rand(from, to) {
     }
     randomIceCream['decoration'] = decorations[rand(0, decorations.length-1)];
     showIceCream();
-=======
-//rand iceCream:
-function randIceCream() {
-  randomIceCream['cone'] = cones[rand(0, cones.length - 1)];
-  ballsAmount = rand(1, 3);
-  randomIceCream['ball'] = [];
-  for (let i = 0; i < ballsAmount; i++) {
-    randomIceCream['ball'].push(balls[rand(0, balls.length - 1)]);
-  }
-  randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
->>>>>>> e594dc1c0996edb0b48bf49629ccbcb9a3fa3c4d
 
 }
 
