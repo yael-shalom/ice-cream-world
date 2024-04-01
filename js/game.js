@@ -217,7 +217,9 @@ function addItem(event) {
   img.src = `../assets/images/${type}s/${event.currentTarget.id}.png`;
   img.style.zIndex = zIndex++;
   if (decorations.includes(event.currentTarget.id))
-    img.classList.add('decoration');
+    img.classList.add('built-decoration');
+  else
+    img.classList.add('built-ice-cream')
   createdItem.appendChild(img);
   isRight();
 }

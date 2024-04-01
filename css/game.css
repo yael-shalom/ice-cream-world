@@ -9,12 +9,18 @@ body {
   background-position: bottom;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
 .icecream-container {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   width: fit-content;
-
+  grid-area: 1 / 5;
 }
 
 img {
@@ -161,6 +167,7 @@ z-index: 1;
 }
 .cardsAndNav {
   display: flex;
+  grid-area: 1 / 1 / -1 / 2;
 }
 div {
   display: block;
@@ -272,4 +279,25 @@ div.nav-list{
   flex-direction: column-reverse;
   width: fit-content;
   align-items: center;
+  grid-area: -2 / 3 / -4 / 4;
+  margin-bottom: 104px;
+  margin-left: 50%;
+}
+
+.grid {
+  grid-area: 1 / 2 / -1 / 4;
+  margin-top: 55px;
+  margin-left: 155px;
+}
+
+.built-ice-cream {
+  width: 35px;
+  height: auto;
+  margin-bottom: -13px;
+}
+
+.built-decoration {
+  width: 20px;
+  height: auto;
+  margin-bottom: -10px;
 }
