@@ -11,6 +11,7 @@ const decorationElements = document.querySelector('.decoration-elements').childr
 let createdIceCream = [];
 let amount = 0;
 let levelWin = 1;
+let hasIceCream = false;
 
 let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
@@ -26,14 +27,14 @@ init();
 function init() {
 
   //כפתור לתחילת המשחק
-  document.getElementById('startGame').addEventListener('click', () => this.play());
+  document.getElementById('startGame').addEventListener('click', () => play());
   //כפתור לחידוש המשחק
-  document.getElementById('restartGame').addEventListener('click', () => this.replay());
+  document.getElementById('restartGame').addEventListener('click', () => replay());
   //שולח לפונקצית פתיחת ההוראות במודל
-  document.getElementById('myBtn').addEventListener('click', () => this.modall());
+  document.getElementById('myBtn').addEventListener('click', () => modall());
 
   //שולח לפונקצית סגירת ההוראות
-  document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
+  document.getElementsByClassName('close')[0].addEventListener('click', () => closeModal());
 
   toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
@@ -43,7 +44,7 @@ function init() {
   menu = document.getElementsByClassName('container1')[0];
   menu.addEventListener('click', () => this.menue());
 
-  document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
+  document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => defenition());
 
 
 
@@ -167,11 +168,14 @@ function replay() {
 
 //פונקציה המזמנת את ההזמנה הבאה לביצוע
 function play() {
+  if(flag)
+    return;
   setTimeout(randIceCream)
   clearInterval(intervalId);
   iconStart.classList.remove('on');
   iconStart.remove('on');
-
+  flag = true;
+  // document.getElementById('startGame').removeEventListener('click', () => play());
 }
 
 
@@ -215,6 +219,8 @@ function showIceCream() {
 
 //open elements functions
 function openDivElements(event) {
+  if(!flag)
+    return;
   let x = event.currentTarget.parentElement.children[1];
   if (x.classList.contains('none')) {
     x.classList.remove('none');
