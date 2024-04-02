@@ -318,8 +318,8 @@ div.nav-list{
   flex-direction: column;
 }
 .flexCone-row {
-  
   display: flex;
+  margin-right: 0;
   flex-direction: row;
 }
 
@@ -379,9 +379,7 @@ div.nav-list{
 }
 .iconStart{
   margin-top: 5px;
-  grid-area: -2 / 3 / -4 / 4;
-  margin-bottom: 85px;
-  margin-left: 50%;
+ 
 }
 
 .grid {

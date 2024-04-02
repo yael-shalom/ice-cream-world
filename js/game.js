@@ -10,14 +10,14 @@ const ballElements = document.querySelector('.ball-elements').children[1];
 const decorationElements = document.querySelector('.decoration-elements').children[1];
 let createdIceCream = [];
 let amount = 0;
+let levelWin=1;
 
-let iconStart=document.getElementsByClassName("iconStart");
+let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
-setInterval(toggleBlink, 500);
+let intervalId =setInterval(toggleBlink, 500);
 
 init();
-randIceCream();
-console.log(randomIceCream);
+
 
 
 
@@ -52,9 +52,6 @@ function init() {
 
 
 
-  //אירוע שפותח הגדרות
-  const def = document.getElementsByClassName('.dropbtn buttonNav');
-  // def.addEventListener('click', () => this.defenition());
 
   //הכנסת האלמנטים לתוך ה-דיבים שלהם
   //cones
@@ -94,6 +91,8 @@ function init() {
   decorationElements.lastChild.classList.add('border-radius-bottom');
 
 }
+
+
 function music(ev) {
   let audio = document.getElementById('backgroundMusic');
   let element = ev.target.parentElement;
@@ -176,7 +175,11 @@ function replay()
 //פונקציה המזמנת את ההזמנה הבאה לביצוע
 function play()
 {
-setInterval(randIceCream, 100000);
+  setTimeout(randIceCream)
+ clearInterval(intervalId);
+ iconStart.classList.remove('on');
+ iconStart.remove('on');
+ setInterval(randIceCream, 15000);
 }
 
 
@@ -237,6 +240,13 @@ function throeToGarbage() {
   document.querySelector('.created-container').innerHTML = "";
 }
 
+function addWin()
+{
+  let imgWin=document.querySelector(`#coneWin${levelWin++}-elements`);
+  imgWin.src='../assets/images/icons/coneWin.png';
+
+}
+
 function addItem(event) {
   createdIceCream.push(event.currentTarget.id);
   typeOfImg = event.currentTarget.parentElement.parentElement.classList[1];
@@ -267,7 +277,9 @@ function isRight()
   if(flag)
     if(randomIceCream['decoration']===createdIceCream[createdIceCream.length-1])
       {
-       setTimeout(()=>{alert("good"); throeToGarbage();}, 1500) ;
+
+
+       setTimeout(()=>{addWin(); throeToGarbage();}, 1500) ;
         return;
       }
 }
