@@ -211,6 +211,7 @@ function showIceCream() {
   decoration.style.zIndex = zIndex;
   container.appendChild(decoration);
   zIndex = 0;
+  showPerson()
 }
 
 
@@ -315,4 +316,13 @@ function closeDivElements()
       divElement[i].classList.remove('flex-col');
     }
   }
+}
+
+function showPerson()
+{
+  body = document.querySelector('.grid-container');
+  person = document.createElement('img');
+  person.src = '../assets/images/boys/boy1.png';
+  person.classList.add('person');
+  body.appendChild(person);
 }
