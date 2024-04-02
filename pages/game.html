@@ -11,7 +11,7 @@
 </head>
 
 <body class="grid-container">
-    
+
     <div class="icecream-container"> </div>
     <div class="flex-row grid">
         <div class="flex-col cone-elements">
@@ -25,15 +25,15 @@
             <div class="none elements"></div>
         </div>
         <div class="flex-col decoration-elements">
-            <div class="elements-btn" onclick="openDivElements(event)"><img
-                    src="../assets/images/icons/decoration.png" class="elements-icon"></div>
+            <div class="elements-btn" onclick="openDivElements(event)"><img src="../assets/images/icons/decoration.png"
+                    class="elements-icon"></div>
             <div class="none elements"></div>
         </div>
-        <div class="elements-btn" onclick="throeToGarbage()"><img src="../assets/images/icons/throw.png"
+        <div class="elements-btn" onclick="throwToGarbage()"><img src="../assets/images/icons/throw.png"
                 class="elements-icon"></div>
     </div>
 
-    
+
     <div class="cardsAndNav">
         <div>
 
@@ -58,6 +58,10 @@
                     <div class="nav-list-item"><img class="menu-img img4" src="../assets/images/icons/exit.png"
                             title="התחל משחק" /></div>
                 </button>
+                <button id="dropbtn" class="dropbtn buttonNav">
+                    <div class="nav-list-item"><img class="menu-img img3" src="../assets/images/icons/settings.png"
+                            title="הגדרות" /></div>
+                </button>
                 <div id="myDropdown" class="dropdown-content">
                     <!-- הגדרות המוזיקה -->
                     <!-- Rounded switch -->
@@ -71,15 +75,11 @@
                         </div>
 
                         <div class="dropdown">
-                            <button id="dropbtn" class="dropbtn buttonNav">
-                                <div class="nav-list-item"><img class="menu-img img3"
-                                        src="../assets/images/icons/settings.png" title="הגדרות" /></div>
-                            </button>
                             <div id="myDropdown" class="dropdown-content">
                                 <!-- הגדרות המוזיקה -->
                                 <!-- Rounded switch -->
                                 <div id="selectionDef">
-                                    <div class="def">
+                                    <div class="def" id="sounds">
                                         <div class="music">מוזיקת רקע</div>
                                         <label class="switch off" id="backgroundMus">
                                             <input type="checkbox">
@@ -197,7 +197,6 @@
 
             </div>
             <br />
-            <img class="people" src="Files/Images/sherlockp.jpg" />
             <p id="beLeft">ההוראות מנוסחות בלשון זכר אך מתאימות לגברים ונשים כאחד.
             <p>
             </p>

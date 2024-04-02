@@ -28,18 +28,13 @@ function init() {
   //שולח לפונקצית סגירת ההוראות
     document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
 
-    // toggle = document.getElementById('backgroundMus').firstElementChild,
-    // toggle.addEventListener('click', (ev) => this.music(ev));
-    // toggle = document.getElementById('sounds').firstElementChild,
-    // toggle.addEventListener('click', (ev) => this.music1());
-    // nav = document.getElementsByClassName('nav-list')[0];
-    // menu = document.getElementsByClassName('container1')[0];
-    // menu.addEventListener('click', () => this.menue());
-  
-        
-
- 
-   
+    toggle = document.getElementById('backgroundMus').firstElementChild,
+    toggle.addEventListener('click', (ev) => this.music(ev));
+    toggle = document.getElementById('sounds').firstElementChild,
+    toggle.addEventListener('click', (ev) => this.music1());
+    nav = document.getElementsByClassName('nav-list')[0];
+    menu = document.getElementsByClassName('container1')[0];
+    menu.addEventListener('click', () => this.menue());
  
     document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
 
@@ -196,24 +191,39 @@ function showIceCream() {
 //open elements functions
 function openDivElements(event) {
   let x = event.currentTarget.parentElement.children[1];
-  if (amount % 2 == 0) {
+  if(x.classList.contains('none'))
+  {
     x.classList.remove('none');
     x.classList.add('flex-col');
-    amount++;
   }
-  else {
+  else
+  {
     x.classList.add('none');
     x.classList.remove('flex-col');
-    amount--;
   }
+  // if (amount % 2 == 0) {
+  //   x.classList.remove('none');
+  //   x.classList.add('flex-col');
+  //   amount++;
+  // }
+  // else {
+  //   x.classList.add('none');
+  //   x.classList.remove('flex-col');
+  //   amount--;
+  // }
 }
 
-function throeToGarbage() {
+function throwToGarbage() {
   createdItem = [];
   document.querySelector('.created-container').innerHTML = "";
 }
 
 function addItem(event) {
+
+  // let divElements = event.currentTarget.parentElement;
+  // divElements.classList.add('none');
+  // divElements.classList.remove('flex-col');
+
   createdIceCream.push(event.currentTarget.id);
   typeOfImg = event.currentTarget.parentElement.parentElement.classList[1];
   type = typeOfImg.substring(0, typeOfImg.indexOf('-'));
@@ -243,7 +253,8 @@ function isRight()
   if(flag)
     if(randomIceCream['decoration']===createdIceCream[createdIceCream.length-1])
       {
-       setTimeout(()=>{alert("good"); throeToGarbage();}, 1500) ;
+        setTimeout(()=>{throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements()}, 1000)
+      //  setTimeout(()=>{alert("good"); throwToGarbage();}, 1500) ;
         return;
       }
 }
@@ -251,4 +262,21 @@ function isRight()
 function rand(from, to)
 {
   return Math.floor(Math.random()*(to+1-from)+from)
+}
+
+function deleteIceCream()
+{
+  document.querySelector('.icecream-container').innerHTML = "";
+}
+
+function closeDivElements()
+{
+  divElement = document.querySelectorAll('.elements');
+  for (let i = 0; i < divElement.length; i++) {
+    if(divElement[i].classList.contains('flex-col'))
+    {
+      divElement[i].classList.add('none');
+      divElement[i].classList.remove('flex-col');
+    }
+  }
 }
