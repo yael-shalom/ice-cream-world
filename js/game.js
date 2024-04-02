@@ -28,28 +28,25 @@ function init() {
   //שולח לפונקצית סגירת ההוראות
     document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
 
-    toggle = document.getElementById('backgroundMus').firstElementChild,
-    toggle.addEventListener('click', (ev) => this.music(ev));
-    toggle = document.getElementById('sounds').firstElementChild,
-    toggle.addEventListener('click', (ev) => this.music1());
-    nav = document.getElementsByClassName('nav-list')[0];
-    menu = document.getElementsByClassName('container1')[0];
-    menu.addEventListener('click', () => this.menue());
+    // toggle = document.getElementById('backgroundMus').firstElementChild,
+    // toggle.addEventListener('click', (ev) => this.music(ev));
+    // toggle = document.getElementById('sounds').firstElementChild,
+    // toggle.addEventListener('click', (ev) => this.music1());
+    // nav = document.getElementsByClassName('nav-list')[0];
+    // menu = document.getElementsByClassName('container1')[0];
+    // menu.addEventListener('click', () => this.menue());
   
         
 
-<<<<<<< HEAD
  
    
  
     document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
-=======
 
 
   //אירוע שפותח הגדרות
   const def = document.getElementsByClassName('.dropbtn buttonNav');
   // def.addEventListener('click', () => this.defenition());
->>>>>>> e707376382cfb179040b770c289c5b6ac5a27868
 
   //הכנסת האלמנטים לתוך ה-דיבים שלהם
   //cones
@@ -249,4 +246,9 @@ function isRight()
        setTimeout(()=>{alert("good"); throeToGarbage();}, 1500) ;
         return;
       }
+}
+
+function rand(from, to)
+{
+  return Math.floor(Math.random()*(to+1-from)+from)
 }
