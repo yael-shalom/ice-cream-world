@@ -2,7 +2,7 @@ const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
 const boys = ['boy1', 'happyboy1'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
-var randomIceCream = {};
+let randomIceCream = {};
 let ballsAmount;
 let zIndex = 0;
 const coneElements = document.querySelector('.cone-elements').children[1];
@@ -18,10 +18,6 @@ let iconStart = document.querySelector('.iconStart');
 let intervalId = setInterval(toggleBlink, 500);
 
 init();
-
-
-
-
 
 //פונקציה של כל האירועי לחיצה
 function init() {
@@ -181,6 +177,7 @@ function play() {
 
 //rand iceCream:
 function randIceCream() {
+  randomIceCream = {};
   randomIceCream['cone'] = cones[rand(0, cones.length - 1)];
   ballsAmount = rand(1, 3);
   randomIceCream['ball'] = [];
@@ -195,6 +192,7 @@ function randIceCream() {
 
 //תכתבי תיעוד על זה כי לא ממש הבנתי מה זה
 function showIceCream() {
+  showPerson();
   const container = document.querySelector('.icecream-container');
   let cone = document.createElement('img');
   cone.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
@@ -213,7 +211,6 @@ function showIceCream() {
   decoration.style.zIndex = zIndex;
   container.appendChild(decoration);
   zIndex = 0;
-  showPerson()
 }
 
 
@@ -271,6 +268,7 @@ function isRight() {
   if (flag)
     if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1]) {
       setTimeout(() => { addWin(); throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements() }, 1000)
+      document.querySelector('#many-coins').play();
       return;
     }
 }
@@ -280,7 +278,7 @@ function rand(from, to) {
 }
 
 function deleteIceCream() {
-  document.querySelector('.icecream-container').innerHTML = "";
+  document.querySelector('.contain-person').innerHTML = "";
 }
 
 function closeDivElements() {
@@ -294,9 +292,16 @@ function closeDivElements() {
 }
 
 function showPerson() {
-  body = document.querySelector('.grid-container');
+  containPerson = document.querySelector('.contain-person');
+  iceContainer = document.createElement('div');
+  iceContainer.classList.add('icecream-container');
   person = document.createElement('img');
   person.src = '../assets/images/boys/boy1.png';
   person.classList.add('person');
-  body.appendChild(person);
+  containPerson.appendChild(iceContainer);
+  containPerson.appendChild(person);
+  containPerson.classList.add('.contain-p');
 }
+
+
+/* <div class="icecream-container"> </div> */
