@@ -38,11 +38,10 @@ function init() {
     toggle.addEventListener('click', (ev) => this.music1());
   nav = document.getElementsByClassName('nav-list')[0];
   menu = document.getElementsByClassName('container1')[0];
-  menu.addEventListener('click', () => this.menue());
 
   document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => defenition());
 
-
+  menue();
 
   //הכנסת האלמנטים לתוך ה-דיבים שלהם
   //cones
@@ -164,7 +163,7 @@ function replay() {
 
 //פונקציה המזמנת את ההזמנה הבאה לביצוע
 function play() {
-  if(hasIceCream)
+  if (hasIceCream)
     return;
   setTimeout(randIceCream)
   clearInterval(intervalId);
@@ -172,6 +171,8 @@ function play() {
   iconStart.remove('on');
   hasIceCream = true;
   // document.getElementById('startGame').removeEventListener('click', () => play());
+
+  menu.addEventListener('click', () => menue());
 }
 
 
@@ -216,7 +217,7 @@ function showIceCream() {
 
 //open elements functions
 function openDivElements(event) {
-  if(!hasIceCream)
+  if (!hasIceCream)
     return;
   let x = event.currentTarget.parentElement.children[1];
   if (x.classList.contains('none')) {
