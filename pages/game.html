@@ -10,61 +10,86 @@
     <script src="../js/game.js" defer></script>
 </head>
 
-<body>
-    <div class="flex-row">
+<body class="grid-container">
+    
+    <div class="icecream-container"> </div>
+    <div class="flex-row grid">
+        <div class="flex-col cone-elements">
+            <div class="elements-btn" onclick="openDivElements(event)"><img src="../assets/images/icons/cone.png"
+                    class="elements-icon"></div>
+            <div class="none elements"></div>
+        </div>
+        <div class="flex-col ball-elements">
+            <div class="elements-btn" onclick="openDivElements(event)"><img src="../assets/images/icons/ball.png"
+                    class="elements-icon"></div>
+            <div class="none elements"></div>
+        </div>
+        <div class="flex-col decoration-elements">
+            <div class="elements-btn" onclick="openDivElements(event)"><img
+                    src="../assets/images/icons/decoration.png" class="elements-icon"></div>
+            <div class="none elements"></div>
+        </div>
+        <div class="elements-btn" onclick="throeToGarbage()"><img src="../assets/images/icons/throw.png"
+                class="elements-icon"></div>
+    </div>
 
-        <div class="cardsAndNav">
-            <div>
+    
+    <div class="cardsAndNav">
+        <div>
 
-                <div class="container1">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-                <div class="nav-list hidden">
-                    <div class="nav-list-item" title="דף הבית"><a href="../index.html"><img class="menu-img img0"
-                                src="../assets/images/icons/home%20page.png" /></a></div>
-                    <button id="myBtn" class="buttonNav">
-                        <div class="nav-list-item"><img class="menu-img img1" src="../assets/images/icons/how%20to.png"
-                                title="הוראות" /></div>
-                    </button>
-                  
-                   <button id="restartGame" class="buttonNav">
-                        <div class="nav-list-item"><img class="menu-img img2" src="../assets/images/icons/new%20game.png"
+            <div class="container1">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div class="nav-list hidden">
+                <div class="nav-list-item" title="דף הבית"><a href="../index.html"><img class="menu-img img0"
+                            src="../assets/images/icons/home%20page.png" /></a></div>
+                <button id="myBtn" class="buttonNav">
+                    <div class="nav-list-item"><img class="menu-img img1" src="../assets/images/icons/how%20to.png"
+                            title="הוראות" /></div>
+                </button>
+
+                <button id="restartGame" class="buttonNav">
+                    <div class="nav-list-item"><img class="menu-img img2" src="../assets/images/icons/new%20game.png"
                             title="התחל משחק מחדש" /></div>
-                     </button>
+                </button>
                     <div class="start">
-                        <button id="startGame" class="buttonNav">
-                            <div class="nav-list-item"><img class="menu-img img4" src="../assets/images/icons/exit.png"
-                                    title="התחל משחק" /></div>
-                        </button>
+                    <button id="startGame" class="buttonNav">
+                        <div class="nav-list-item"><img class="menu-img img4" src="../assets/images/icons/exit.png"
+                                title="התחל משחק" /></div>
+                    </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <!-- הגדרות המוזיקה -->
+                    <!-- Rounded switch -->
+                    <div id="selectionDef">
+                        <div class="def">
+                            <div class="music">מוזיקת רקע</div>
+                            <label class="switch off" id="backgroundMus">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
                         <div class="iconStart" id="iconStart"><img  src="../assets/images/icons/start.png"
                             title="לחץ כדי להתחיל "/></div>
                     </div>
 
-                    <div class="dropdown">
-                        <button id= "dropbtn" class="dropbtn buttonNav">
-                            <div class="nav-list-item"><img class="menu-img img3"
-                                    src="../assets/images/icons/settings.png" title="הגדרות" /></div>
-                        </button>
-                        <div id="myDropdown" class="dropdown-content">
-                            <!-- הגדרות המוזיקה -->
-                            <!-- Rounded switch -->
-                            <div id="selectionDef">
-                                <div class="def">
-                                    <div class="music">מוזיקת רקע</div>
-                                    <label class="switch off" id="backgroundMus">
-                                        <input type="checkbox">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-
-                                <div class="def">
-                                    <div class="music">צלילי משחק</div>
-                                    <label class="switch off" id="sounds">
-                                        <input type="checkbox">
-                                        <span class="slider round"></span>
-                                    </label>
+                        <div class="dropdown">
+                            <button id="dropbtn" class="dropbtn buttonNav">
+                                <div class="nav-list-item"><img class="menu-img img3"
+                                        src="../assets/images/icons/settings.png" title="הגדרות" /></div>
+                            </button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <!-- הגדרות המוזיקה -->
+                                <!-- Rounded switch -->
+                                <div id="selectionDef">
+                                    <div class="def">
+                                        <div class="music">מוזיקת רקע</div>
+                                        <label class="switch off" id="backgroundMus">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
 
                                 </div>
                             </div>
@@ -73,8 +98,6 @@
                 </div>
             </div>
         </div>
-
-        
 
         <div class="icecream-container"> </div>
         <div class="flex-row">
@@ -95,37 +118,6 @@
             </div>
             <div class="elements-btn" onclick="throeToGarbage()"><img src="../assets/images/icons/throw.png"
                     class="elements-icon"></div>
-        </div>
-
-
-
-         <!-- the winner -->
-    <div class="winner-container"> </div>
-    <div class="flexCone-row">
-        <div class="flex-col coneWin-elements">
-            <div class="cone1"><img src="../assets/images/icons/cone.png"
-                    class="cone-icon"></div>
-           
-        </div>
-        <div class="flexCone-col coneWin-elements">
-            <div class="cone2"><img src="../assets/images/icons/cone.png"
-                    class="cone-icon"></div>
-           
-        </div>
-        <div class="flexCone-col coneWin-elements">
-            <div class="cone3"><img src="../assets/images/icons/cone.png"
-                    class="cone-icon"></div>
-           
-        </div>
-        <div class="flexCone-col coneWin-elements">
-            <div class="cone4"><img src="../assets/images/icons/cone.png"
-                    class="cone-icon"></div>
-           
-        </div>
-        <div class="flexCone-col coneWin-elements">
-            <div class="cone1"><img src="../assets/images/icons/cone.png"
-                    class="cone-icon"></div>
-           
         </div>
     </div>
 
@@ -150,7 +142,6 @@
     </audio>
     </div>
 
-    <div class="icecream-container"> </div>
     <div class="created-container"> </div>
     </div>
 

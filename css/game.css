@@ -6,21 +6,35 @@ body {
   height: 100vh;
   color: var(--yellow);
   background-color: #fecfc5;
-  background-position: bottom;
+  background-position: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .icecream-container {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  width: fit-content;
-
+  width: 180px;
+  height: 180px;
+  padding: 10px;
+  background-color: #fed2c582;
+  border-radius: 20px;
+  box-shadow: 2px 2px #00000040;
+  grid-area: 1 / 5;
+  position: relative;
+  left: 100px;
+  top: 25px;
 }
 
 img {
   width: 50px;
   height: auto;
-  margin-bottom: -20px;
+  margin-bottom: -25px;
 }
 
 .decoration {
@@ -162,6 +176,7 @@ z-index: 1;
 }
 .cardsAndNav {
   display: flex;
+  grid-area: 1 / 1 / -1 / 2;
 }
 div {
   display: block;
@@ -364,4 +379,29 @@ div.nav-list{
 }
 .iconStart{
   margin-top: 5px;
+  grid-area: -2 / 3 / -4 / 4;
+  margin-bottom: 85px;
+  margin-left: 50%;
+}
+
+.grid {
+  grid-area: 1 / 2 / -1 / 4;
+  margin-top: 55px;
+  margin-left: 155px;
+}
+
+.built-ice-cream {
+  width: 35px;
+  height: auto;
+  margin-bottom: -16px;
+}
+
+.built-decoration {
+  width: 20px;
+  height: auto;
+  margin-bottom: -10px;
+}
+
+.cone {
+  margin-bottom: 0px !important;
 }
