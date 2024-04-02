@@ -169,11 +169,11 @@ function replay()
 //פונקציה המזמנת את ההזמנה הבאה לביצוע
 function play()
 {
-  setTimeout(randIceCream)
+ setTimeout(randIceCream)
  clearInterval(intervalId);
  iconStart.classList.remove('on');
  iconStart.remove('on');
- setInterval(randIceCream, 15000);
+ 
 }
 
 
