@@ -1,6 +1,6 @@
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
 const boys = ['boy1', 'happyboy1'];
-const balls = ['brown','lightblue', 'pink', 'purple', 'yellow'];
+const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 var randomIceCream = {};
 let ballsAmount;
@@ -10,11 +10,11 @@ const ballElements = document.querySelector('.ball-elements').children[1];
 const decorationElements = document.querySelector('.decoration-elements').children[1];
 let createdIceCream = [];
 let amount = 0;
-let levelWin=1;
+let levelWin = 1;
 
 let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
-let intervalId =setInterval(toggleBlink, 500);
+let intervalId = setInterval(toggleBlink, 500);
 
 init();
 
@@ -25,7 +25,7 @@ init();
 //פונקציה של כל האירועי לחיצה
 function init() {
 
-//כפתור לתחילת המשחק
+  //כפתור לתחילת המשחק
   document.getElementById('startGame').addEventListener('click', () => this.play());
   //כפתור לחידוש המשחק
   document.getElementById('restartGame').addEventListener('click', () => this.replay());
@@ -33,17 +33,17 @@ function init() {
   document.getElementById('myBtn').addEventListener('click', () => this.modall());
 
   //שולח לפונקצית סגירת ההוראות
-    document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
+  document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
 
-    toggle = document.getElementById('backgroundMus').firstElementChild,
+  toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
-    toggle = document.getElementById('sounds').firstElementChild,
+  toggle = document.getElementById('sounds').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music1());
-    nav = document.getElementsByClassName('nav-list')[0];
-    menu = document.getElementsByClassName('container1')[0];
-    menu.addEventListener('click', () => this.menue());
- 
-    document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
+  nav = document.getElementsByClassName('nav-list')[0];
+  menu = document.getElementsByClassName('container1')[0];
+  menu.addEventListener('click', () => this.menue());
+
+  document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
 
 
 
@@ -144,11 +144,11 @@ function modall() {
   modal.style.display = "block";
 }
 
-function defenition () {
+function defenition() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-function toggleBlink () {
+function toggleBlink() {
 
   if (iconStart.style.opacity === '1') {
     iconStart.style.opacity = '0';
@@ -160,33 +160,31 @@ function toggleBlink () {
 
 
 
-function replay()
-{
+function replay() {
   location.reload();
   setInterval(randIceCream, 100000);
 }
 
 //פונקציה המזמנת את ההזמנה הבאה לביצוע
-function play()
-{
- setTimeout(randIceCream)
- clearInterval(intervalId);
- iconStart.classList.remove('on');
- iconStart.remove('on');
- 
+function play() {
+  setTimeout(randIceCream)
+  clearInterval(intervalId);
+  iconStart.classList.remove('on');
+  iconStart.remove('on');
+
 }
 
 
-  //rand iceCream:
-  function randIceCream() {
-    randomIceCream['cone'] = cones[rand(0, cones.length-1)];
-    ballsAmount = rand(1,3);
-    randomIceCream['ball'] = [];
-    for (let i = 0; i < ballsAmount; i++) {
-        randomIceCream['ball'].push(balls[rand(0, balls.length-1)]);
-    }
-    randomIceCream['decoration'] = decorations[rand(0, decorations.length-1)];
-    showIceCream();
+//rand iceCream:
+function randIceCream() {
+  randomIceCream['cone'] = cones[rand(0, cones.length - 1)];
+  ballsAmount = rand(1, 3);
+  randomIceCream['ball'] = [];
+  for (let i = 0; i < ballsAmount; i++) {
+    randomIceCream['ball'].push(balls[rand(0, balls.length - 1)]);
+  }
+  randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
+  showIceCream();
 
 }
 
@@ -218,26 +216,14 @@ function showIceCream() {
 //open elements functions
 function openDivElements(event) {
   let x = event.currentTarget.parentElement.children[1];
-  if(x.classList.contains('none'))
-  {
+  if (x.classList.contains('none')) {
     x.classList.remove('none');
     x.classList.add('flex-col');
   }
-  else
-  {
+  else {
     x.classList.add('none');
     x.classList.remove('flex-col');
   }
-  // if (amount % 2 == 0) {
-  //   x.classList.remove('none');
-  //   x.classList.add('flex-col');
-  //   amount++;
-  // }
-  // else {
-  //   x.classList.add('none');
-  //   x.classList.remove('flex-col');
-  //   amount--;
-  // }
 }
 
 function throwToGarbage() {
@@ -245,19 +231,13 @@ function throwToGarbage() {
   document.querySelector('.created-container').innerHTML = "";
 }
 
-function addWin()
-{
-  let imgWin=document.querySelector(`#coneWin${levelWin++}-elements`);
-  imgWin.src='../assets/images/icons/coneWin.png';
+function addWin() {
+  let imgWin = document.querySelector(`#coneWin${levelWin++}-elements`);
+  imgWin.src = '../assets/images/icons/coneWin.png';
 
 }
 
 function addItem(event) {
-
-  // let divElements = event.currentTarget.parentElement;
-  // divElements.classList.add('none');
-  // divElements.classList.remove('flex-col');
-
   createdIceCream.push(event.currentTarget.id);
   typeOfImg = event.currentTarget.parentElement.parentElement.classList[1];
   type = typeOfImg.substring(0, typeOfImg.indexOf('-'));
@@ -269,57 +249,45 @@ function addItem(event) {
     img.classList.add('built-decoration');
   else
     img.classList.add('built-ice-cream')
-  if(cones.includes(event.currentTarget.id))
+  if (cones.includes(event.currentTarget.id))
     img.classList.add('cone');
   createdItem.appendChild(img);
   isRight();
 }
 
-function isRight()
-{
+function isRight() {
   let flag = true;
-  if(randomIceCream['cone'] === createdIceCream[0])
-    for(let i = 0; i<randomIceCream['ball'].length; i++)
-  {
-    if(i-1>createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i+1])
-      flag = false;
-  }
-  if(flag)
-    if(randomIceCream['decoration']===createdIceCream[createdIceCream.length-1])
-      {
-
-
-       
-        setTimeout(()=>{addWin();throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements()}, 1000)
-      //  setTimeout(()=>{alert("good"); throwToGarbage();}, 1500) ;
-        return;
-      }
+  if (randomIceCream['cone'] === createdIceCream[0])
+    for (let i = 0; i < randomIceCream['ball'].length; i++) {
+      if (i - 1 > createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i + 1])
+        flag = false;
+    }
+  if (flag)
+    if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1]) {
+      setTimeout(() => { addWin(); throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements() }, 1000)
+      return;
+    }
 }
 
-function rand(from, to)
-{
-  return Math.floor(Math.random()*(to+1-from)+from)
+function rand(from, to) {
+  return Math.floor(Math.random() * (to + 1 - from) + from)
 }
 
-function deleteIceCream()
-{
+function deleteIceCream() {
   document.querySelector('.icecream-container').innerHTML = "";
 }
 
-function closeDivElements()
-{
+function closeDivElements() {
   divElement = document.querySelectorAll('.elements');
   for (let i = 0; i < divElement.length; i++) {
-    if(divElement[i].classList.contains('flex-col'))
-    {
+    if (divElement[i].classList.contains('flex-col')) {
       divElement[i].classList.add('none');
       divElement[i].classList.remove('flex-col');
     }
   }
 }
 
-function showPerson()
-{
+function showPerson() {
   body = document.querySelector('.grid-container');
   person = document.createElement('img');
   person.src = '../assets/images/boys/boy1.png';
