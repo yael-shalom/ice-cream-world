@@ -18,37 +18,30 @@ console.log(randomIceCream);
 //פונקציה של כל האירועי לחיצה
 function init() {
 
-
+//כפתור לתחילת המשחק
   document.getElementById('startGame').addEventListener('click', () => this.play());
-  document.getElementById('restartGame').addEventListener('click', () => this.play());
+  //כפתור לחידוש המשחק
+  document.getElementById('restartGame').addEventListener('click', () => this.replay());
   //שולח לפונקצית פתיחת ההוראות במודל
   document.getElementById('myBtn').addEventListener('click', () => this.modall());
 
   //שולח לפונקצית סגירת ההוראות
     document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
 
+    //הגדרות המוזיקה
     toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
     toggle = document.getElementById('sounds').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music1());
-    nav = document.getElementsByClassName('nav-list')[0];
+    //פתיחת כפתורי האפשרויות למינהם
     menu = document.getElementsByClassName('container1')[0];
     menu.addEventListener('click', () => this.menue());
-  
-        
+    nav = document.getElementsByClassName('nav-list')[0];
+     //כפתור לשינוי הגדרות
+   document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
 
-<<<<<<< HEAD
+
  
-   
- 
-    document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
-=======
-
-
-  //אירוע שפותח הגדרות
-  const def = document.getElementsByClassName('.dropbtn buttonNav');
-  // def.addEventListener('click', () => this.defenition());
->>>>>>> e707376382cfb179040b770c289c5b6ac5a27868
 
   //הכנסת האלמנטים לתוך ה-דיבים שלהם
   //cones
@@ -149,14 +142,18 @@ function defenition () {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// //פונקציה המזמנת את ההזמנה הבאה לביצוע
+function replay()
+{
+  location.reload();
+  setInterval(randIceCream, 100000);
+}
+
+//פונקציה המזמנת את ההזמנה הבאה לביצוע
 function play()
 {
 setInterval(randIceCream, 100000);
 }
 
-
-// mn
 
   //rand iceCream:
   function randIceCream() {
