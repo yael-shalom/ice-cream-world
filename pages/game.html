@@ -11,39 +11,6 @@
 </head>
 
 <body class="grid-container">
-    
-
-
-
-
-    <div class="flexCone-row">
-        <div class="flexCone-col">
-            <div class="iconWin" ><img src="../assets/images/icons/coneSilver.png"
-                id="coneWin1-elements" class="coneWin-elements"></div>
-            
-        </div>
-        <div class="flexCone-col">
-            <div class="iconWin"><img src="../assets/images/icons/coneSilver.png"
-                   id="coneWin2-elements" class="coneWin-elements"></div>
-            
-        </div>
-        <div class="flexCone-col">
-            <div class="iconWin"><img
-                    src="../assets/images/icons/coneSilver.png" id="coneWin3-elements" class="coneWin-elements"></div>
-            
-        </div>
-        <div class="flexCone-col">
-            <div class="iconWin" ><img src="../assets/images/icons/coneSilver.png"
-                id="coneWin4-elements"    class="coneWin-elements"></div>
-        </div>
-   
-        <div class="flexCone-col">
-            <div class="iconWin" ><img src="../assets/images/icons/coneSilver.png"
-                id="coneWin5-elements"class="coneWin-elements"></div>
-        </div>
-    </div>
-
-
 
     <div class="icecream-container"> </div>
     <div class="flex-row grid">
@@ -58,15 +25,15 @@
             <div class="none elements"></div>
         </div>
         <div class="flex-col decoration-elements">
-            <div class="elements-btn" onclick="openDivElements(event)"><img
-                    src="../assets/images/icons/decoration.png" class="elements-icon"></div>
+            <div class="elements-btn" onclick="openDivElements(event)"><img src="../assets/images/icons/decoration.png"
+                    class="elements-icon"></div>
             <div class="none elements"></div>
         </div>
-        <div class="elements-btn" onclick="throeToGarbage()"><img src="../assets/images/icons/throw.png"
+        <div class="elements-btn" onclick="throwToGarbage()"><img src="../assets/images/icons/throw.png"
                 class="elements-icon"></div>
     </div>
 
-    
+
     <div class="cardsAndNav">
         <div>
 
@@ -91,27 +58,37 @@
                     <button id="startGame" class="buttonNav">
                         <div class="nav-list-item"><img class="menu-img img4" src="../assets/images/icons/exit.png"
                             title="התחל משחק" /></div>
-                    </button>
-                    <div class="iconStart" id="iconStart"><img  src="../assets/images/icons/start.png"
-                        title="לחץ כדי להתחיל "/></div>
-                </div>
-                <div class="dropdown">
-                    <button id="dropbtn" class="dropbtn buttonNav">
-                        <div class="nav-list-item"><img class="menu-img img3"
-                                src="../assets/images/icons/settings.png" title="הגדרות" /></div>
-                    </button>
-              
-                            
-                    <div id="myDropdown" class="dropdown-content">
-                        <!-- הגדרות המוזיקה -->
-                        <!-- Rounded switch -->
-                        <div id="selectionDef">
-                            <div class="def">
-                                <div class="music">מוזיקת רקע</div>
-                                <label class="switch off" id="backgroundMus">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
+                </button>
+                <button id="dropbtn" class="dropbtn buttonNav">
+                    <div class="nav-list-item"><img class="menu-img img3" src="../assets/images/icons/settings.png"
+                            title="הגדרות" /></div>
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <!-- הגדרות המוזיקה -->
+                    <!-- Rounded switch -->
+                    <div id="selectionDef">
+                        <div class="def">
+                            <div class="music">מוזיקת רקע</div>
+                            <label class="switch off" id="backgroundMus">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="dropdown">
+                            <div id="myDropdown" class="dropdown-content">
+                                <!-- הגדרות המוזיקה -->
+                                <!-- Rounded switch -->
+                                <div id="selectionDef">
+                                    <div class="def" id="sounds">
+                                        <div class="music">מוזיקת רקע</div>
+                                        <label class="switch off" id="backgroundMus">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                </div>
                             </div>
 
                             <div class="def">

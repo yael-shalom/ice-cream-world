@@ -35,21 +35,15 @@ function init() {
   //שולח לפונקצית סגירת ההוראות
     document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
 
-    //הגדרות המוזיקה
     toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
     toggle = document.getElementById('sounds').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music1());
-    //פתיחת כפתורי האפשרויות למינהם
+    nav = document.getElementsByClassName('nav-list')[0];
     menu = document.getElementsByClassName('container1')[0];
     menu.addEventListener('click', () => this.menue());
-    nav = document.getElementsByClassName('nav-list')[0];
-     //כפתור לשינוי הגדרות
-   document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
-
-  
-        
-
+ 
+    document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => this.defenition());
 
 
 
@@ -223,19 +217,29 @@ function showIceCream() {
 //open elements functions
 function openDivElements(event) {
   let x = event.currentTarget.parentElement.children[1];
-  if (amount % 2 == 0) {
+  if(x.classList.contains('none'))
+  {
     x.classList.remove('none');
     x.classList.add('flex-col');
-    amount++;
   }
-  else {
+  else
+  {
     x.classList.add('none');
     x.classList.remove('flex-col');
-    amount--;
   }
+  // if (amount % 2 == 0) {
+  //   x.classList.remove('none');
+  //   x.classList.add('flex-col');
+  //   amount++;
+  // }
+  // else {
+  //   x.classList.add('none');
+  //   x.classList.remove('flex-col');
+  //   amount--;
+  // }
 }
 
-function throeToGarbage() {
+function throwToGarbage() {
   createdItem = [];
   document.querySelector('.created-container').innerHTML = "";
 }
@@ -248,6 +252,11 @@ function addWin()
 }
 
 function addItem(event) {
+
+  // let divElements = event.currentTarget.parentElement;
+  // divElements.classList.add('none');
+  // divElements.classList.remove('flex-col');
+
   createdIceCream.push(event.currentTarget.id);
   typeOfImg = event.currentTarget.parentElement.parentElement.classList[1];
   type = typeOfImg.substring(0, typeOfImg.indexOf('-'));
@@ -279,7 +288,9 @@ function isRight()
       {
 
 
-       setTimeout(()=>{addWin(); throeToGarbage();}, 1500) ;
+       
+        setTimeout(()=>{addWin();throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements()}, 1000)
+      //  setTimeout(()=>{alert("good"); throwToGarbage();}, 1500) ;
         return;
       }
 }
@@ -287,4 +298,21 @@ function isRight()
 function rand(from, to)
 {
   return Math.floor(Math.random()*(to+1-from)+from)
+}
+
+function deleteIceCream()
+{
+  document.querySelector('.icecream-container').innerHTML = "";
+}
+
+function closeDivElements()
+{
+  divElement = document.querySelectorAll('.elements');
+  for (let i = 0; i < divElement.length; i++) {
+    if(divElement[i].classList.contains('flex-col'))
+    {
+      divElement[i].classList.add('none');
+      divElement[i].classList.remove('flex-col');
+    }
+  }
 }
