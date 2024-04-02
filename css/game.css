@@ -320,6 +320,7 @@ div.nav-list{
 .flexCone-row {
   display: flex;
   margin-right: 0;
+  grid-area: 1;
   flex-direction: row;
 }
 
@@ -406,7 +407,6 @@ div.nav-list{
 
 .person {
   width: 150px;
-  margin-left: 1000px;
   grid-area: 3/1/3/6;
   animation-name: enter;
   animation-duration: 4s;
@@ -414,11 +414,11 @@ div.nav-list{
 
 @keyframes enter {
   0% {
-      margin-left: 0px;
+    transform: translate(0px, 0px);
   }
 
   100% {
-    margin-left: 1000px;
+    transform: translate(1000px, 0px);
   }
 
 }

@@ -168,13 +168,13 @@ function replay() {
 
 //פונקציה המזמנת את ההזמנה הבאה לביצוע
 function play() {
-  if(flag)
+  if(hasIceCream)
     return;
   setTimeout(randIceCream)
   clearInterval(intervalId);
   iconStart.classList.remove('on');
   iconStart.remove('on');
-  flag = true;
+  hasIceCream = true;
   // document.getElementById('startGame').removeEventListener('click', () => play());
 }
 
@@ -219,7 +219,7 @@ function showIceCream() {
 
 //open elements functions
 function openDivElements(event) {
-  if(!flag)
+  if(!hasIceCream)
     return;
   let x = event.currentTarget.parentElement.children[1];
   if (x.classList.contains('none')) {
