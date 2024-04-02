@@ -10,9 +10,13 @@ const ballElements = document.querySelector('.ball-elements').children[1];
 const decorationElements = document.querySelector('.decoration-elements').children[1];
 let createdIceCream = [];
 
+let iconStart=document.getElementsByClassName("iconStart");
+this.flickering();
 init();
 randIceCream();
 console.log(randomIceCream);
+
+
 
 
 //פונקציה של כל האירועי לחיצה
@@ -141,6 +145,12 @@ function modall() {
 function defenition () {
   document.getElementById("myDropdown").classList.toggle("show");
 }
+
+function flickering () {
+
+  iconStart.element.classList.add("flickering");
+}
+
 
 function replay()
 {
