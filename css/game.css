@@ -366,6 +366,8 @@ div.nav-list {
   flex-direction: column-reverse;
   width: fit-content;
   align-items: center;
+  position: relative;
+  bottom: 80px;
 }
 
 .start {
