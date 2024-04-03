@@ -3,6 +3,7 @@ const boys = ['boy1', 'happyboy1'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 let randomIceCream = {};
+let iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
 let ballsAmount;
 let zIndex = 0;
 const coneElements = document.querySelector('.cone-elements').children[1];
@@ -17,6 +18,8 @@ let level=0;
 let score=0;
 let currentScore=0;
 let hasIceCream = false;
+let sumSalary = 0;
+
 nextLevel();
 let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
@@ -246,12 +249,19 @@ function openDivElements(event) {
 
 function throwToGarbage() {
   createdItem = [];
+  createdIceCream = [];
   document.querySelector('.created-container').innerHTML = "";
+  sumSalary-=iceCreamCost['cone'];
+  sumSalary-=iceCreamCost['ball'];
+  sumSalary-=iceCreamCost['decoration'];
+  document.querySelector('.money').textContent = sumSalary;
+  iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
 }
 
 function addWin() {
   let imgWin = document.querySelector(`#coneWin${levelWin++}-elements`);
-  imgWin.src = '../assets/images/icons/coneWin.png';
+  imgWin.src = '../assets/images/icons/coneWin1.png';
+  addPoints(8);
 
 }
 
@@ -264,12 +274,23 @@ function addItem(event) {
   img.src = `../assets/images/${type}s/${event.currentTarget.id}.png`;
   img.style.zIndex = zIndex++;
   if (decorations.includes(event.currentTarget.id))
+  {
     img.classList.add('built-decoration');
+    iceCreamCost['decoration'] += 2;
+  }
   else
     img.classList.add('built-ice-cream')
   if (cones.includes(event.currentTarget.id))
+  {
     img.classList.add('cone');
+    iceCreamCost['cone'] += 1;
+  }
   createdItem.appendChild(img);
+  if (balls.includes(event.currentTarget.id))
+  {
+    iceCreamCost['ball'] += 15;
+  }
+  document.querySelector('#add-item').play();
   isRight();
 }
 
@@ -277,32 +298,40 @@ function isRight() {
   let flag = true;
   if (randomIceCream['cone'] === createdIceCream[0])
   {
-   addPoints(50);
+  //  addPoints(50);
     for (let i = 0; i < randomIceCream['ball'].length; i++) {
       if (i - 1 > createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i + 1])
       {  flag = false;
        }
         else{
-          addPoints(20);
+          // addPoints(20);
         }
     }
   }
   else{
-    lessPoints(-50)
+    // lessPoints(-50)
   }
   if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1])
   {
-    addPoints(8);
+    // addPoints(8);
   }
   else
-      lessPoints(-8)
+      // lessPoints(-8)
 
   if (flag)
 
     if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1]) {
+      document.querySelector('.person').classList.add('out');
+      document.querySelector('.icecream-container').classList.add('out');
       setTimeout(() => { addWin(); throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements() }, 1000)
       document.querySelector('#many-coins').play();
       countOfIce++;
+      sumSalary+=iceCreamCost['cone'];
+      sumSalary+=iceCreamCost['ball'];
+      sumSalary+=iceCreamCost['decoration'];
+      document.querySelector('.money').textContent = sumSalary;
+      iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
+      createdIceCream = [];
       return;
     }
 
@@ -389,10 +418,10 @@ const titles={1:`${levelText}`,2:`${scoreText}`,3:`${countOfIceText}`,4:`${final
 function lessPoints(points)
 
 {
-  const scoreDiv = document.getElementById('s');
+  const scoreDiv = document.getElementById('score');
   const pointsDiv = document.createElement('div');
 
-  pointsDiv.classList.add('.floating-text');
+  pointsDiv.classList.add('floating-text');
   pointsDiv.id="score";
   pointsDiv.textContent = `${points}`;
   scoreDiv.appendChild(pointsDiv);
@@ -411,24 +440,27 @@ function lessPoints(points)
 
 // פונקציה שמוסיפה נקודות
 function addPoints(points) {
-  const scoreDiv = document.getElementById('s');
+  const scoreDiv = document.getElementById('score');
   const pointsDiv = document.createElement('div');
-  scoreDiv.appendChild(pointsDiv);
-
   pointsDiv.id="score";
-  pointsDiv.classList.add('.floating-text');
-  pointsDiv.textContent = `+${points}`;
+  pointsDiv.classList.add('floating-text');
+  pointsDiv.textContent= `+${points}`;
   scoreDiv.appendChild(pointsDiv);
-  pointsDiv.innerHTML= `+${points}`;
+ 
   console.log(scoreDiv);
   console.log(pointsDiv);
 
   // הסרת האלמנט לאחר שהאנימציה תסתיים
 
+  setTimeout(() => {
+    pointsDiv.remove();
+  }, 2000);
+
+  
+
 
   // עדכון הניקוד
    currentScore +=points;
-   scoreDiv.textContent = `${currentScore +points}`;
 }
 
 
