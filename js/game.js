@@ -266,7 +266,7 @@ function throwToGarbage() {
 function addWin() {
   let imgWin = document.querySelector(`#coneWin${levelWin++}-elements`);
   imgWin.src = '../assets/images/icons/coneWin1.png';
-  addPoints(8);
+  // addPoints(8);
 
 }
 
@@ -305,20 +305,20 @@ function isRight() {
       if (i - 1 > createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i + 1])
       {  flag = false;
        }
-        else{
-          // addPoints(20);
-        }
+        // else{
+        //   // addPoints(20);
+        // }
     }
   }
-  else{
-    // lessPoints(-50)
-  }
-  if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1])
-  {
-    // addPoints(8);
-  }
-  else
-      // lessPoints(-8)
+  // else{
+  //   // lessPoints(-50)
+  // }
+  // if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1])
+  // {
+  //   // addPoints(8);
+  // }
+  // else
+  //     // lessPoints(-8)
 
   if (flag)
 
@@ -326,8 +326,10 @@ function isRight() {
       clearInterval(interval);
       document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
       document.querySelector('.person').classList.add('out');
-      document.querySelector('.icecream-container').classList.add('out');
-      setTimeout(() => { addWin(); throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements() }, 1000)
+      document.querySelector('.ice-cream-container').classList.add('out');
+      setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
+      setTimeout(()=>{coins.play();},500)
+      setTimeout(()=>{coins.pause();},2000)
       document.querySelector('#many-coins').play();
       countOfIce++;
       sumSalary+=iceCreamCost['cone'];
@@ -469,7 +471,7 @@ function addPoints(points) {
 
 
 
-/* <div class="icecream-container"> </div> */
+/* <div class="ice-cream-container"> </div> */
 
  
 
