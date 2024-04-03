@@ -8,7 +8,7 @@ body {
   background-size: 100vw;
   margin: 0;
   height: 100vh;
-  color: var(--yellow);
+  color: black;
   background-color: #fecfc5;
   background-position: center;
  
@@ -473,7 +473,7 @@ div.nav-list {
 }
 
 .money {
-  font-family: 'Lucida Handwriting';
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* .flex-row  .score-addition {

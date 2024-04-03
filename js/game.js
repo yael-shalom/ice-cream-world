@@ -12,16 +12,17 @@ const decorationElements = document.querySelector('.decoration-elements').childr
 let createdIceCream = [];
 let iceCreamAmount = 0;
 let levelWin = 1;
-let countOfIce=0,finalTime=0,bestScore=90,countGame=2,countWin=6,bestTime=30,precentofWin="100%";
+let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
 
-let level=0;
-let score=0;
-let currentScore=0;
+let level = 0;
+let score = 0;
+let currentScore = 0;
 
 let hasIceCream = false;
 let sumSalary = 0;
 const coins = document.querySelector('#many-coins');
 let interval;
+let points = 0;
 
 
 nextLevel();
@@ -209,7 +210,7 @@ function randIceCream() {
   }
   randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
   showIceCream();
-
+  iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
 }
 
 
@@ -253,21 +254,32 @@ function openDivElements(event) {
 }
 
 function throwToGarbage() {
+  updateIceCreamCost();
+  clearIceCream();
+}
+
+function clearIceCream()
+{
   createdItem = [];
   createdIceCream = [];
   document.querySelector('.created-container').innerHTML = "";
-  sumSalary -= iceCreamCost['cone'];
-  sumSalary -= iceCreamCost['ball'];
-  sumSalary -= iceCreamCost['decoration'];
-  document.querySelector('.money').textContent = Math.max(sumSalary, 0);
   iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
+}
+
+function updateIceCreamCost()
+{
+  points = 0;
+  points += iceCreamCost['cone'];
+  points += iceCreamCost['ball'];
+  points += iceCreamCost['decoration'];
+  lessPoints();
+  sumSalary -= points;
+  document.querySelector('.money').textContent = Math.max(sumSalary, 0);
 }
 
 function addWin() {
   let imgWin = document.querySelector(`#coneWin${levelWin++}-elements`);
   imgWin.src = '../assets/images/icons/coneWin1.png';
-  // addPoints(8);
-
 }
 
 function addItem(event) {
@@ -298,27 +310,13 @@ function addItem(event) {
 
 function isRight() {
   let flag = true;
-  if (randomIceCream['cone'] === createdIceCream[0])
-  {
-  //  addPoints(50);
+  if (randomIceCream['cone'] === createdIceCream[0]) {
     for (let i = 0; i < randomIceCream['ball'].length; i++) {
-      if (i - 1 > createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i + 1])
-      {  flag = false;
-       }
-        // else{
-        //   // addPoints(20);
-        // }
+      if (i - 1 > createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i + 1]) {
+        flag = false;
+      }
     }
   }
-  // else{
-  //   // lessPoints(-50)
-  // }
-  // if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1])
-  // {
-  //   // addPoints(8);
-  // }
-  // else
-  //     // lessPoints(-8)
 
   if (flag)
 
@@ -328,17 +326,20 @@ function isRight() {
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
-      setTimeout(()=>{coins.play();},500)
-      setTimeout(()=>{coins.pause();},2000)
+      setTimeout(() => { coins.play(); }, 500)
+      setTimeout(() => { coins.pause(); }, 2000)
       document.querySelector('#many-coins').play();
       countOfIce++;
-      sumSalary+=iceCreamCost['cone'];
-      sumSalary+=iceCreamCost['ball'];
-      sumSalary+=iceCreamCost['decoration'];
-      document.querySelector('.money').textContent = sumSalary;
+      points += iceCreamCost['cone'];
+      points += iceCreamCost['ball'];
+      points += iceCreamCost['decoration'];
+      sumSalary += points;
+      document.querySelector('.money').textContent = `${sumSalary}`;
       iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
       createdIceCream = [];
       iceCreamAmount++;
+      addPoints();
+      points = 0;
       return;
     }
 
@@ -386,94 +387,99 @@ function nextLevel() {
 
 
 
-let table=document.querySelector('.table-final');
-for (let i = 0; i < 9; i++) {
-  const tr = document.createElement('tr')
+  let table = document.querySelector('.table-final');
+  for (let i = 0; i < 9; i++) {
+    const tr = document.createElement('tr')
     for (let j = 0; j < 2; j++) {
       const element = document.createElement('td')
       tr.appendChild(element);
-      
-    }
-  table.appendChild(tr);
-  
-}
-console.log(table);
-let tableScore=document.querySelectorAll('td');
 
-const levelText="שלב מספר:",
-scoreText="ניקוד",
-countOfIceText="מספר הגלידות שנוצרו",
-finalTimeText="זמן",
-bestScoreText="ניקוד הגבוה ביותר",
-bestTimeText="הזמן הטוב ביותר",
-countGameText="מספר משחקים ששוחקו",
-countWinText="מספר נצחונות",
-precentofWinText="אחוז נצחונות";
-console.log(tableScore);
-const values={1:`${level}`,2:`${score}`,3:`${countOfIce}`,4:`${finalTime}`,5:`${bestScore}`,6:`${bestTime}`,7:`${countGame}`,8:`${countWin}`,9:`${precentofWin}`}
-const titles={1:`${levelText}`,2:`${scoreText}`,3:`${countOfIceText}`,4:`${finalTimeText}`,5:`${bestScoreText}`,6:`${bestTimeText}`,7:`${countGameText}`,8:`${countWinText}`,9:`${precentofWinText}`}
-  for (let i = 1; i < 18; i+=2) {
-    const td1=tableScore[i-1];
+    }
+    table.appendChild(tr);
+
+  }
+  console.log(table);
+  let tableScore = document.querySelectorAll('td');
+
+  const levelText = "שלב מספר:",
+    scoreText = "ניקוד",
+    countOfIceText = "מספר הגלידות שנוצרו",
+    finalTimeText = "זמן",
+    bestScoreText = "ניקוד הגבוה ביותר",
+    bestTimeText = "הזמן הטוב ביותר",
+    countGameText = "מספר משחקים ששוחקו",
+    countWinText = "מספר נצחונות",
+    precentofWinText = "אחוז נצחונות";
+  console.log(tableScore);
+  const values = { 1: `${level}`, 2: `${score}`, 3: `${countOfIce}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
+  const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${finalTimeText}`, 5: `${bestScoreText}`, 6: `${bestTimeText}`, 7: `${countGameText}`, 8: `${countWinText}`, 9: `${precentofWinText}` }
+  for (let i = 1; i < 18; i += 2) {
+    const td1 = tableScore[i - 1];
     console.log(td1);
-    td1.innerHTML=titles[(i+1)/2]
+    td1.innerHTML = titles[(i + 1) / 2]
     const td2 = tableScore[i];
-    td2.innerHTML=values[(i+1)/2]; 
+    td2.innerHTML = values[(i + 1) / 2];
 
   }
 }
 
 
-function lessPoints(points)
+function lessPoints() {
+  const scoreDiv = document.querySelector('.floating-text1');
+  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 50);
+  scoreDiv.textContent = `-${points}`
+  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 100);
+  // const scoreDiv = document.getElementById('score');
+  // const pointsDiv = document.createElement('div');
 
-{
-  const scoreDiv = document.getElementById('score');
-  const pointsDiv = document.createElement('div');
+  // pointsDiv.classList.add('floating-text');
 
-  pointsDiv.classList.add('floating-text');
- 
-  pointsDiv.textContent = `${points}`;
-  scoreDiv.appendChild(pointsDiv);
-  console.log(pointsDiv);
+  // pointsDiv.textContent = `${points}`;
+  // scoreDiv.appendChild(pointsDiv);
+  // console.log(pointsDiv);
 
-  // הסרת האלמנט לאחר שהאנימציה תסתיים
-  setTimeout(() => {
-    pointsDiv.remove();
-  }, 2000);
+  // // הסרת האלמנט לאחר שהאנימציה תסתיים
+  // setTimeout(() => {
+  //   pointsDiv.remove();
+  // }, 2000);
 
-  // עדכון הניקוד
-   currentScore +=points;
-   scoreDiv.textContent = `${currentScore +points}`;
+  // // עדכון הניקוד
+  //  currentScore +=points;
+  //  scoreDiv.textContent = `${currentScore +points}`;
 
 }
 
 // JavaScript
 
 
-function addPoints(points) {
-  const scoreDiv = document.getElementById('score');
-  const pointsDiv = document.createElement('div');
+function addPoints() {
+  const scoreDiv = document.querySelector('.floating-text1');
+  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 50);
+  scoreDiv.textContent = `+${points}`
+  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 100);
+  // const pointsDiv = document.createElement('div');
 
-  pointsDiv.classList.add('floating-text1');
-  pointsDiv.textContent = `+${points}`;
-  scoreDiv.appendChild(pointsDiv);
+  // pointsDiv.classList.add('floating-text1');
+  // pointsDiv.textContent = `+${points}`;
+  // scoreDiv.appendChild(pointsDiv);
 
-  // הסרת האלמנט לאחר שהאנימציה תסתיים
-  setTimeout(() => {
-    pointsDiv.remove();
-  }, 4000); // שינוי ל-4000 מילישניות כדי להתאים למשך האנימציה
+  // // הסרת האלמנט לאחר שהאנימציה תסתיים
+  // setTimeout(() => {
+  //   pointsDiv.remove();
+  // }, 4000); // שינוי ל-4000 מילישניות כדי להתאים למשך האנימציה
 
-  // עדכון הניקוד
-  currentScore += points;
-  scoreDiv.textContent = currentScore; // עדכון תוכן הניקוד
+  // // עדכון הניקוד
+  // currentScore += points;
+  // scoreDiv.textContent = currentScore; // עדכון תוכן הניקוד
 }
 
- // זימון הפונקציה לדוגמה
+// זימון הפונקציה לדוגמה
 
 
 
 /* <div class="ice-cream-container"> </div> */
 
- 
+
 
 
 function startTimer() {
@@ -491,7 +497,7 @@ function startTimer() {
         document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
         document.querySelector('.person').classList.add('out');
         document.querySelector('.ice-cream-container').classList.add('out');
-        setTimeout(() => { clearData(); showData(); }, 4500)
+        setTimeout(() => { clearData(); showData(); updateIceCreamCost(); }, 4500)
       }
       else {
         height++;
@@ -502,13 +508,13 @@ function startTimer() {
 }
 
 function clearData() {
-  throwToGarbage();
+  clearIceCream();
   deleteIceCream();
   closeDivElements();
 }
 
 function showData() {
-  if(iceCreamAmount>=5){
+  if (iceCreamAmount >= 5) {
     showWin();
     return;
   }
@@ -516,7 +522,7 @@ function showData() {
   randIceCream();
 }
 
-function showWin(){
+function showWin() {
   winContent = document.querySelector('#nextLevel-content');
   winContent.style.display = 'block';
 }
