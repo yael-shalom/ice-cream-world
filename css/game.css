@@ -569,8 +569,6 @@ div.nav-list {
 
 /* //animation of the add score */
 @keyframes slowFloatUp {
-
-  
   0% {
     transform: translateY(0);
     opacity: 1;
@@ -581,11 +579,10 @@ div.nav-list {
   }
 }
 
-.floating-text {
+.floating-text1 {
  
   position: absolute;
-  animation-name: slowFloatUp ;
-  animation-duration: 5s;
+  animation: slowFloatUp 4s ease-in-out forwards;
   color:#111;
   font-size: 30px;
   
