@@ -510,7 +510,6 @@ div.nav-list {
 .table-final td {
 
   color: #fd8182;
-<<<<<<< HEAD
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -523,7 +522,6 @@ div.nav-list {
 
 
 .table-final{
-=======
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -534,7 +532,6 @@ div.nav-list {
 }
 
 .table-final {
->>>>>>> 72fe76c47a8b32c91d1b78ce294af932eb7e9e3c
   border-radius: 20px;
   border: 400px;
   margin-left: 16%;
@@ -543,10 +540,9 @@ div.nav-list {
 
 }
 
-.nextLevel-content{
-
-  background-image: url(../assets/images/icons/finish.png); 
 .nextLevel-content {
+
+ 
   background-image: url(../assets/images/icons/finish.png);
   background-repeat: no-repeat;
   background-position: center;

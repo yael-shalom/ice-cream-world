@@ -463,7 +463,7 @@ function addPoints(points) {
   scoreDiv.textContent = currentScore; // עדכון תוכן הניקוד
 }
 
-addPoints(8); // זימון הפונקציה לדוגמה
+ // זימון הפונקציה לדוגמה
 
 
 
