@@ -238,6 +238,7 @@ function openDivElements(event) {
 
 function throwToGarbage() {
   createdItem = [];
+  createdIceCream = [];
   document.querySelector('.created-container').innerHTML = "";
   sumSalary-=iceCreamCost['cone'];
   sumSalary-=iceCreamCost['ball'];
@@ -277,6 +278,7 @@ function addItem(event) {
   {
     iceCreamCost['ball'] += 15;
   }
+  document.querySelector('#add-item').play();
   isRight();
 }
 
