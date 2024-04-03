@@ -11,8 +11,11 @@ const decorationElements = document.querySelector('.decoration-elements').childr
 let createdIceCream = [];
 let amount = 0;
 let levelWin = 1;
+let countOfIce=0,finalTime=0,bestScore=90,countGame=2,countWin=6,bestTime=30,precentofWin="100%";
+
 let level=0;
 let score=0;
+let currentScore=0;
 let hasIceCream = false;
 nextLevel();
 let iconStart = document.querySelector('.iconStart');
@@ -35,7 +38,6 @@ function init() {
   //שולח לפונקצית סגירת ההוראות
   document.getElementsByClassName('close')[0].addEventListener('click', () => closeModal());
   //שולח לפונקצית סגירת מודל הסיום
-  console.log(document.getElementById('.closeFinish'));
   document.getElementsByClassName('closeFinish')[0].addEventListener('click', () => closefinish());
 
 
@@ -274,16 +276,36 @@ function addItem(event) {
 function isRight() {
   let flag = true;
   if (randomIceCream['cone'] === createdIceCream[0])
+  {
+   addPoints(50);
     for (let i = 0; i < randomIceCream['ball'].length; i++) {
       if (i - 1 > createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i + 1])
-        flag = false;
+      {  flag = false;
+       }
+        else{
+          addPoints(20);
+        }
     }
+  }
+  else{
+    lessPoints(-50)
+  }
+  if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1])
+  {
+    addPoints(8);
+  }
+  else
+      lessPoints(-8)
+
   if (flag)
+
     if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1]) {
       setTimeout(() => { addWin(); throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements() }, 1000)
       document.querySelector('#many-coins').play();
+      countOfIce++;
       return;
     }
+
 }
 
 
@@ -330,17 +352,17 @@ const addHead=document.querySelector('.nextLevel-header');
 let table=document.querySelector('.table-final');
 for (let i = 0; i < 9; i++) {
   const tr = document.createElement('tr')
-  for (let j = 0; j < 2; j++) {
-    const element = document.createElement('td')
-    tr.appendChild(element);
-    
-  }
+    for (let j = 0; j < 2; j++) {
+      const element = document.createElement('td')
+      tr.appendChild(element);
+      
+    }
   table.appendChild(tr);
   
 }
 console.log(table);
 let tableScore=document.querySelectorAll('td');
-const countOfIce=0,finalTime=89,bestScore=90,countGame=2,countWin=6,bestTime=30,precentofWin="100%";
+
 const levelText="שלב מספר:",
 scoreText="ניקוד",
 countOfIceText="מספר הגלידות שנוצרו",
@@ -350,33 +372,31 @@ bestTimeText="הזמן הטוב ביותר",
 countGameText="מספר משחקים ששוחקו",
 countWinText="מספר נצחונות",
 precentofWinText="אחוז נצחונות";
-
 console.log(tableScore);
 const values={1:`${level}`,2:`${score}`,3:`${countOfIce}`,4:`${finalTime}`,5:`${bestScore}`,6:`${bestTime}`,7:`${countGame}`,8:`${countWin}`,9:`${precentofWin}`}
 const titles={1:`${levelText}`,2:`${scoreText}`,3:`${countOfIceText}`,4:`${finalTimeText}`,5:`${bestScoreText}`,6:`${bestTimeText}`,7:`${countGameText}`,8:`${countWinText}`,9:`${precentofWinText}`}
-for (let i = 1; i < 18; i+=2) {
-  const td1=tableScore[i-1];
-  console.log(td1);
-  td1.innerHTML=titles[(i+1)/2]
-  const td2 = tableScore[i];
-  td2.innerHTML=values[(i+1)/2]; 
+  for (let i = 1; i < 18; i+=2) {
+    const td1=tableScore[i-1];
+    console.log(td1);
+    td1.innerHTML=titles[(i+1)/2]
+    const td2 = tableScore[i];
+    td2.innerHTML=values[(i+1)/2]; 
 
+  }
 }
 
 
+function lessPoints(points)
 
-
-}
-
-
-
-// פונקציה שמוסיפה נקודות
-function addPoints(points) {
-  const scoreDiv = document.getElementById('score');
+{
+  const scoreDiv = document.getElementById('s');
   const pointsDiv = document.createElement('div');
-  pointsDiv.classList.add('points');
-  pointsDiv.textContent = `+${points}`;
+
+  pointsDiv.classList.add('.floating-text');
+  pointsDiv.id="score";
+  pointsDiv.textContent = `${points}`;
   scoreDiv.appendChild(pointsDiv);
+  console.log(pointsDiv);
 
   // הסרת האלמנט לאחר שהאנימציה תסתיים
   setTimeout(() => {
@@ -384,12 +404,34 @@ function addPoints(points) {
   }, 2000);
 
   // עדכון הניקוד
-  const currentScore = parseInt(scoreDiv.textContent.split('+')[1]);
-  scoreDiv.textContent = `+ ${currentScore + points}`;
+   currentScore +=points;
+   scoreDiv.textContent = `${currentScore +points}`;
+
 }
 
-// הוספת 8 נקודות
-addPoints(8);
+// פונקציה שמוסיפה נקודות
+function addPoints(points) {
+  const scoreDiv = document.getElementById('s');
+  const pointsDiv = document.createElement('div');
+  scoreDiv.appendChild(pointsDiv);
+
+  pointsDiv.id="score";
+  pointsDiv.classList.add('.floating-text');
+  pointsDiv.textContent = `+${points}`;
+  scoreDiv.appendChild(pointsDiv);
+  pointsDiv.innerHTML= `+${points}`;
+  console.log(scoreDiv);
+  console.log(pointsDiv);
+
+  // הסרת האלמנט לאחר שהאנימציה תסתיים
+
+
+  // עדכון הניקוד
+   currentScore +=points;
+   scoreDiv.textContent = `${currentScore +points}`;
+}
+
+
 
 
 /* <div class="icecream-container"> </div> */
