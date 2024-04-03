@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="../css/game.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/game.js" defer></script>
+    <title>אנימציית נקודות</title>
+
 </head>
 
 <body class="grid-container">
 
-
-
+   
     <div class="flexCone-row">
         <div class="flexCone-col">
             <div class="iconWin"><img src="../assets/images/icons/coneSilver.png" id="coneWin1-elements"
@@ -59,7 +60,8 @@
         </div>
         <div class="elements-btn" onclick="throwToGarbage()"><img src="../assets/images/icons/throw.png"
                 class="elements-icon"></div>
-        <div class="elements-btn money"></div>
+        <div class="elements-btn money"> <div class="floating-text" id="score">+0</div></div>
+       
      
 
     </div>
@@ -242,12 +244,12 @@
         <source src="../assets/images/Sounds/MANYCOIN.WAV
         " />
     </audio>
-
+    
 
 
     <div id="nextLevel-content" class="nextLevel-content">
 
-      
+        <span id="closeFinish" class="closeFinish">&times;</span>
         <div class="nextLevel-header"></div>
         <table id="table-final" class="table-final">
             <tr>
@@ -257,6 +259,8 @@
 
         </table>
     </div>
+
+    
 
 </body>
 

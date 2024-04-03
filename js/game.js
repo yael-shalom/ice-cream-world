@@ -34,6 +34,10 @@ function init() {
 
   //שולח לפונקצית סגירת ההוראות
   document.getElementsByClassName('close')[0].addEventListener('click', () => closeModal());
+  //שולח לפונקצית סגירת מודל הסיום
+  console.log(document.getElementById('.closeFinish'));
+  document.getElementsByClassName('closeFinish')[0].addEventListener('click', () => closefinish());
+
 
   toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
@@ -121,6 +125,11 @@ function closeModal1() {
 
 function closeModal() {
   const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+
+function closefinish() {
+  const modal = document.getElementById("nextLevel-content");
   modal.style.display = "none";
 }
 
@@ -358,5 +367,29 @@ for (let i = 1; i < 18; i+=2) {
 
 
 }
+
+
+
+// פונקציה שמוסיפה נקודות
+function addPoints(points) {
+  const scoreDiv = document.getElementById('score');
+  const pointsDiv = document.createElement('div');
+  pointsDiv.classList.add('points');
+  pointsDiv.textContent = `+${points}`;
+  scoreDiv.appendChild(pointsDiv);
+
+  // הסרת האלמנט לאחר שהאנימציה תסתיים
+  setTimeout(() => {
+    pointsDiv.remove();
+  }, 2000);
+
+  // עדכון הניקוד
+  const currentScore = parseInt(scoreDiv.textContent.split('+')[1]);
+  scoreDiv.textContent = `+ ${currentScore + points}`;
+}
+
+// הוספת 8 נקודות
+addPoints(8);
+
 
 /* <div class="icecream-container"> </div> */
