@@ -3,7 +3,7 @@ const boys = ['boy1', 'happyboy1'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 let randomIceCream = {};
-let iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
+let iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 let ballsAmount;
 let zIndex = 0;
 const coneElements = document.querySelector('.cone-elements').children[1];
@@ -12,13 +12,20 @@ const decorationElements = document.querySelector('.decoration-elements').childr
 let createdIceCream = [];
 let amount = 0;
 let levelWin = 1;
+<<<<<<< HEAD
 let countOfIce=0,finalTime=0,bestScore=90,countGame=2,countWin=6,bestTime=30,precentofWin="100%";
 
 let level=0;
 let score=0;
 let currentScore=0;
+=======
+let level = 0;
+let score = 0;
+>>>>>>> d7c079955b9ac18b2e579a175abee329773f68dd
 let hasIceCream = false;
 let sumSalary = 0;
+const coins = document.querySelector('#many-coins');
+let interval;
 
 nextLevel();
 let iconStart = document.querySelector('.iconStart');
@@ -186,6 +193,7 @@ function play() {
   clearInterval(intervalId);
   iconStart.classList.remove('on');
   iconStart.remove('on');
+  startTimer();
   hasIceCream = true;
   // document.getElementById('startGame').removeEventListener('click', () => play());
 
@@ -211,7 +219,7 @@ function randIceCream() {
 //תכתבי תיעוד על זה כי לא ממש הבנתי מה זה
 function showIceCream() {
   showPerson();
-  const container = document.querySelector('.icecream-container');
+  const container = document.querySelector('.ice-cream-container');
   let cone = document.createElement('img');
   cone.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
   cone.classList.add('cone');
@@ -251,11 +259,11 @@ function throwToGarbage() {
   createdItem = [];
   createdIceCream = [];
   document.querySelector('.created-container').innerHTML = "";
-  sumSalary-=iceCreamCost['cone'];
-  sumSalary-=iceCreamCost['ball'];
-  sumSalary-=iceCreamCost['decoration'];
+  sumSalary -= iceCreamCost['cone'];
+  sumSalary -= iceCreamCost['ball'];
+  sumSalary -= iceCreamCost['decoration'];
   document.querySelector('.money').textContent = sumSalary;
-  iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
+  iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 }
 
 function addWin() {
@@ -273,21 +281,18 @@ function addItem(event) {
   img = document.createElement('img');
   img.src = `../assets/images/${type}s/${event.currentTarget.id}.png`;
   img.style.zIndex = zIndex++;
-  if (decorations.includes(event.currentTarget.id))
-  {
+  if (decorations.includes(event.currentTarget.id)) {
     img.classList.add('built-decoration');
     iceCreamCost['decoration'] += 2;
   }
   else
     img.classList.add('built-ice-cream')
-  if (cones.includes(event.currentTarget.id))
-  {
+  if (cones.includes(event.currentTarget.id)) {
     img.classList.add('cone');
     iceCreamCost['cone'] += 1;
   }
   createdItem.appendChild(img);
-  if (balls.includes(event.currentTarget.id))
-  {
+  if (balls.includes(event.currentTarget.id)) {
     iceCreamCost['ball'] += 15;
   }
   document.querySelector('#add-item').play();
@@ -321,7 +326,10 @@ function isRight() {
   if (flag)
 
     if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1]) {
+      clearInterval(interval);
+      document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
       document.querySelector('.person').classList.add('out');
+<<<<<<< HEAD
       document.querySelector('.icecream-container').classList.add('out');
       setTimeout(() => { addWin(); throwToGarbage(); deleteIceCream(); randIceCream(); closeDivElements() }, 1000)
       document.querySelector('#many-coins').play();
@@ -329,8 +337,17 @@ function isRight() {
       sumSalary+=iceCreamCost['cone'];
       sumSalary+=iceCreamCost['ball'];
       sumSalary+=iceCreamCost['decoration'];
+=======
+      document.querySelector('.ice-cream-container').classList.add('out');
+      setTimeout(() => { addWin(); clearData(); showData(); }, 4500)
+      setTimeout(() => { coins.play(); }, 500);
+      setTimeout(() => { coins.pause(); }, 2500);
+      sumSalary += iceCreamCost['cone'];
+      sumSalary += iceCreamCost['ball'];
+      sumSalary += iceCreamCost['decoration'];
+>>>>>>> d7c079955b9ac18b2e579a175abee329773f68dd
       document.querySelector('.money').textContent = sumSalary;
-      iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
+      iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
       createdIceCream = [];
       return;
     }
@@ -359,7 +376,7 @@ function closeDivElements() {
 function showPerson() {
   containPerson = document.querySelector('.contain-person');
   iceContainer = document.createElement('div');
-  iceContainer.classList.add('icecream-container');
+  iceContainer.classList.add('ice-cream-container');
   person = document.createElement('img');
   person.src = '../assets/images/boys/boy1.png';
   person.classList.add('person');
@@ -369,15 +386,25 @@ function showPerson() {
 }
 
 
-function nextLevel()
-{
-const nextl=document.querySelector('.nextLevel-content');
-const addHead=document.querySelector('.nextLevel-header');
+function nextLevel() {
+  const nextl = document.querySelector('.nextLevel-content');
+  const addHead = document.querySelector('.nextLevel-header');
 
-// let content=document.createElement('h');
-// content.innerHTML="ice cream";
-// addHead.appendChild(content);
+  // let content=document.createElement('h');
+  // content.innerHTML="ice cream";
+  // addHead.appendChild(content);
 
+  let table = document.querySelector('.table-final');
+  for (let i = 0; i < 9; i++) {
+    const tr = document.createElement('tr')
+    for (let j = 0; j < 2; j++) {
+      const element = document.createElement('td')
+      tr.appendChild(element);
+
+    }
+    table.appendChild(tr);
+
+<<<<<<< HEAD
 let table=document.querySelector('.table-final');
 for (let i = 0; i < 9; i++) {
   const tr = document.createElement('tr')
@@ -467,3 +494,67 @@ function addPoints(points) {
 
 
 /* <div class="icecream-container"> </div> */
+=======
+  }
+  console.log(table);
+  let tableScore = document.querySelectorAll('td');
+  const countOfIce = 0, finalTime = 89, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
+  const levelText = "שלב מספר:",
+    scoreText = "ניקוד",
+    countOfIceText = "מספר הגלידות שנוצרו",
+    finalTimeText = "זמן",
+    bestScoreText = "ניקוד הגבוה ביותר",
+    bestTimeText = "הזמן הטוב ביותר",
+    countGameText = "מספר משחקים ששוחקו",
+    countWinText = "מספר נצחונות",
+    precentofWinText = "אחוז נצחונות";
+
+  console.log(tableScore);
+  const values = { 1: `${level}`, 2: `${score}`, 3: `${countOfIce}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
+  const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${finalTimeText}`, 5: `${bestScoreText}`, 6: `${bestTimeText}`, 7: `${countGameText}`, 8: `${countWinText}`, 9: `${precentofWinText}` }
+  for (let i = 1; i < 18; i += 2) {
+    const td1 = tableScore[i - 1];
+    console.log(td1);
+    td1.innerHTML = titles[(i + 1) / 2]
+    const td2 = tableScore[i];
+    td2.innerHTML = values[(i + 1) / 2];
+
+  }
+}
+
+function startTimer() {
+  clearInterval(interval);
+  let i = 0;
+  if (i == 0) {
+    i = 1;
+    const elem = document.getElementById("myBar");
+    let height = 1;
+    interval = setInterval(frame, 30 / 100 * 1000);
+    function frame() {
+      if (height >= 100) {
+        clearInterval(interval);
+        i = 0;
+        document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
+        document.querySelector('.person').classList.add('out');
+        document.querySelector('.ice-cream-container').classList.add('out');
+        setTimeout(() => { clearData(); showData(); }, 4500)
+      }
+      else {
+        height++;
+        elem.style.height = height + "%";
+      }
+    }
+  }
+}
+
+function clearData() {
+  throwToGarbage();
+  deleteIceCream();
+  closeDivElements();
+}
+
+function showData() {
+  startTimer();
+  randIceCream();
+}
+>>>>>>> d7c079955b9ac18b2e579a175abee329773f68dd
