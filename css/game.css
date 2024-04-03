@@ -48,7 +48,7 @@ img {
 .container1 {
   display: inline-block;
   position: relative;
-  /* top: 10px; */
+  top: 10px;
   cursor: pointer;
 }
 .bar1, .bar2, .bar3 {
