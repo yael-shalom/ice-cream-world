@@ -12,8 +12,12 @@
 
 <body class="grid-container">
 
-
-
+    <!-- timer container -->
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+    </div>
+    <!-- win cones container -->
     <div class="flexCone-row">
         <div class="flexCone-col">
             <div class="iconWin"><img src="../assets/images/icons/coneSilver1.png" id="coneWin1-elements"
@@ -40,7 +44,9 @@
                     class="coneWin-elements"></div>
         </div>
     </div>
+    <!-- person and ice cream container -->
     <div class="contain-person"></div>
+    <!-- elements buttons container -->
     <div class="flex-row grid">
         <div class="flex-col cone-elements">
             <div class="elements-btn" onclick="openDivElements(event)"><img src="../assets/images/icons/cone.png"
@@ -60,11 +66,9 @@
         <div class="elements-btn" onclick="throwToGarbage()"><img src="../assets/images/icons/throw.png"
                 class="elements-icon"></div>
         <div class="elements-btn money"></div>
-     
-
     </div>
 
-
+    <!-- menu container -->
     <div class="cardsAndNav">
         <div>
 
@@ -126,28 +130,30 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
+    <!-- music -->
+    <!-- happy -->
     <audio class="au1 music">
         <source src="../assets/images/Sounds/happyMassage.mp3" />
     </audio>
-
+    <!-- sad -->
     <audio class="au2 music">
         <source src="../assets/images/Sounds/sadMassage.mp3" />
     </audio>
+    <!-- background -->
     <audio id="backgroundMusic">
         <source src="../assets/images/Sounds/backgroundMusic.mp3" />
     </audio>
-    </div>
+    <!-- many coins for success -->
+    <audio id="many-coins">
+        <source src="../assets/images/Sounds/MANYCOIN.WAV" />
+    </audio>
+    <!-- adding item -->
+    <audio id="add-item">
+        <source src="../assets/images/Sounds/SHAKE1.WAV" />
+    </audio>
 
+    <!-- ice cream created by the player -->
     <div class="created-container"> </div>
-    </div>
 
 
     <!-- הוראות משחק -->
@@ -164,48 +170,6 @@
             </div>
             <h3>גלידה - משחק תחרות מהנה</h3>
             <p>גד -מוכר הגלידה נבדק במהירותו!</p>
-            <p>בכל פעם שקלף (מהקלפים ההפוכים קלפי מטה) מהבהב,המשתתף צריך לנסות להיזכר מהו החפץ המופיע על גבי הקלף </p>
-            <p>לאחר מכן הקלף מתהפף והמחשב בודק האם הניחוש היה נכון. </p>
-            <p> הקלפים ממשיכים להבהב כל עוד השחקנים מנחשים נכון.אם הקלף המובהב כבר היה מוהבהב קודם לכן השחקן זוכה בקלף
-                הזה.</p>
-            <p>השחקן הראשון שברשותו שש קלפים הינו המנצח</p>
-            <!-- <img class="instro" src="Files/Images/Instructions/card1.jpg" /> -->
-            <h3>הכנת המשחק</h3>
-            <p>.מערבבים את כל 49 קלפי המשחק,ומניחים במרכז. שולפים שמונה קלפים ומניחים אותם עפ הפנים כלפי מעלה במעגל</p>
-
-            <p>שימו לב שהחיצים בחלק העליון של הקלפים תמיד יהיו בהיקף החיצוני של המעגל. הקפידו על כך גם במהלך המשחק, כאשר
-                קלפים נחשפים או מתווספים. </p>
-            <p>את כל ההכנה הטרחנית הזו חסכנו לכם בעקבות שרלוק אונליין
-            <p>כעת, כל השחקנים מביטים בשמונת הקלפים ומנסים לזכור את החפצים שמופעיעם בהם ואת מיקומם בקלף(איור 2). </p>
-            <p> אין צורך לזכור את כיוון החץאו המספר שמופיע על הקלף.</p>
-            <p> אחרי חצי דקה (בה מופעל טיימר) שמונת הקלפים מתהפכים עם הפנים כלפי מטה </p>
-            <!-- <img class="instro" src="Files/Images/Instructions/card2.jpg" /> -->
-            <h3>מהלך המשחק</h3>
-            <p>הבלש הצעיר ביותר משחק ראשון. </p>
-            <p> המחשב מגריל קלף באופן אקראי ומהבהב אותו לשחקן. השחקן הנוכחי צריך לנחש את שם החפץ שמופיע בצידו המוסתר של
-                הקלף.</p>
-            <p>(הבט באיור) מה שעליו לעשות זה להזין את שם החפץ בתיבת הקלט , וללחוץ על כפתור הבדיקה. לאחר הבדיקה הקלף נחשף
-                וניתן להיוכח האם השחקן צדק.</p>
-            <!-- <img class="instro" src="Files/Images/Instructions/card3.jpg" /> -->
-            <p> אם הבלש הנוכחי ניחש נכון את שם החפץ הקלף נותר חשוף. כעת השרלוק מתקדם בהתאם לקלף שחשף:</p>
-            <p> בראש הקלף ישנם חץ ומספר ושרלוק מתקדם בכיוון החץ מספר קלפים כפי שמורה המספר. כעת , שרלוק נמצא לצד</p>
-            <p>קלף חדש ושוב הבלש הנוכחי צריך לנחש ולהזין את שם החפץ שמןפיע בציגו המוסתר של הקלף. </p>
-            <!-- <img class="instro" src="Files/Images/Instructions/card4.jpg" /> -->
-            <p> כל זמן שהבלש מנחש נכון, הוא ממשיך לנוע לפי ההנחיות של הקלף שחנחשף, במידה והבלש הנוכחי טעה בניחוש החפץ
-            </p>
-            <p> הקלפים החשופים נהפכים חזרה כלפי מטה , והתור עובר לשחקן משמאלו.</p>
-            <p>אם שרלוק מהבהב על קלף גלוי שכבר נחשף , אז השחקן הנוכחי זוכה בקלף! המחשב מגריל קלף חדש ומניח אותו עם הפנים
-                קלפי מעלה במקום הקלף שנלקח. </p>
-            <!-- <img class="instro" src="Files/Images/Instructions/card5.jpg" /> -->
-            <p> כל השחקנים מנסים לזכור את הקלף החדש בזמן קצוב של חמש שניות, ואז הקלף מתהפף שוב , כך ששוב שמונת הקלפים
-                מוסתרים</p>
-            <p> כעת הסתיים התור של הבלש הנוכחי , והתור ממשיך למשתתף הבא. כלומר תורו של כל משתתף נמשך עד שטעה בניחוש , או
-                כאשר קלף השרלוק הבהב על קלף חשוף והמשתתף זוכה בו</p>
-            <h3>סיום המשחק</h3>
-            <p> המשחק מסתיים כאשר אחד המשתתפים הצליח לזכות בשישה קלפים , משתתף זה מנצח במשחק</p>
-            <p> </p>
-            <p> </p>
-            <p> </p>
         </div>
 
     </div>
@@ -222,45 +186,28 @@
             <p>
             <p class="prule"> בתפריט תוכלו למצוא הוראות משחק, הגדרות, ועוד. •</p>
             <p class="prule"> שימו ❤- במהלך המשחק לא תוכלו לשנות חלק מההגדרות. •</p>
-            <p class="prule"> בשביל להתחיל משחק עליך להכנס לתפריט וללחוץ על כפתור התחל משחק. • </p>
             <p class="prule"> משהו לא עובד? נסו להזכר אולי הכללים לא מתירים את הפעולה. •</p>
             <p class="prule"> עדיין משהו לא עובד? הסתכלו בצד בחלון הפעולות. •</p>
             <p class="prule"> עדיין לא? ספרו לנו! אולי נוכל לעזור.. •</p>
-            <div style="text-align: center;">
-                <button class="button"> <span>!לצאת לדרך</span></button>
-
-            </div>
             <br />
-            <!-- <img class="people" src="Files/Images/sherlockp.jpg" /> -->
             <p id="beLeft">ההוראות מנוסחות בלשון זכר אך מתאימות לגברים ונשים כאחד.
-            <p>
-            </p>
         </div>
     </div>
-
-    <audio id="many-coins">
-        <source src="../assets/images/Sounds/MANYCOIN.WAV
-        " />
-    </audio>
-
 
 
     <div id="nextLevel-content" class="nextLevel-content">
 
-      
+
         <div class="nextLevel-header"></div>
         <table id="table-final" class="table-final">
             <tr>
                 <th></th>
             </tr>
-            
+
 
         </table>
     </div>
 
-    <audio id="add-item">
-        <source src="../assets/images/Sounds/SHAKE1.WAV" />
-    </audio>
 
 </body>
 

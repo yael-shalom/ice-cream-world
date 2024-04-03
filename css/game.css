@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url(../assets/images/game_background.jpg);
   background-repeat: no-repeat;
@@ -13,14 +17,16 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  position: relative;
+  z-index: -1;
 }
 
-.icecream-container {
+.ice-cream-container {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   width: 80px;
-  padding: 10px;
+  padding: 4px;
   background-color: #fee8e1;
   border-radius: 20px;
   box-shadow: 2px 2px #00000040;
@@ -38,7 +44,7 @@ img {
 .decoration {
   width: 30px;
   height: auto;
-  margin-bottom: -15px;
+  margin-bottom: -14px;
 }
 
 
@@ -388,7 +394,7 @@ div.nav-list {
 .built-decoration {
   width: 20px;
   height: auto;
-  margin-bottom: -10px;
+  margin-bottom: -9px;
 }
 
 .cone {
@@ -396,7 +402,8 @@ div.nav-list {
 }
 
 .person {
-  width: 100px;
+  width: auto;
+  height: 250px;
 }
 
 @keyframes enter {
@@ -422,22 +429,25 @@ div.nav-list {
 }
 
 .person,
-.icecream-container {
+.ice-cream-container {
   animation-name: enter;
   animation-duration: 4s;
   transform: translate(70vw, 0px);
-  position: relative;
-  bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .out {
   animation-name: out;
+  animation-delay: 2.5s;
   animation-duration: 2s;
 }
 
 .contain-person {
-
+  position: relative;
+  top: calc(100% - 400px);
   grid-area: 3/1/3/6;
+  z-index: -1;
+  height: 0px;
 }
 
 .money {
@@ -507,4 +517,23 @@ div.nav-list {
   z-index: 1;
   overflow: auto;
   display: none;
+}
+
+
+
+
+#myProgress {
+  width: 40px;
+  height: 540px;
+  background-color: #f98c79;
+  border: 1px solid #f98c79;
+  grid-area: 1/5/-1/5;
+  position: relative;
+  left: calc(100% - 85px);
+  top: calc(100% - 600px);
+}
+
+#myBar {
+  width: 100%;
+  background-color: #fee7d5;
 }
