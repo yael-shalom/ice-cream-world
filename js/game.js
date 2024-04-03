@@ -10,7 +10,7 @@ const coneElements = document.querySelector('.cone-elements').children[1];
 const ballElements = document.querySelector('.ball-elements').children[1];
 const decorationElements = document.querySelector('.decoration-elements').children[1];
 let createdIceCream = [];
-let amount = 0;
+let iceCreamAmount = 0;
 let levelWin = 1;
 let level = 0;
 let score = 0;
@@ -18,6 +18,7 @@ let hasIceCream = false;
 let sumSalary = 0;
 const coins = document.querySelector('#many-coins');
 let interval;
+
 
 nextLevel();
 let iconStart = document.querySelector('.iconStart');
@@ -246,7 +247,7 @@ function throwToGarbage() {
   sumSalary -= iceCreamCost['cone'];
   sumSalary -= iceCreamCost['ball'];
   sumSalary -= iceCreamCost['decoration'];
-  document.querySelector('.money').textContent = sumSalary;
+  document.querySelector('.money').textContent = Math.max(sumSalary, 0);
   iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 }
 
@@ -304,6 +305,7 @@ function isRight() {
       document.querySelector('.money').textContent = sumSalary;
       iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
       createdIceCream = [];
+      iceCreamAmount++;
       return;
     }
 }
@@ -417,6 +419,15 @@ function clearData() {
 }
 
 function showData() {
+  if(iceCreamAmount>=5){
+    showWin();
+    return;
+  }
   startTimer();
   randIceCream();
+}
+
+function showWin(){
+  winContent = document.querySelector('#nextLevel-content');
+  winContent.style.display = 'block';
 }
