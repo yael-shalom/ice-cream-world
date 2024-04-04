@@ -268,12 +268,12 @@ div.nav-list {
 }
 
 .closeFinish {
-  color: #1000f7;
+  color: #73a0e1;
   float: right;
   font-size: 50px;
   font-weight: bold;
-  margin-top: 25%;
-  margin-right: 20%;
+  margin-top:1%;
+  margin-right:3%;
   
 }
 
@@ -515,42 +515,37 @@ div.nav-list {
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   width: 200px;
   height: 50px;
-  background-color:rgb(0, 0, 150,0.5);
+ 
 
 }
 
 
 
-.table-final{
+
+
+.table-final {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  width: 200px;
-  height: 50px;
-  background-color: rgb(0, 0, 150, 0.5);
-
-}
-
-.table-final {
   border-radius: 20px;
   border: 400px;
   margin-left: 16%;
   margin-top: 35%;
-  width: 670px;
+
 
 }
 
 .nextLevel-content {
 
- 
-  background-image: url(../assets/images/icons/win-background.jpg);
+  
+  background-image: url(../assets/images/icons/win.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: auto;
-  width: 1000px;
-  border-radius: 50px;
-  margin-top: 0;
+  width:950px;
+  height: 532px;
+  border-radius:10px;
+  margin-top:3%;
   display: none;
   margin-left: 15%;
   position: fixed;
@@ -559,6 +554,24 @@ div.nav-list {
   top: 0;
    
   
+}
+
+.allDatailOfWin{
+  display: flex;
+  flex-direction: row;
+}
+
+.titleOfWin{
+  display: flex;
+  flex-direction: column;
+ margin-left: 50%;
+ text-align: left;
+ font-weight:bolder;
+}
+
+.datailOfWin{
+  display: flex;
+  flex-direction: column;
 }
 
 

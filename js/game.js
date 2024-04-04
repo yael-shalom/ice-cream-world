@@ -25,7 +25,7 @@ let interval;
 let points = 0;
 
 
-nextLevel();
+
 let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
 let intervalId = setInterval(toggleBlink, 500);
@@ -378,49 +378,47 @@ function showPerson() {
 
 
 function nextLevel() {
-  const nextl = document.querySelector('.nextLevel-content');
-  const addHead = document.querySelector('.nextLevel-header');
+  const nextLevelM = document.querySelector('.nextLevel-content');
+  nextLevelM.style.display = "block";
+  const levelText = "Step number:",
+    scoreText = "Score:",
+    countOfIceText = "The number of ice creams created:",
+    finalTimeText = "Time:",
+    bestScoreText = "highest score:",
+    bestTimeText = "the best time:",
+    countGameText = "Number of games played:",
+    countWinText = "number of victories::",
+    precentofWinText = "win percentage:";
+ 
+   
 
-  // let content=document.createElement('h');
-  // content.innerHTML="ice cream";
-  // addHead.appendChild(content);
 
-
-
-  let table = document.querySelector('.table-final');
-  for (let i = 0; i < 9; i++) {
-    const tr = document.createElement('tr')
-    for (let j = 0; j < 2; j++) {
-      const element = document.createElement('td')
-      tr.appendChild(element);
-
-    }
-    table.appendChild(tr);
-
-  }
-  console.log(table);
-  let tableScore = document.querySelectorAll('td');
-
-  const levelText = "שלב מספר:",
-    scoreText = "ניקוד",
-    countOfIceText = "מספר הגלידות שנוצרו",
-    finalTimeText = "זמן",
-    bestScoreText = "ניקוד הגבוה ביותר",
-    bestTimeText = "הזמן הטוב ביותר",
-    countGameText = "מספר משחקים ששוחקו",
-    countWinText = "מספר נצחונות",
-    precentofWinText = "אחוז נצחונות";
-  console.log(tableScore);
   const values = { 1: `${level}`, 2: `${score}`, 3: `${countOfIce}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
   const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${finalTimeText}`, 5: `${bestScoreText}`, 6: `${bestTimeText}`, 7: `${countGameText}`, 8: `${countWinText}`, 9: `${precentofWinText}` }
-  for (let i = 1; i < 18; i += 2) {
-    const td1 = tableScore[i - 1];
-    console.log(td1);
-    td1.innerHTML = titles[(i + 1) / 2]
-    const td2 = tableScore[i];
-    td2.innerHTML = values[(i + 1) / 2];
+ 
+
+  const titleOfWin = document.querySelector('.titleOfWin');
+  const datailOfWin=document.querySelector('.datailOfWin');
+  titleOfWin.style.display = "block";
+  datailOfWin.style.display = "block";
+
+  for (let i = 0; i < 9; i++) {
+
+      const element1 = document.createElement('p')
+      element1.innerHTML = titles[(i + 1)]+"   "+values[(i + 1)];
+      titleOfWin.appendChild(element1);
+      // const space = document.createElement('div')
+      // space.innerHTML="    ";
+      // titleOfWin.appendChild(space);
+      // const element2 = document.createElement('p')
+      // element2.innerHTML = 
+      // datailOfWin.appendChild(element2);
 
   }
+
+
+  
+  
 }
 
 
