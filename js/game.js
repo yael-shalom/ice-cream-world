@@ -471,7 +471,7 @@ function startTimer() {
     i = 1;
     const elem = document.getElementById("myBar");
     let height = 1;
-    interval = setInterval(frame, 30 / 100 * 1000);
+    interval = setInterval(frame, 15 / 100 * 1000);
     function frame() {
       if (height >= 100) {
         clearInterval(interval);
