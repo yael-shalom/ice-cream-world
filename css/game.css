@@ -543,10 +543,11 @@ div.nav-list {
 .nextLevel-content {
 
  
-  background-image: url(../assets/images/icons/finish.png);
+  background-image: url(../assets/images/icons/win-background.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  height: 1200px;
+  background-size: cover;
+  height: auto;
   width: 1000px;
   border-radius: 50px;
   margin-top: 0;
