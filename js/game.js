@@ -484,6 +484,11 @@ function startTimer() {
         clearInterval(interval);
         i = 0;
         // document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
+        const audio1=document.querySelector('#sadBoy');
+        audio1.currenTime = 0;
+        audio1.play();
+
+
         missedIceCream++;
         document.querySelector('.person').classList.add('out');
         document.querySelector('.ice-cream-container').classList.add('out');
