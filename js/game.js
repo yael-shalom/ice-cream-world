@@ -429,58 +429,16 @@ function lessPoints() {
   setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 50);
   scoreDiv.textContent = `-${points}`
   setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 100);
-  // const scoreDiv = document.getElementById('score');
-  // const pointsDiv = document.createElement('div');
-
-  // pointsDiv.classList.add('floating-text');
-
-  // pointsDiv.textContent = `${points}`;
-  // scoreDiv.appendChild(pointsDiv);
-  // console.log(pointsDiv);
-
-  // // הסרת האלמנט לאחר שהאנימציה תסתיים
-  // setTimeout(() => {
-  //   pointsDiv.remove();
-  // }, 2000);
-
-  // // עדכון הניקוד
-  //  currentScore +=points;
-  //  scoreDiv.textContent = `${currentScore +points}`;
-
 }
 
-// JavaScript
 
 
 function addPoints() {
   const scoreDiv = document.querySelector('.floating-text1');
-  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 50);
+  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 0);
   scoreDiv.textContent = `+${points}`
-  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 100);
-  // const pointsDiv = document.createElement('div');
-
-  // pointsDiv.classList.add('floating-text1');
-  // pointsDiv.textContent = `+${points}`;
-  // scoreDiv.appendChild(pointsDiv);
-
-  // // הסרת האלמנט לאחר שהאנימציה תסתיים
-  // setTimeout(() => {
-  //   pointsDiv.remove();
-  // }, 4000); // שינוי ל-4000 מילישניות כדי להתאים למשך האנימציה
-
-  // // עדכון הניקוד
-  // currentScore += points;
-  // scoreDiv.textContent = currentScore; // עדכון תוכן הניקוד
+  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
 }
-
-// זימון הפונקציה לדוגמה
-
-
-
-/* <div class="ice-cream-container"> </div> */
-
-
-
 
 function startTimer() {
   clearInterval(interval);
