@@ -1,16 +1,19 @@
+//elements arrays
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
 const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
-let randomIceCream = {};
+//ice cream creation
 let randomIceCreamArray = [];
+let randomIceCream = {};
+let createdIceCream = [];
 let iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 let ballsAmount;
 let zIndex = 0;
+//ice cream products
 const coneElements = document.querySelector('.cone-elements').children[1];
 const ballElements = document.querySelector('.ball-elements').children[1];
 const decorationElements = document.querySelector('.decoration-elements').children[1];
-let createdIceCream = [];
 let iceCreamAmount = 0;
 let levelWin = 1;
 let boyId = 0;
@@ -23,9 +26,11 @@ let currentScore = 0;
 let flag1 = 0;
 let hasIceCream = false;
 let sumSalary = 0;
-let coins = document.querySelector('#many-coins');
-let interval;
 let points = 0;
+//success audio
+let coins = document.querySelector('#many-coins');
+//timer interval
+let interval;
 
 
 
