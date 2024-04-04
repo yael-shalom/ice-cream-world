@@ -19,10 +19,10 @@ let missedIceCream = 0;
 let level = 0;
 let score = 0;
 let currentScore = 0;
-let flag1=false;
+let flag1=1;
 let hasIceCream = false;
 let sumSalary = 0;
-const coins = document.querySelector('#many-coins');
+let coins = document.querySelector('#many-coins');
 let interval;
 let points = 0;
 
@@ -122,7 +122,7 @@ function music(ev) {
 }
 
 function music1() {
-  flag1 = !flag1
+  flag1++;
 
 
 }
@@ -309,12 +309,15 @@ function addItem(event) {
   if (balls.includes(event.currentTarget.id)) {
     iceCreamCost['ball'] += 15;
   }
-  if(flag1)
+  console.log(flag1);
+  if(flag1%2==1)
  {
-   audio1.document.querySelector('#add-item');
-   audio1.currenTime = 0;
-   audio1.play();}
-  isRight();
+  
+    const audio1=document.querySelector('#add-item');
+    audio1.currenTime = 0;
+    audio1.play();
+  }
+   isRight();
 }
 
 function isRight() {
@@ -338,12 +341,14 @@ function isRight() {
 
       
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
-      if(flag1)
-     { setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
-      setTimeout(() => { coins.pause(); }, 2000)
-      const au=document.querySelector('#many-coins');
-      au.currenTime=0;
-      au.play();}
+      if(flag1%2==1)
+      { 
+        setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
+        setTimeout(() => { coins.pause(); }, 2000)
+        const au=document.querySelector('#many-coins');
+        au.currenTime=0;
+        au.play();
+      }
       countOfIce++;
       points = 0;
       points += iceCreamCost['cone'];
