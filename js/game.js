@@ -1,5 +1,5 @@
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
-const boys = ['boy1', 'happyboy1'];
+const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 let randomIceCream = {};
@@ -13,6 +13,7 @@ let createdIceCream = [];
 let iceCreamAmount = 0;
 let levelWin = 1;
 let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
+let boyId = 0;
 
 let level = 0;
 let score = 0;
@@ -322,7 +323,7 @@ function isRight() {
 
     if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1]) {
       clearInterval(interval);
-      document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
+      // document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
@@ -373,11 +374,12 @@ function showPerson() {
   iceContainer = document.createElement('div');
   iceContainer.classList.add('ice-cream-container');
   person = document.createElement('img');
-  person.src = '../assets/images/boys/boy1.png';
+  person.src = `../assets/images/boys/${boys[boyId]}.png`;
   person.classList.add('person');
   containPerson.appendChild(iceContainer);
   containPerson.appendChild(person);
   containPerson.classList.add('.contain-p');
+  boyId++;
 }
 
 
@@ -458,7 +460,7 @@ function startTimer() {
       if (height >= 100) {
         clearInterval(interval);
         i = 0;
-        document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
+        // document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
         document.querySelector('.person').classList.add('out');
         document.querySelector('.ice-cream-container').classList.add('out');
         setTimeout(() => { clearData(); showData(); updateIceCreamCost(); }, 4500)
