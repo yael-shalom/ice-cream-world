@@ -12,13 +12,14 @@ const decorationElements = document.querySelector('.decoration-elements').childr
 let createdIceCream = [];
 let iceCreamAmount = 0;
 let levelWin = 1;
-let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
 let boyId = 0;
 let missedIceCream = 0;
-let level = 0;
+//the win model
+let level = 1;
+let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
 let score = 0;
 let currentScore = 0;
-let flag1=0;
+let flag1 = 0;
 let hasIceCream = false;
 let sumSalary = 0;
 let coins = document.querySelector('#many-coins');
@@ -50,11 +51,11 @@ function init() {
   document.getElementsByClassName('closeFinish')[0].addEventListener('click', () => closefinish());
 
 
-    toggle = document.getElementById('backgroundMus').firstElementChild,
+  toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
-    // toggle = document.getElementById('sounds').firstElementChild,
-    // toggle.addEventListener('click', () => this.music1());
-    document.getElementById('sounds').addEventListener('click', () => music1());
+  // toggle = document.getElementById('sounds').firstElementChild,
+  // toggle.addEventListener('click', () => this.music1());
+  document.getElementById('sounds').addEventListener('click', () => music1());
 
   nav = document.getElementsByClassName('nav-list')[0];
   menu = document.getElementsByClassName('container1')[0];
@@ -145,6 +146,7 @@ function closeModal() {
 function closefinish() {
   const modal = document.getElementById("nextLevel-content");
   modal.style.display = "none";
+  document.querySelector('.win-page').style.display = 'none';
 }
 
 
@@ -214,7 +216,7 @@ function randIceCream() {
   }
   randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
   showIceCream();
-  iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
+  iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 }
 
 
@@ -262,16 +264,14 @@ function throwToGarbage() {
   clearIceCream();
 }
 
-function clearIceCream()
-{
+function clearIceCream() {
   createdItem = [];
   createdIceCream = [];
   document.querySelector('.created-container').innerHTML = "";
   iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 }
 
-function updateIceCreamCost()
-{
+function updateIceCreamCost() {
   points = 0;
   points += iceCreamCost['cone'];
   points += iceCreamCost['ball'];
@@ -309,14 +309,13 @@ function addItem(event) {
     iceCreamCost['ball'] += 15;
   }
   console.log(flag1);
-  if((flag1)%2==1)
- {
-  
-    const audio1=document.querySelector('#add-item');
+  if ((flag1) % 2 == 1) {
+
+    const audio1 = document.querySelector('#add-item');
     audio1.currenTime = 0;
     audio1.play();
   }
-   isRight();
+  isRight();
 }
 
 function isRight() {
@@ -336,16 +335,15 @@ function isRight() {
       // document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
-      
 
-      
+
+
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
-      if((flag1)%2==1)
-      { 
-        setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
+      if ((flag1) % 2 == 1) {
+        setTimeout(() => { coins.currenTime = 0; coins.play(); }, 500)
         setTimeout(() => { coins.pause(); }, 2000)
-        const au=document.querySelector('#many-coins');
-        au.currenTime=0;
+        const au = document.querySelector('#many-coins');
+        au.currenTime = 0;
         au.play();
       }
       countOfIce++;
@@ -398,7 +396,7 @@ function showPerson() {
   containPerson.appendChild(iceContainer);
   containPerson.appendChild(person);
   containPerson.classList.add('.contain-p');
-  if(boyId>=4)
+  if (boyId >= 4)
     boyId = 0;
   else
     boyId++;
@@ -408,45 +406,53 @@ function showPerson() {
 function nextLevel() {
   const nextLevelM = document.querySelector('.nextLevel-content');
   nextLevelM.style.display = "block";
-  const levelText = "Step number:",
+  document.querySelector('.win-page').style.display = 'block';
+  const levelText = "Level: ",
     scoreText = "Score:",
-    countOfIceText = "The number of ice creams created:",
+    countOfIceText = "Amount of created ice creams: ",
     finalTimeText = "Time:",
-    bestScoreText = "highest score:",
-    bestTimeText = "the best time:",
-    countGameText = "Number of games played:",
-    countWinText = "number of victories::",
-    precentofWinText = "win percentage:";
- 
-   
+    bestScoreText = "Best score:",
+    bestTimeText = "Best time:",
+    countGameText = "Games played: ",
+    countWinText = "Victories::",
+    precentofWinText = "Win percentage:";
 
 
+
+  score = sumSalary;
+  countOfIce = level * 5 - missedIceCream;
+  bestScore = Math.max(sumSalary, JSON.parse(sessionStorage.getItem('currentUser')).bestScore);
+  finalTime = '-------';
+  bestTime = '-------';
+  countGame = '-------';
+  precentofWin = '-------';
+  countWin = '-------';
   const values = { 1: `${level}`, 2: `${score}`, 3: `${countOfIce}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
   const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${finalTimeText}`, 5: `${bestScoreText}`, 6: `${bestTimeText}`, 7: `${countGameText}`, 8: `${countWinText}`, 9: `${precentofWinText}` }
- 
+
 
   const titleOfWin = document.querySelector('.titleOfWin');
-  const datailOfWin=document.querySelector('.datailOfWin');
+  const datailOfWin = document.querySelector('.datailOfWin');
   titleOfWin.style.display = "block";
   datailOfWin.style.display = "block";
 
   for (let i = 0; i < 9; i++) {
 
-      const element1 = document.createElement('p')
-      element1.innerHTML = titles[(i + 1)]+"   "+values[(i + 1)];
-      titleOfWin.appendChild(element1);
-      // const space = document.createElement('div')
-      // space.innerHTML="    ";
-      // titleOfWin.appendChild(space);
-      // const element2 = document.createElement('p')
-      // element2.innerHTML = 
-      // datailOfWin.appendChild(element2);
+    const element1 = document.createElement('p')
+    element1.innerHTML = titles[(i + 1)] + "   " + values[(i + 1)];
+    titleOfWin.appendChild(element1);
 
   }
-
-
-  
-  
+  btnExit = document.createElement('button');
+  btnExit.textContent = 'exit';
+  btnExit.classList.add('btn-exit');
+  btnExit.addEventListener('click', exit);
+  btnNextLevel = document.createElement('button');
+  btnNextLevel.textContent = 'next level';
+  btnNextLevel.classList.add('btn-next-level');
+  btnNextLevel.addEventListener('click', nextLevelGame);
+  nextLevelM.appendChild(btnExit);
+  nextLevelM.appendChild(btnNextLevel);
 }
 
 
@@ -482,18 +488,19 @@ function startTimer() {
       if (height >= 100) {
         clearInterval(interval);
         i = 0;
-        
+
         // document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
-        if((flag1)%2==1)
-        {const audio1=document.querySelector('#sadBoy');
-        audio1.currenTime = 0;
-        audio1.play();}
+        if ((flag1) % 2 == 1) {
+          const audio1 = document.querySelector('#sadBoy');
+          audio1.currenTime = 0;
+          audio1.play();
+        }
 
 
         missedIceCream++;
         document.querySelector('.person').classList.add('out');
         document.querySelector('.ice-cream-container').classList.add('out');
-        setTimeout(() => { clearData(); showData(); updateIceCreamCost(); }, 4500)
+        setTimeout(() => { updateIceCreamCost(); clearData(); showData(); }, 4500)
       }
       else {
         height++;
@@ -510,7 +517,7 @@ function clearData() {
 }
 
 function showData() {
-  if ((iceCreamAmount+missedIceCream) >= 5) {
+  if ((iceCreamAmount + missedIceCream) >= 5) {
     nextLevel();
     return;
   }
@@ -518,3 +525,12 @@ function showData() {
   randIceCream();
 }
 
+function exit()
+{
+  window.open('../pages/gameSite.html','_self');
+}
+
+function nextLevelGame()
+{
+  
+}

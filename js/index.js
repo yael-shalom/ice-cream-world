@@ -47,7 +47,7 @@ function login(event) {
     if (users[usernameIn.value].password === passwordIn.value)
     {
     sessionStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
-        window.open('./pages/game.html');
+    window.open('./pages/gameSite.html','_self');
     }
     else
         {
@@ -85,7 +85,7 @@ function register(event) {
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
     alert("the registering succeeded");
-    window.open('./pages/game.html');
+    window.open('./pages/gameSite.html','_self');
     // window.location = "http://127.0.0.1:5500/pages/game.html";//ניתוב לעמוד המשחק
     // const form = event.target;
     // console.log(form);
