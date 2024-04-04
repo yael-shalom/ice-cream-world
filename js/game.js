@@ -17,7 +17,7 @@ let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, 
 let level = 0;
 let score = 0;
 let currentScore = 0;
-
+let flag1=false;
 let hasIceCream = false;
 let sumSalary = 0;
 const coins = document.querySelector('#many-coins');
@@ -49,10 +49,12 @@ function init() {
   document.getElementsByClassName('closeFinish')[0].addEventListener('click', () => closefinish());
 
 
-  toggle = document.getElementById('backgroundMus').firstElementChild,
+    toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
-  toggle = document.getElementById('sounds').firstElementChild,
-    toggle.addEventListener('click', (ev) => this.music1());
+    toggle = document.getElementById('sounds').firstElementChild,
+    toggle.addEventListener('click', () => this.music1());
+    document.getElementById('sounds').addEventListener('click', () => music1());
+
   nav = document.getElementsByClassName('nav-list')[0];
   menu = document.getElementsByClassName('container1')[0];
 
@@ -118,7 +120,8 @@ function music(ev) {
 }
 
 function music1() {
-  this.flag = !this.flag
+  flag1 = !flag1
+
 
 }
 function menue() {
@@ -304,7 +307,11 @@ function addItem(event) {
   if (balls.includes(event.currentTarget.id)) {
     iceCreamCost['ball'] += 15;
   }
-  document.querySelector('#add-item').play();
+  if(flag1)
+ {
+   audio1.document.querySelector('#add-item');
+   audio1.currenTime = 0;
+   audio1.play();}
   isRight();
 }
 
@@ -325,10 +332,14 @@ function isRight() {
       document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
+      
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
-      setTimeout(() => { coins.play(); }, 500)
+      if(flag1)
+     { setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
       setTimeout(() => { coins.pause(); }, 2000)
-      document.querySelector('#many-coins').play();
+      const au=document.querySelector('#many-coins');
+      au.currenTime=0;
+      au.play();}
       countOfIce++;
       points += iceCreamCost['cone'];
       points += iceCreamCost['ball'];
@@ -477,14 +488,10 @@ function clearData() {
 
 function showData() {
   if (iceCreamAmount >= 5) {
-    showWin();
+    nextLevel();
     return;
   }
   startTimer();
   randIceCream();
 }
 
-function showWin() {
-  winContent = document.querySelector('#nextLevel-content');
-  winContent.style.display = 'block';
-}
