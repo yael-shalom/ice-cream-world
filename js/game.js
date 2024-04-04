@@ -310,7 +310,7 @@ function addItem(event) {
     iceCreamCost['ball'] += 15;
   }
   console.log(flag1);
-  if((flag1-1)%2==1)
+  if((flag1)%2==1)
  {
   
     const audio1=document.querySelector('#add-item');
@@ -341,7 +341,7 @@ function isRight() {
 
       
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
-      if((flag1-1)%2==1)
+      if((flag1)%2==1)
       { 
         setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
         setTimeout(() => { coins.pause(); }, 2000)
