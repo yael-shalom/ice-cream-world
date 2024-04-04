@@ -19,7 +19,7 @@ let missedIceCream = 0;
 let level = 0;
 let score = 0;
 let currentScore = 0;
-let flag1=1;
+let flag1=0;
 let hasIceCream = false;
 let sumSalary = 0;
 let coins = document.querySelector('#many-coins');
@@ -310,7 +310,7 @@ function addItem(event) {
     iceCreamCost['ball'] += 15;
   }
   console.log(flag1);
-  if((flag1-1)%2==1)
+  if((flag1)%2==1)
  {
   
     const audio1=document.querySelector('#add-item');
@@ -341,7 +341,7 @@ function isRight() {
 
       
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
-      if((flag1-1)%2==1)
+      if((flag1)%2==1)
       { 
         setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
         setTimeout(() => { coins.pause(); }, 2000)
