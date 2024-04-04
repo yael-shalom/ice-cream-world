@@ -467,6 +467,8 @@ function addPoints() {
   setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
 }
 
+
+
 //xxx
 
 function startTimer() {
