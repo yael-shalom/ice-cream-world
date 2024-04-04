@@ -339,6 +339,10 @@ function isRight() {
       createdIceCream = [];
       iceCreamAmount++;
       addPoints();
+      currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+      currentUser['bestScore'] = Math.max(currentUser['bestScore'], sumSalary);
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
       points = 0;
       return;
     }
