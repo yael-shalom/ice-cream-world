@@ -334,6 +334,8 @@ function isRight() {
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
       
+
+      
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
       if(flag1)
      { setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
