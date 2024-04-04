@@ -14,6 +14,7 @@ let iceCreamAmount = 0;
 let levelWin = 1;
 let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
 let boyId = 0;
+let missedIceCream = 0;
 
 let level = 0;
 let score = 0;
@@ -379,7 +380,10 @@ function showPerson() {
   containPerson.appendChild(iceContainer);
   containPerson.appendChild(person);
   containPerson.classList.add('.contain-p');
-  boyId++;
+  if(boyId>=4)
+    boyId = 0;
+  else
+    boyId++;
 }
 
 
@@ -461,6 +465,7 @@ function startTimer() {
         clearInterval(interval);
         i = 0;
         // document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
+        missedIceCream++;
         document.querySelector('.person').classList.add('out');
         document.querySelector('.ice-cream-container').classList.add('out');
         setTimeout(() => { clearData(); showData(); updateIceCreamCost(); }, 4500)
@@ -480,7 +485,7 @@ function clearData() {
 }
 
 function showData() {
-  if (iceCreamAmount >= 5) {
+  if ((iceCreamAmount+missedIceCream) >= 5) {
     showWin();
     return;
   }
