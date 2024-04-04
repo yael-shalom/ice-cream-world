@@ -345,6 +345,7 @@ function isRight() {
       au.currenTime=0;
       au.play();}
       countOfIce++;
+      points = 0;
       points += iceCreamCost['cone'];
       points += iceCreamCost['ball'];
       points += iceCreamCost['decoration'];
