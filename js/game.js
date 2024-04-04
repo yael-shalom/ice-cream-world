@@ -274,7 +274,7 @@ function updateIceCreamCost()
   points += iceCreamCost['decoration'];
   lessPoints();
   sumSalary -= points;
-  document.querySelector('.money').textContent = Math.max(sumSalary, 0);
+  document.querySelector('.money').textContent = `YOUR SALARY: ${Math.max(sumSalary, 0)}`;
 }
 
 function addWin() {
@@ -334,7 +334,7 @@ function isRight() {
       points += iceCreamCost['ball'];
       points += iceCreamCost['decoration'];
       sumSalary += points;
-      document.querySelector('.money').textContent = `${sumSalary}`;
+      document.querySelector('.money').textContent = `YOUR SALARY: ${sumSalary}`;
       iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
       createdIceCream = [];
       iceCreamAmount++;
