@@ -19,7 +19,7 @@ let missedIceCream = 0;
 let level = 0;
 let score = 0;
 let currentScore = 0;
-
+let flag1=false;
 let hasIceCream = false;
 let sumSalary = 0;
 const coins = document.querySelector('#many-coins');
@@ -27,7 +27,7 @@ let interval;
 let points = 0;
 
 
-nextLevel();
+
 let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
 let intervalId = setInterval(toggleBlink, 500);
@@ -51,10 +51,12 @@ function init() {
   document.getElementsByClassName('closeFinish')[0].addEventListener('click', () => closefinish());
 
 
-  toggle = document.getElementById('backgroundMus').firstElementChild,
+    toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
-  toggle = document.getElementById('sounds').firstElementChild,
-    toggle.addEventListener('click', (ev) => this.music1());
+    toggle = document.getElementById('sounds').firstElementChild,
+    toggle.addEventListener('click', () => this.music1());
+    document.getElementById('sounds').addEventListener('click', () => music1());
+
   nav = document.getElementsByClassName('nav-list')[0];
   menu = document.getElementsByClassName('container1')[0];
 
@@ -120,7 +122,8 @@ function music(ev) {
 }
 
 function music1() {
-  this.flag = !this.flag
+  flag1 = !flag1
+
 
 }
 function menue() {
@@ -306,7 +309,11 @@ function addItem(event) {
   if (balls.includes(event.currentTarget.id)) {
     iceCreamCost['ball'] += 15;
   }
-  document.querySelector('#add-item').play();
+  if(flag1)
+ {
+   audio1.document.querySelector('#add-item');
+   audio1.currenTime = 0;
+   audio1.play();}
   isRight();
 }
 
@@ -327,10 +334,14 @@ function isRight() {
       // document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
+      
       setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
-      setTimeout(() => { coins.play(); }, 500)
+      if(flag1)
+     { setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
       setTimeout(() => { coins.pause(); }, 2000)
-      document.querySelector('#many-coins').play();
+      const au=document.querySelector('#many-coins');
+      au.currenTime=0;
+      au.play();}
       countOfIce++;
       points += iceCreamCost['cone'];
       points += iceCreamCost['ball'];
@@ -388,49 +399,47 @@ function showPerson() {
 
 
 function nextLevel() {
-  const nextl = document.querySelector('.nextLevel-content');
-  const addHead = document.querySelector('.nextLevel-header');
+  const nextLevelM = document.querySelector('.nextLevel-content');
+  nextLevelM.style.display = "block";
+  const levelText = "Step number:",
+    scoreText = "Score:",
+    countOfIceText = "The number of ice creams created:",
+    finalTimeText = "Time:",
+    bestScoreText = "highest score:",
+    bestTimeText = "the best time:",
+    countGameText = "Number of games played:",
+    countWinText = "number of victories::",
+    precentofWinText = "win percentage:";
+ 
+   
 
-  // let content=document.createElement('h');
-  // content.innerHTML="ice cream";
-  // addHead.appendChild(content);
 
-
-
-  let table = document.querySelector('.table-final');
-  for (let i = 0; i < 9; i++) {
-    const tr = document.createElement('tr')
-    for (let j = 0; j < 2; j++) {
-      const element = document.createElement('td')
-      tr.appendChild(element);
-
-    }
-    table.appendChild(tr);
-
-  }
-  console.log(table);
-  let tableScore = document.querySelectorAll('td');
-
-  const levelText = "שלב מספר:",
-    scoreText = "ניקוד",
-    countOfIceText = "מספר הגלידות שנוצרו",
-    finalTimeText = "זמן",
-    bestScoreText = "ניקוד הגבוה ביותר",
-    bestTimeText = "הזמן הטוב ביותר",
-    countGameText = "מספר משחקים ששוחקו",
-    countWinText = "מספר נצחונות",
-    precentofWinText = "אחוז נצחונות";
-  console.log(tableScore);
   const values = { 1: `${level}`, 2: `${score}`, 3: `${countOfIce}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
   const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${finalTimeText}`, 5: `${bestScoreText}`, 6: `${bestTimeText}`, 7: `${countGameText}`, 8: `${countWinText}`, 9: `${precentofWinText}` }
-  for (let i = 1; i < 18; i += 2) {
-    const td1 = tableScore[i - 1];
-    console.log(td1);
-    td1.innerHTML = titles[(i + 1) / 2]
-    const td2 = tableScore[i];
-    td2.innerHTML = values[(i + 1) / 2];
+ 
+
+  const titleOfWin = document.querySelector('.titleOfWin');
+  const datailOfWin=document.querySelector('.datailOfWin');
+  titleOfWin.style.display = "block";
+  datailOfWin.style.display = "block";
+
+  for (let i = 0; i < 9; i++) {
+
+      const element1 = document.createElement('p')
+      element1.innerHTML = titles[(i + 1)]+"   "+values[(i + 1)];
+      titleOfWin.appendChild(element1);
+      // const space = document.createElement('div')
+      // space.innerHTML="    ";
+      // titleOfWin.appendChild(space);
+      // const element2 = document.createElement('p')
+      // element2.innerHTML = 
+      // datailOfWin.appendChild(element2);
 
   }
+
+
+  
+  
 }
 
 
@@ -493,7 +502,3 @@ function showData() {
   randIceCream();
 }
 
-function showWin() {
-  winContent = document.querySelector('#nextLevel-content');
-  winContent.style.display = 'block';
-}
