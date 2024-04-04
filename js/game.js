@@ -15,7 +15,6 @@ let levelWin = 1;
 let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
 let boyId = 0;
 let missedIceCream = 0;
-
 let level = 0;
 let score = 0;
 let currentScore = 0;
@@ -483,10 +482,12 @@ function startTimer() {
       if (height >= 100) {
         clearInterval(interval);
         i = 0;
+        
         // document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
-        const audio1=document.querySelector('#sadBoy');
+        if((flag1)%2==1)
+        {const audio1=document.querySelector('#sadBoy');
         audio1.currenTime = 0;
-        audio1.play();
+        audio1.play();}
 
 
         missedIceCream++;
@@ -510,7 +511,7 @@ function clearData() {
 
 function showData() {
   if ((iceCreamAmount+missedIceCream) >= 5) {
-    showWin();
+    nextLevel();
     return;
   }
   startTimer();
