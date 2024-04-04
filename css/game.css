@@ -578,7 +578,7 @@ div.nav-list {
 .floating-text1 {
  
   position: absolute;
-  animation: slowFloatUp 4s ease-in-out forwards;
+  animation: slowFloatUp 2s ease-in-out forwards;
   color:#111;
   font-size: 30px;
   
