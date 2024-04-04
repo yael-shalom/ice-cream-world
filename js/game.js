@@ -3,6 +3,7 @@ const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 let randomIceCream = {};
+let randomIceCreamArray = [];
 let iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 let ballsAmount;
 let zIndex = 0;
@@ -215,6 +216,8 @@ function randIceCream() {
     randomIceCream['ball'].push(balls[rand(0, balls.length - 1)]);
   }
   randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
+  randomIceCreamArray = [];
+  randomIceCreamArray.push(randomIceCream);
   showIceCream();
   iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 }
@@ -225,19 +228,19 @@ function showIceCream() {
   showPerson();
   const container = document.querySelector('.ice-cream-container');
   let cone = document.createElement('img');
-  cone.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
+  cone.src = `../assets/images/cones/${randomIceCreamArray[0]['cone']}.png`;
   cone.classList.add('cone');
   cone.style.zIndex = zIndex++;
   container.appendChild(cone);
   for (let i = 0; i < ballsAmount; i++) {
     let ball = document.createElement('img');
-    ball.src = `../assets/images/balls/${randomIceCream['ball'][i]}.png`;
+    ball.src = `../assets/images/balls/${randomIceCreamArray[0]['ball'][i]}.png`;
     ball.style.zIndex = zIndex++;
     container.appendChild(ball);
   }
   let decoration = document.createElement('img');
   decoration.classList.add('decoration')
-  decoration.src = `../assets/images/decorations/${randomIceCream['decoration']}.png`;
+  decoration.src = `../assets/images/decorations/${randomIceCreamArray[0]['decoration']}.png`;
   decoration.style.zIndex = zIndex;
   container.appendChild(decoration);
   zIndex = 0;
@@ -320,9 +323,9 @@ function addItem(event) {
 
 function isRight() {
   let flag = true;
-  if (randomIceCream['cone'] === createdIceCream[0]) {
-    for (let i = 0; i < randomIceCream['ball'].length; i++) {
-      if (i - 1 > createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i + 1]) {
+  if (randomIceCreamArray[0]['cone'] === createdIceCream[0]) {
+    for (let i = 0; i < randomIceCreamArray[0]['ball'].length; i++) {
+      if (i - 1 > createdIceCream.length || randomIceCreamArray[0]['ball'][i] !== createdIceCream[i + 1]) {
         flag = false;
       }
     }
@@ -330,15 +333,13 @@ function isRight() {
 
   if (flag)
 
-    if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1]) {
+    if (randomIceCreamArray[0]['decoration'] === createdIceCream[createdIceCream.length - 1]) {
       clearInterval(interval);
       // document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
+      addWin(); 
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
-
-
-
-      setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
+      setTimeout(() => { clearData(); showData(); }, 4500);
       if ((flag1) % 2 == 1) {
         setTimeout(() => { coins.currenTime = 0; coins.play(); }, 500)
         setTimeout(() => { coins.pause(); }, 2000)
@@ -458,9 +459,9 @@ function nextLevel() {
 
 function lessPoints() {
   const scoreDiv = document.querySelector('.floating-text1');
-  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 50);
+  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 0);
   scoreDiv.textContent = `-${points}`
-  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 100);
+  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
 }
 
 
@@ -495,12 +496,10 @@ function startTimer() {
           audio1.currenTime = 0;
           audio1.play();
         }
-
-
         missedIceCream++;
         document.querySelector('.person').classList.add('out');
         document.querySelector('.ice-cream-container').classList.add('out');
-        setTimeout(() => { updateIceCreamCost(); clearData(); showData(); }, 4500)
+        setTimeout(() => { updateIceCreamCost(); clearData(); showData(); }, 4000)
       }
       else {
         height++;
