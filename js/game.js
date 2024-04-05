@@ -4,7 +4,7 @@ const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 //ice cream creation
-let randomIceCreamArray = [];
+let randomIceCreamArray = [{}, {}, {}];
 let randomIceCream = {};
 let createdIceCream = [];
 let iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
@@ -37,7 +37,6 @@ let interval;
 let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
 let intervalId = setInterval(toggleBlink, 500);
-
 
 init();
 
@@ -346,7 +345,7 @@ function isRight() {
       //out animation
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
-      setTimeout(() => { clearData(); showData(); }, 4500);
+      setTimeout(() => { clearData(); showData(); }, 4000);
       if ((flag1) % 2 == 1) {
         //coins audio
         setTimeout(() => { coins.currentTime = 0; coins.play(); }, 500)
