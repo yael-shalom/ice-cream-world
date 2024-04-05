@@ -53,11 +53,9 @@ function init() {
 
     toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
-    // toggle = document.getElementById('sounds').firstElementChild,
-    // toggle.addEventListener('click', () => this.music1());
     document.getElementById('sounds').addEventListener('click', () => music1());
 
-  nav = document.getElementsByClassName('nav-list')[0];
+   nav = document.getElementsByClassName('nav-list')[0];
   menu = document.getElementsByClassName('container1')[0];
 
   document.getElementsByClassName('dropbtn')[0].addEventListener('click', () => defenition());
@@ -156,10 +154,7 @@ function closeAndStart() {
 }
 
 
-function menue() {
-  menu.classList.toggle("change");
-  nav.classList.toggle("hidden");
-}
+
 // When the user clicks on the button, open the modal
 function modall() {
   // Get the modal
@@ -408,8 +403,9 @@ function showPerson() {
 
 function nextLevel() {
   const nextLevelM = document.querySelector('.nextLevel-content');
-  nextLevelM.style.display = "block";
-  const levelText = "Step number:",
+    nextLevelM.style.display = "block";
+    
+    const levelText = "Step number:",
     scoreText = "Score:",
     countOfIceText = "The number of ice creams created:",
     finalTimeText = "Time:",
@@ -484,6 +480,8 @@ function startTimer() {
         clearInterval(interval);
         i = 0;
         // document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
+
+      
         const audio1=document.querySelector('#sadBoy');
         audio1.currenTime = 0;
         audio1.play();

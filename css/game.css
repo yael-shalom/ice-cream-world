@@ -76,27 +76,27 @@ img {
   transition: 0.4s;
 }
 
-.sidenav {
+/* .sidenav {
   height: 100%;
   /* 100% Full-height */
-  width: 0;
+  /* width: 0; */
   /* 0 width - change this with JavaScript */
-  position: fixed;
+  /* position: fixed; */
   /* Stay in place */
-  z-index: 1;
+  /* z-index: 1; */
   /* Stay on top */
-  top: 0;
+  /* top: 0; */
   /* Stay at the top */
-  left: 0;
-  background-color: #111;
+  /* left: 0; */
+  /* background-color: #111; */
   /* Black*/
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   /* Disable horizontal scroll */
-  padding-top: 60px;
+  /* padding-top: 60px; */
   /* Place content 60px from the top */
-  transition: 0.5s;
+  /* transition: 0.5s; */
   /* 0.5 second transition effect to slide in the sidenav */
-}
+/* } 
 
 /* When you mouse over the navigation links, change their color */
 /* .sidenav a:hover {
@@ -119,7 +119,7 @@ img {
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+/* @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
   }
@@ -127,7 +127,7 @@ img {
   .sidenav a {
     font-size: 18px;
   }
-}
+} */
 
 /* Rotate first bar */
 .change .bar1 {
