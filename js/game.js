@@ -1,3 +1,4 @@
+//////////////////////////////////////////////////////////
 // products' images arrays
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
 const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5'];
@@ -23,12 +24,9 @@ const nav = document.querySelector('.nav-list');
 const menu = document.querySelector('.container1');
 const moneyEl = document.querySelector('.money');
 
-
 //the win model
-let level = 2;
+let level = 1;
 let finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
-let score = 0;
-let currentScore = 0;
 let flag1 = 0;
 let hasIceCream = false;
 
@@ -48,12 +46,10 @@ let interval;
 let personId = 1;
 let boyId = 0; // 
 
-
 //הפעלת אנימציית חץ
 let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
 let intervalId = setInterval(toggleBlink, 500);
-
 
 function rand(from, to) {
   return Math.floor(Math.random() * (to + 1 - from) + from)
@@ -75,164 +71,13 @@ function initEvents() {
   //שולח לפונקצית סגירת מודל הסיום
   document.getElementsByClassName('closeFinish')[0].addEventListener('click', closeFinish);
 
-<<<<<<< HEAD
-  toggle = document.getElementById('backgroundMus').firstElementChild,
-    toggle.addEventListener('click', (ev) => this.music(ev));
-    document.getElementById('sounds').addEventListener('click', () => music1());
-
-   nav = document.getElementsByClassName('nav-list')[0];
-  menu = document.getElementsByClassName('container1')[0];
-=======
   document.getElementById('backgroundMus').firstElementChild.addEventListener('click', (ev) => music(ev));
 
   document.getElementById('sounds').addEventListener('click', music1);
->>>>>>> 814e86da8fa17fbf41f0d508ba324bb4b32812d6
-
 
   document.getElementsByClassName('dropbtn')[0].addEventListener('click', definition);
 }
 
-<<<<<<< HEAD
-
-function music(ev) {
-  let audio = document.getElementById('backgroundMusic');
-  let element = ev.target.parentElement;
-  if (element.classList.contains('off')) {
-    element.classList.remove('off');
-    element.classList.add('on');
-    audio.currentTime = 0;
-    audio.play();
-  }
-  else {
-    element.classList.remove('on');
-    element.classList.add('off');
-    audio.pause();
-  }
-
-}
-
-function music1() {
-  flag1++;
-
-
-}
-function menue() {
-  menu.classList.toggle("change");
-  nav.classList.toggle("hidden");
-}
-
-function closeModal1() {
-  const modal2 = document.getElementById("myModal1");
-  modal2.style.display = "none";
-
-  // When the user clicks on <span> (x), close the modal
-}
-
-function closeModal() {
-  const modal = document.getElementById("myModal");
-  modal.style.display = "none";
-}
-
-function closefinish() {
-  const modal = document.getElementById("nextLevel-content");
-  modal.style.display = "none";
-  document.querySelector('.win-page').style.display = 'none';
-}
-
-
-function closeAndStart() {
-  const modal3 = document.getElementById("Div1");
-  modal3.style.display = "none";
-  this.sortPlayers();
-}
-
-
-
-// When the user clicks on the button, open the modal
-function modall() {
-  // Get the modal
-  var modal = document.getElementById("myModal");
-  modal.style.display = "block";
-}
-
-function defenition() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function toggleBlink() {
-
-  if (iconStart.style.opacity === '1') {
-    iconStart.style.opacity = '0';
-  } else {
-    iconStart.style.opacity = '1';
-  }
-}
-
-
-
-
-function replay() {
-  location.reload();
-  setInterval(randIceCream, 100000);
-}
-
-//פונקציה המזמנת את ההזמנה הבאה לביצוע
-function play() {
-  if (hasIceCream)
-    return;
-  setTimeout(randIceCream)
-  clearInterval(intervalId);
-  iconStart.classList.remove('on');
-  iconStart.remove('on');
-  startTimer();
-  //start the game
-  hasIceCream = true;
-  menu.addEventListener('click', () => menue());
-}
-
-
-//rand iceCream:
-function randIceCream() {
-  randomIceCream = {};
-  randomIceCream['cone'] = cones[rand(0, cones.length - 1)];
-  ballsAmount = rand(1, 3);
-  randomIceCream['ball'] = [];
-  for (let i = 0; i < ballsAmount; i++) {
-    randomIceCream['ball'].push(balls[rand(0, balls.length - 1)]);
-  }
-  randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
-  randomIceCreamArray = [];
-  randomIceCreamArray.push(randomIceCream);
-  showIceCream();
-  iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
-}
-
-function showIceCream() {
-  showPerson();
-  //add new random ice cream to make
-  const container = document.querySelector('.ice-cream-container');
-  let cone = document.createElement('img');
-  cone.src = `../assets/images/cones/${randomIceCreamArray[0]['cone']}.png`;
-  cone.classList.add('cone');
-  cone.style.zIndex = zIndex++;
-  container.appendChild(cone);
-  for (let i = 0; i < ballsAmount; i++) {
-    let ball = document.createElement('img');
-    ball.src = `../assets/images/balls/${randomIceCreamArray[0]['ball'][i]}.png`;
-    ball.style.zIndex = zIndex++;
-    container.appendChild(ball);
-  }
-  let decoration = document.createElement('img');
-  decoration.classList.add('decoration')
-  decoration.src = `../assets/images/decorations/${randomIceCreamArray[0]['decoration']}.png`;
-  decoration.style.zIndex = zIndex;
-  container.appendChild(decoration);
-  zIndex = 0;
-}
-
-
-=======
->>>>>>> 814e86da8fa17fbf41f0d508ba324bb4b32812d6
 //open elements functions
 function openDivElements(event) {
   if (!hasIceCream)//while didn't start the game
@@ -385,6 +230,7 @@ function toggleBlink() {
 //#endregion
 
 function initLevel() {
+  clearAll();
   for (let i = 0; i < level; i++) {
     randomIceCreamArray[i] = randIceCream();
     enterPerson(i);
@@ -411,8 +257,8 @@ function startTimer(index) {
           audio1.play();
         }
         missedIceCream++;
-        document.querySelector(`.person${personId}`).classList.add('out');
-        document.querySelector(`.ice-cream-container${personId}`).classList.add('out');
+        document.querySelector(`.person${personId}`).classList.add(`out${personId}`);
+        document.querySelector(`.ice-cream-container${personId}`).classList.add(`out${personId}`);
         setTimeout(() => { updateCreatedIceCreamCost(); clearData(); showData(); }, 4000);
       }
       else {
@@ -507,8 +353,13 @@ function updateCreatedIceCreamCost() {
   //sum and update user points
   const points = calculatePoints();
   lessPoints();
-  sumSalary -= points;
+  sumSalary = Math.max(sumSalary-points, 0);
   moneyEl.textContent = `YOUR SALARY: ${Math.max(sumSalary, 0)}`;
+}
+
+function throwToGarbage() {
+  updateCreatedIceCreamCost();
+  clearCreatedIceCream();
 }
 
 function throwToGarbage() {
@@ -519,13 +370,14 @@ function throwToGarbage() {
 
 function addWin() {
   //change the cone color
-  let imgWin = document.querySelector(`#coneWin${levelWin++}-elements`);
-  imgWin.src = '../assets/images/icons/coneWin1.png';
+  if (levelWin % level === 0) {
+    document.querySelector(`#coneWin${levelWin / level}-elements`).src = '../assets/images/icons/coneWin1.png';
+  }
+  levelWin++;
 }
 
 function addItem(event) {
   let zIndex = 0;
-  
   createdIceCream.push(event.currentTarget.id);
   //category of item
   const typeOfImg = event.currentTarget.parentElement.parentElement.classList[1];
@@ -570,21 +422,20 @@ function isRight() {
         flag = false;// if it's not the same
       }
     }
-    if (randomIceCreamArray[k].decoration !== createdIceCream[i])
+    if (randomIceCreamArray[k].decoration !== createdIceCream[i + 1])
       flag = false;
     if (flag)
       rightIndex = k;
   }
-
   if (rightIndex !== -1) {
     //the accurate ice cream
     // clearInterval(interval);////????????
     const points = calculatePoints();
     addWin();
     //out animation
-    document.querySelector(`.person${rightIndex + 1}`).classList.add('out');
-    document.querySelector(`.ice-cream-container${rightIndex + 1}`).classList.add('out');
-    setTimeout(() => { clearData(); showData(rightIndex); }, 4000);
+    document.querySelector(`.person${rightIndex + 1}`).classList.add(`out${rightIndex + 1}`);
+    document.querySelector(`.ice-cream-container${rightIndex + 1}`).classList.add(`out${rightIndex + 1}`);
+    setTimeout(() => { clearData(rightIndex); showData(rightIndex); }, 4000);
     if ((flag1) % 2 == 1) {
       //coins audio
       setTimeout(() => { coins.currentTime = 0; coins.play(); }, 500)
@@ -626,15 +477,9 @@ function closeDivElements() {
 
 function nextLevel() {
   const nextLevelM = document.querySelector('.nextLevel-content');
-<<<<<<< HEAD
-    nextLevelM.style.display = "block";
-    
-    const levelText = "Step number:",
-=======
   nextLevelM.style.display = "block";
   document.querySelector('.win-page').style.display = 'block';
   const levelText = "Level: ",
->>>>>>> 47243271f2c1c7d58bf89c2f68e4cb35c0a1be59
     scoreText = "Score:",
     countOfIceText = "Amount of created ice creams: ",
     finalTimeText = "Time:",
@@ -644,9 +489,6 @@ function nextLevel() {
     countWinText = "Victories::",
     precentofWinText = "Win percentage:";
 
-
-
-  score = sumSalary;
   iceCreamAmount = level * 5 - missedIceCream;
   bestScore = Math.max(sumSalary, JSON.parse(sessionStorage.getItem('currentUser')).bestScore);
   finalTime = '-------';
@@ -654,12 +496,13 @@ function nextLevel() {
   countGame = '-------';
   precentofWin = '-------';
   countWin = '-------';
-  const values = { 1: `${level}`, 2: `${score}`, 3: `${iceCreamAmount}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
+  const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
   const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${finalTimeText}`, 5: `${bestScoreText}`, 6: `${bestTimeText}`, 7: `${countGameText}`, 8: `${countWinText}`, 9: `${precentofWinText}` }
-
 
   const titleOfWin = document.querySelector('.titleOfWin');
   const datailOfWin = document.querySelector('.datailOfWin');
+  titleOfWin.innerHTML = "";
+  datailOfWin.innerHTML = "";
   titleOfWin.style.display = "block";
   datailOfWin.style.display = "block";
 
@@ -670,18 +513,21 @@ function nextLevel() {
     titleOfWin.appendChild(element1);
 
   }
-  btnExit = document.createElement('button');
-  btnExit.textContent = 'exit';
-  btnExit.classList.add('btn-exit');
-  btnExit.addEventListener('click', exit);
-  btnNextLevel = document.createElement('button');
-  btnNextLevel.textContent = 'next level';
-  btnNextLevel.classList.add('btn-next-level');
-  btnNextLevel.addEventListener('click', nextLevelGame);
-  nextLevelM.appendChild(btnExit);
-  nextLevelM.appendChild(btnNextLevel);
-}
 
+  if(level === 1)
+  {
+    btnExit = document.createElement('button');
+    btnExit.textContent = 'exit';
+    btnExit.classList.add('btn-exit');
+    btnExit.addEventListener('click', exit);
+    btnNextLevel = document.createElement('button');
+    btnNextLevel.textContent = 'next level';
+    btnNextLevel.classList.add('btn-next-level');
+    btnNextLevel.addEventListener('click', nextLevelGame);
+    nextLevelM.appendChild(btnExit);
+    nextLevelM.appendChild(btnNextLevel);
+  }
+}
 
 function lessPoints() {
   //animation
@@ -699,64 +545,20 @@ function addPoints() {
   setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
 }
 
-<<<<<<< HEAD
-function startTimer() {
-  clearInterval(interval);
-  let i = 0;
-  if (i == 0) {
-    i = 1;
-    const elem = document.getElementById("myBar");
-    let height = 1;
-    interval = setInterval(frame, 15 / 100 * 1000);
-    function frame() {
-      if (height >= 100) {
-        clearInterval(interval);
-        i = 0;
-        // document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
-<<<<<<< HEAD
-
-      
-        const audio1=document.querySelector('#sadBoy');
-        audio1.currenTime = 0;
-        audio1.play();
-
-
-=======
-        if ((flag1) % 2 == 1) {
-          const audio1 = document.querySelector('#sadBoy');
-          audio1.currenTime = 0;
-          audio1.play();
-        }
->>>>>>> 47243271f2c1c7d58bf89c2f68e4cb35c0a1be59
-        missedIceCream++;
-        document.querySelector('.person').classList.add('out');
-        document.querySelector('.ice-cream-container').classList.add('out');
-        setTimeout(() => { updateIceCreamCost(); clearData(); showData(); }, 4000)
-      }
-      else {
-        height++;
-        elem.style.height = height + "%";
-      }
-    }
-  }
-}
-
-=======
->>>>>>> 814e86da8fa17fbf41f0d508ba324bb4b32812d6
-function clearData() {
+function clearData(index) {
   clearCreatedIceCream();
-  deleteIceCream();
+  deleteIceCream(index);
   closeDivElements();
 }
 
 function showData(index) {//////////////////////////////////////////////////////////////////////////////////////////////////////////
-  if ((iceCreamAmount + missedIceCream) >= 5) {
+  if ((iceCreamAmount + missedIceCream) >= 5 * level) {
     nextLevel();
     return;
   }
   // startTimer();
   randomIceCreamArray[index] = randIceCream();
-  showIceCream(index);
+  enterPerson(index);
 }
 
 function exit() {
@@ -764,24 +566,24 @@ function exit() {
 }
 
 function nextLevelGame() {
+  closeFinish();
   level++;
-  clearAll();
+  play();
 }
 
 function clearAll() {
-  randomIceCreamArray = [{}, {}, {}];
-  randomIceCream = {};
+  randomIceCreamArray = [];
   createdIceCream = [];
   iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
-  zIndex = 0;
-  iceCreamAmount = 0;
   levelWin = 1;
-  boyId = 0;
   missedIceCream = 0;
-  //the win model
   iceCreamAmount = 0;
-  score = 0;
-  currentScore = 0;
   flag1 = 0;
-  points = 0;
+  for (let i = 0; i < level; i++) {
+  document.querySelector(`.contain-person${i+1}`).innerHTML = "";
+  }
+  for(let i=1; i<= 5; i++)
+  {
+    document.querySelector(`#coneWin${i}-elements`).src = '../assets/images/icons/coneSilver1.png';
+  }
 }
