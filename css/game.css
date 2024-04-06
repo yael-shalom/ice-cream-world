@@ -25,13 +25,7 @@ body {
   z-index: -1;
 }
 
-<<<<<<< HEAD
-
-/* עיצוב הגלידה להכנה */
-.ice-cream-container {
-=======
 .ice-cream-container1, .ice-cream-container2 {
->>>>>>> 814e86da8fa17fbf41f0d508ba324bb4b32812d6
   display: flex;
   flex-direction: column-reverse;
   align-items: center;

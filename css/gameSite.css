@@ -4,11 +4,12 @@
   body {
     background-image: url(../assets/images/backGroundHome.jpeg);
     background-repeat: no-repeat;
-    background-size: cover;
- 
+    background-size: 100vw;
     margin: 0;
-    background-color: #eecfca;
+    height: 100vh;
     color: black;
+    background-color: #fecfc5;
+    background-position: center;
    
   
   
@@ -16,9 +17,9 @@
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr  1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     position: relative;
-    z-index:1;
+    z-index:-1;
   }
 
 
@@ -47,66 +48,80 @@
     animation-delay: 2.5s;
     animation-duration: 2s;
   }
-  .oneGame img{
+
+  .title{
+    height: 50px;
+    width:700px;
+    grid-area: 1/2/4/5;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+    animation: slideImage 2s ease forwards;
+    
+}
+@keyframes slideImage {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+  .Game img{
     position: relative;
-    width: 6.5vh;
-    height: 6.5vh;
+    width: 20vh;
+    height:20vh;
     border-radius: 10%;
-
-        overflow-clip-margin: content-box;
-        overflow: clip;
-        z-index: 1;
-
-  }
-  .oneGame img{
-    position: relative;
-    width: 6.5vh;
-    height: 6.5vh;
-    border-radius: 10%;
-
-        overflow-clip-margin: content-box;
-        overflow: clip;
-        z-index: 1;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    transition: transform 0.3s ease;
+    /* overflow-clip-margin: content-box;
+    overflow: clip; */
+     z-index: 1;
 
   }
-  .threeGame img{
-    position: relative;
-    width: 6.5vh;
-    height: 6.5vh;
-    border-radius: 10%;
+  
+  .Game img:hover {
+    transform: scale(1.05);
+}
 
-        overflow-clip-margin: content-box;
-        overflow: clip;
-        z-index: 1;
-
-  }
-  .towGame img{
-    position: relative;
-    width: 6.5vh;
-    height: 6.5vh;
-    border-radius: 10%;
-
-   overflow-clip-margin: content-box;
-        overflow: clip;
-        z-index: 1;
-
-  }
-  .fourColum {
-    position: relative;
-    top: calc(100% - 400px);
-    grid-area: 2/1/2/3;
-    z-index:1;
-    height: 0px;
-
-   
-  }
-
-  .towColum {
-    position: relative;
-    top: calc(100% - 400px);
-    grid-area: 2/5/2/4;
-    z-index: 1;
-    height: 0px;
-  }
 
   
+  .oneColum {
+    position: relative;
+    /* top: calc(100% - 400px); */
+    grid-area: 4/3/4/4;
+    display:grid;
+    z-index:1;
+    animation: slideLeftToPosition 1s ease-in-out forwards;
+  }
+
+
+  @keyframes slideLeftToPosition {
+    0% {
+        left: -200%; /* מיקום התחלתי משמאל */
+    }
+    100% {
+        left: 0; /* מיקום סופי */
+    }
+}
+  .towColum {
+    position: relative;
+    /* top: calc(100% - 400px); */
+    margin-left: -100px;
+    grid-area: 4/6/4/4;
+    z-index: 1;
+    animation: slideRightToPosition 1s ease-in-out forwards;
+  
+  }
+
+  @keyframes slideRightToPosition {
+    0% {
+        right: -100%; /* מיקום התחלתי מימין */
+    }
+    100% {
+        right: 0; /* מיקום סופי */
+    }
+}
