@@ -1,37 +1,42 @@
+//elements arrays
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
 const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'bege-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
+//ice cream creation
+let randomIceCreamArray = [{}, {}, {}];
 let randomIceCream = {};
+let createdIceCream = [];
 let iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 let ballsAmount;
 let zIndex = 0;
+//ice cream products
 const coneElements = document.querySelector('.cone-elements').children[1];
 const ballElements = document.querySelector('.ball-elements').children[1];
 const decorationElements = document.querySelector('.decoration-elements').children[1];
-let createdIceCream = [];
 let iceCreamAmount = 0;
 let levelWin = 1;
-let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
 let boyId = 0;
 let missedIceCream = 0;
-
-let level = 0;
+//the win model
+let level = 1;
+let countOfIce = 0, finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
 let score = 0;
 let currentScore = 0;
-let flag1=0;
+let flag1 = 0;
 let hasIceCream = false;
 let sumSalary = 0;
-let coins = document.querySelector('#many-coins');
-let interval;
 let points = 0;
+//success audio
+let coins = document.querySelector('#many-coins');
+//timer interval
+let interval;
 
 
 
 let iconStart = document.querySelector('.iconStart');
 // קביעת הטיימר להפעלת האנימציה כל 500 מילישניות (חצי שנייה)
 let intervalId = setInterval(toggleBlink, 500);
-
 
 init();
 
@@ -50,8 +55,7 @@ function init() {
   //שולח לפונקצית סגירת מודל הסיום
   document.getElementsByClassName('closeFinish')[0].addEventListener('click', () => closefinish());
 
-
-    toggle = document.getElementById('backgroundMus').firstElementChild,
+  toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
     document.getElementById('sounds').addEventListener('click', () => music1());
 
@@ -96,9 +100,9 @@ function init() {
     img.addEventListener('click', addItem);
     decorationElements.appendChild(img);
   }
+  //border-radius
   decorationElements.firstChild.classList.add('border-radius-top');
   decorationElements.lastChild.classList.add('border-radius-bottom');
-
 }
 
 
@@ -144,6 +148,7 @@ function closeModal() {
 function closefinish() {
   const modal = document.getElementById("nextLevel-content");
   modal.style.display = "none";
+  document.querySelector('.win-page').style.display = 'none';
 }
 
 
@@ -192,9 +197,8 @@ function play() {
   iconStart.classList.remove('on');
   iconStart.remove('on');
   startTimer();
+  //start the game
   hasIceCream = true;
-  // document.getElementById('startGame').removeEventListener('click', () => play());
-
   menu.addEventListener('click', () => menue());
 }
 
@@ -209,29 +213,30 @@ function randIceCream() {
     randomIceCream['ball'].push(balls[rand(0, balls.length - 1)]);
   }
   randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
+  randomIceCreamArray = [];
+  randomIceCreamArray.push(randomIceCream);
   showIceCream();
-  iceCreamCost = {'cone':0, 'ball':0, 'decoration':0};
+  iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 }
 
-
-//תכתבי תיעוד על זה כי לא ממש הבנתי מה זה
 function showIceCream() {
   showPerson();
+  //add new random ice cream to make
   const container = document.querySelector('.ice-cream-container');
   let cone = document.createElement('img');
-  cone.src = `../assets/images/cones/${randomIceCream['cone']}.png`;
+  cone.src = `../assets/images/cones/${randomIceCreamArray[0]['cone']}.png`;
   cone.classList.add('cone');
   cone.style.zIndex = zIndex++;
   container.appendChild(cone);
   for (let i = 0; i < ballsAmount; i++) {
     let ball = document.createElement('img');
-    ball.src = `../assets/images/balls/${randomIceCream['ball'][i]}.png`;
+    ball.src = `../assets/images/balls/${randomIceCreamArray[0]['ball'][i]}.png`;
     ball.style.zIndex = zIndex++;
     container.appendChild(ball);
   }
   let decoration = document.createElement('img');
   decoration.classList.add('decoration')
-  decoration.src = `../assets/images/decorations/${randomIceCream['decoration']}.png`;
+  decoration.src = `../assets/images/decorations/${randomIceCreamArray[0]['decoration']}.png`;
   decoration.style.zIndex = zIndex;
   container.appendChild(decoration);
   zIndex = 0;
@@ -240,7 +245,7 @@ function showIceCream() {
 
 //open elements functions
 function openDivElements(event) {
-  if (!hasIceCream)
+  if (!hasIceCream)//while didn't start the game
     return;
   let x = event.currentTarget.parentElement.children[1];
   if (x.classList.contains('none')) {
@@ -248,6 +253,7 @@ function openDivElements(event) {
     x.classList.add('flex-col');
   }
   else {
+    //close divs elements
     x.classList.add('none');
     x.classList.remove('flex-col');
   }
@@ -258,16 +264,15 @@ function throwToGarbage() {
   clearIceCream();
 }
 
-function clearIceCream()
-{
+function clearIceCream() {
   createdItem = [];
   createdIceCream = [];
   document.querySelector('.created-container').innerHTML = "";
   iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 }
 
-function updateIceCreamCost()
-{
+function updateIceCreamCost() {
+  //sum and update user points
   points = 0;
   points += iceCreamCost['cone'];
   points += iceCreamCost['ball'];
@@ -278,71 +283,68 @@ function updateIceCreamCost()
 }
 
 function addWin() {
+  //change the cone color
   let imgWin = document.querySelector(`#coneWin${levelWin++}-elements`);
   imgWin.src = '../assets/images/icons/coneWin1.png';
 }
 
 function addItem(event) {
   createdIceCream.push(event.currentTarget.id);
+  //category of item
   typeOfImg = event.currentTarget.parentElement.parentElement.classList[1];
   type = typeOfImg.substring(0, typeOfImg.indexOf('-'));
   createdItem = document.querySelector('.created-container');
+  //create the item img
   img = document.createElement('img');
   img.src = `../assets/images/${type}s/${event.currentTarget.id}.png`;
   img.style.zIndex = zIndex++;
   if (decorations.includes(event.currentTarget.id)) {
     img.classList.add('built-decoration');
-    iceCreamCost['decoration'] += 2;
+    iceCreamCost['decoration'] += 2;//add cost
   }
   else
     img.classList.add('built-ice-cream')
   if (cones.includes(event.currentTarget.id)) {
     img.classList.add('cone');
-    iceCreamCost['cone'] += 1;
+    iceCreamCost['cone'] += 1;//add cost
   }
   createdItem.appendChild(img);
   if (balls.includes(event.currentTarget.id)) {
-    iceCreamCost['ball'] += 15;
+    iceCreamCost['ball'] += 15;//add cost
   }
-  console.log(flag1);
-  if((flag1)%2==1)
- {
-  
-    const audio1=document.querySelector('#add-item');
-    audio1.currenTime = 0;
+  if ((flag1) % 2 == 1) {
+    //audio for adding
+    const audio1 = document.querySelector('#add-item');
+    audio1.currentTime = 0;
     audio1.play();
   }
-   isRight();
+  isRight();
 }
 
 function isRight() {
   let flag = true;
-  if (randomIceCream['cone'] === createdIceCream[0]) {
-    for (let i = 0; i < randomIceCream['ball'].length; i++) {
-      if (i - 1 > createdIceCream.length || randomIceCream['ball'][i] !== createdIceCream[i + 1]) {
-        flag = false;
+  if (randomIceCreamArray[0]['cone'] === createdIceCream[0]) {
+    for (let i = 0; i < randomIceCreamArray[0]['ball'].length; i++) {
+      if (i - 1 > createdIceCream.length || randomIceCreamArray[0]['ball'][i] !== createdIceCream[i + 1]) {
+        flag = false;// if it's not the same
       }
     }
   }
 
   if (flag)
-
-    if (randomIceCream['decoration'] === createdIceCream[createdIceCream.length - 1]) {
+    if (randomIceCreamArray[0]['decoration'] === createdIceCream[createdIceCream.length - 1]) {
+      //the accurate ice cream
       clearInterval(interval);
       // document.querySelector('.person').src = '../assets/images/boys/happyboy1.png';
+      addWin();
+      //out animation
       document.querySelector('.person').classList.add('out');
       document.querySelector('.ice-cream-container').classList.add('out');
-      
-
-      
-      setTimeout(() => { addWin(); clearData(); showData(); }, 4500);
-      if((flag1)%2==1)
-      { 
-        setTimeout(() => {coins.currenTime = 0; coins.play(); }, 500)
+      setTimeout(() => { clearData(); showData(); }, 4000);
+      if ((flag1) % 2 == 1) {
+        //coins audio
+        setTimeout(() => { coins.currentTime = 0; coins.play(); }, 500)
         setTimeout(() => { coins.pause(); }, 2000)
-        const au=document.querySelector('#many-coins');
-        au.currenTime=0;
-        au.play();
       }
       countOfIce++;
       points = 0;
@@ -355,6 +357,7 @@ function isRight() {
       createdIceCream = [];
       iceCreamAmount++;
       addPoints();
+      //save the best score of user
       currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
       currentUser['bestScore'] = Math.max(currentUser['bestScore'], sumSalary);
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
@@ -393,8 +396,7 @@ function showPerson() {
   person.classList.add('person');
   containPerson.appendChild(iceContainer);
   containPerson.appendChild(person);
-  containPerson.classList.add('.contain-p');
-  if(boyId>=4)
+  if (boyId >= 4)
     boyId = 0;
   else
     boyId++;
@@ -403,69 +405,78 @@ function showPerson() {
 
 function nextLevel() {
   const nextLevelM = document.querySelector('.nextLevel-content');
+<<<<<<< HEAD
     nextLevelM.style.display = "block";
     
     const levelText = "Step number:",
+=======
+  nextLevelM.style.display = "block";
+  document.querySelector('.win-page').style.display = 'block';
+  const levelText = "Level: ",
+>>>>>>> 47243271f2c1c7d58bf89c2f68e4cb35c0a1be59
     scoreText = "Score:",
-    countOfIceText = "The number of ice creams created:",
+    countOfIceText = "Amount of created ice creams: ",
     finalTimeText = "Time:",
-    bestScoreText = "highest score:",
-    bestTimeText = "the best time:",
-    countGameText = "Number of games played:",
-    countWinText = "number of victories::",
-    precentofWinText = "win percentage:";
- 
-   
+    bestScoreText = "Best score:",
+    bestTimeText = "Best time:",
+    countGameText = "Games played: ",
+    countWinText = "Victories::",
+    precentofWinText = "Win percentage:";
 
 
+
+  score = sumSalary;
+  countOfIce = level * 5 - missedIceCream;
+  bestScore = Math.max(sumSalary, JSON.parse(sessionStorage.getItem('currentUser')).bestScore);
+  finalTime = '-------';
+  bestTime = '-------';
+  countGame = '-------';
+  precentofWin = '-------';
+  countWin = '-------';
   const values = { 1: `${level}`, 2: `${score}`, 3: `${countOfIce}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
   const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${finalTimeText}`, 5: `${bestScoreText}`, 6: `${bestTimeText}`, 7: `${countGameText}`, 8: `${countWinText}`, 9: `${precentofWinText}` }
- 
+
 
   const titleOfWin = document.querySelector('.titleOfWin');
-  const datailOfWin=document.querySelector('.datailOfWin');
+  const datailOfWin = document.querySelector('.datailOfWin');
   titleOfWin.style.display = "block";
   datailOfWin.style.display = "block";
 
   for (let i = 0; i < 9; i++) {
 
-      const element1 = document.createElement('p')
-      element1.innerHTML = titles[(i + 1)]+"   "+values[(i + 1)];
-      titleOfWin.appendChild(element1);
-      // const space = document.createElement('div')
-      // space.innerHTML="    ";
-      // titleOfWin.appendChild(space);
-      // const element2 = document.createElement('p')
-      // element2.innerHTML = 
-      // datailOfWin.appendChild(element2);
+    const element1 = document.createElement('p')
+    element1.innerHTML = titles[(i + 1)] + "   " + values[(i + 1)];
+    titleOfWin.appendChild(element1);
 
   }
-
-
-  
-  
+  btnExit = document.createElement('button');
+  btnExit.textContent = 'exit';
+  btnExit.classList.add('btn-exit');
+  btnExit.addEventListener('click', exit);
+  btnNextLevel = document.createElement('button');
+  btnNextLevel.textContent = 'next level';
+  btnNextLevel.classList.add('btn-next-level');
+  btnNextLevel.addEventListener('click', nextLevelGame);
+  nextLevelM.appendChild(btnExit);
+  nextLevelM.appendChild(btnNextLevel);
 }
 
 
 function lessPoints() {
+  //animation
   const scoreDiv = document.querySelector('.floating-text1');
-  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 50);
+  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 0);
   scoreDiv.textContent = `-${points}`
-  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 100);
+  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
 }
 
-
-
 function addPoints() {
+  //animation
   const scoreDiv = document.querySelector('.floating-text1');
   setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 0);
   scoreDiv.textContent = `+${points}`
   setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
 }
-
-
-
-//xxx
 
 function startTimer() {
   clearInterval(interval);
@@ -480,6 +491,7 @@ function startTimer() {
         clearInterval(interval);
         i = 0;
         // document.querySelector('.person').src = '../assets/images/boys/angryboy1.png';
+<<<<<<< HEAD
 
       
         const audio1=document.querySelector('#sadBoy');
@@ -487,10 +499,17 @@ function startTimer() {
         audio1.play();
 
 
+=======
+        if ((flag1) % 2 == 1) {
+          const audio1 = document.querySelector('#sadBoy');
+          audio1.currenTime = 0;
+          audio1.play();
+        }
+>>>>>>> 47243271f2c1c7d58bf89c2f68e4cb35c0a1be59
         missedIceCream++;
         document.querySelector('.person').classList.add('out');
         document.querySelector('.ice-cream-container').classList.add('out');
-        setTimeout(() => { clearData(); showData(); updateIceCreamCost(); }, 4500)
+        setTimeout(() => { updateIceCreamCost(); clearData(); showData(); }, 4000)
       }
       else {
         height++;
@@ -507,11 +526,18 @@ function clearData() {
 }
 
 function showData() {
-  if ((iceCreamAmount+missedIceCream) >= 5) {
-    showWin();
+  if ((iceCreamAmount + missedIceCream) >= 5) {
+    nextLevel();
     return;
   }
   startTimer();
   randIceCream();
 }
 
+function exit() {
+  window.open('../pages/gameSite.html', '_self');
+}
+
+function nextLevelGame() {
+
+}
