@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    position: relative;
+    z-index: -1;
+  }
+
+
+/* אנימצית הלקוח */
+@keyframes out {
+    0% {
+      /* transform: translate(70%, 0px); */
+    }
+  
+    100% {
+      transform: translate(calc(100vw + 100px), 0px);
+    }
+  
+  }
+  
+  /* .person,
+  .ice-cream-container {
+    animation-name: enter;
+    animation-duration: 4s;
+    transform: translate(70vw, 0px);
+    margin-bottom: 0px;
+  } */
+  
+  .out {
+    animation-name: out;
+    animation-delay: 2.5s;
+    animation-duration: 2s;
+  }
+  
+  .contain-games {
+    position: relative;
+    top: calc(100% - 400px);
+    grid-area: 2/1/2/3;
+    z-index: -1;
+    height: 0px;
+  }
