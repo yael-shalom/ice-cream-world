@@ -75,164 +75,17 @@ function initEvents() {
   //שולח לפונקצית סגירת מודל הסיום
   document.getElementsByClassName('closeFinish')[0].addEventListener('click', closeFinish);
 
-<<<<<<< HEAD
   toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
     document.getElementById('sounds').addEventListener('click', () => music1());
 
    nav = document.getElementsByClassName('nav-list')[0];
   menu = document.getElementsByClassName('container1')[0];
-=======
-  document.getElementById('backgroundMus').firstElementChild.addEventListener('click', (ev) => music(ev));
-
-  document.getElementById('sounds').addEventListener('click', music1);
->>>>>>> 814e86da8fa17fbf41f0d508ba324bb4b32812d6
 
 
   document.getElementsByClassName('dropbtn')[0].addEventListener('click', definition);
 }
 
-<<<<<<< HEAD
-
-function music(ev) {
-  let audio = document.getElementById('backgroundMusic');
-  let element = ev.target.parentElement;
-  if (element.classList.contains('off')) {
-    element.classList.remove('off');
-    element.classList.add('on');
-    audio.currentTime = 0;
-    audio.play();
-  }
-  else {
-    element.classList.remove('on');
-    element.classList.add('off');
-    audio.pause();
-  }
-
-}
-
-function music1() {
-  flag1++;
-
-
-}
-function menue() {
-  menu.classList.toggle("change");
-  nav.classList.toggle("hidden");
-}
-
-function closeModal1() {
-  const modal2 = document.getElementById("myModal1");
-  modal2.style.display = "none";
-
-  // When the user clicks on <span> (x), close the modal
-}
-
-function closeModal() {
-  const modal = document.getElementById("myModal");
-  modal.style.display = "none";
-}
-
-function closefinish() {
-  const modal = document.getElementById("nextLevel-content");
-  modal.style.display = "none";
-  document.querySelector('.win-page').style.display = 'none';
-}
-
-
-function closeAndStart() {
-  const modal3 = document.getElementById("Div1");
-  modal3.style.display = "none";
-  this.sortPlayers();
-}
-
-
-
-// When the user clicks on the button, open the modal
-function modall() {
-  // Get the modal
-  var modal = document.getElementById("myModal");
-  modal.style.display = "block";
-}
-
-function defenition() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function toggleBlink() {
-
-  if (iconStart.style.opacity === '1') {
-    iconStart.style.opacity = '0';
-  } else {
-    iconStart.style.opacity = '1';
-  }
-}
-
-
-
-
-function replay() {
-  location.reload();
-  setInterval(randIceCream, 100000);
-}
-
-//פונקציה המזמנת את ההזמנה הבאה לביצוע
-function play() {
-  if (hasIceCream)
-    return;
-  setTimeout(randIceCream)
-  clearInterval(intervalId);
-  iconStart.classList.remove('on');
-  iconStart.remove('on');
-  startTimer();
-  //start the game
-  hasIceCream = true;
-  menu.addEventListener('click', () => menue());
-}
-
-
-//rand iceCream:
-function randIceCream() {
-  randomIceCream = {};
-  randomIceCream['cone'] = cones[rand(0, cones.length - 1)];
-  ballsAmount = rand(1, 3);
-  randomIceCream['ball'] = [];
-  for (let i = 0; i < ballsAmount; i++) {
-    randomIceCream['ball'].push(balls[rand(0, balls.length - 1)]);
-  }
-  randomIceCream['decoration'] = decorations[rand(0, decorations.length - 1)];
-  randomIceCreamArray = [];
-  randomIceCreamArray.push(randomIceCream);
-  showIceCream();
-  iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
-}
-
-function showIceCream() {
-  showPerson();
-  //add new random ice cream to make
-  const container = document.querySelector('.ice-cream-container');
-  let cone = document.createElement('img');
-  cone.src = `../assets/images/cones/${randomIceCreamArray[0]['cone']}.png`;
-  cone.classList.add('cone');
-  cone.style.zIndex = zIndex++;
-  container.appendChild(cone);
-  for (let i = 0; i < ballsAmount; i++) {
-    let ball = document.createElement('img');
-    ball.src = `../assets/images/balls/${randomIceCreamArray[0]['ball'][i]}.png`;
-    ball.style.zIndex = zIndex++;
-    container.appendChild(ball);
-  }
-  let decoration = document.createElement('img');
-  decoration.classList.add('decoration')
-  decoration.src = `../assets/images/decorations/${randomIceCreamArray[0]['decoration']}.png`;
-  decoration.style.zIndex = zIndex;
-  container.appendChild(decoration);
-  zIndex = 0;
-}
-
-
-=======
->>>>>>> 814e86da8fa17fbf41f0d508ba324bb4b32812d6
 //open elements functions
 function openDivElements(event) {
   if (!hasIceCream)//while didn't start the game
