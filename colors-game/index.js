@@ -35,6 +35,7 @@ function drawScreen() {
         }
         document.querySelector('h1').innerHTML = s;
     }
+    
     colorHeader();
 
     let prev = arr[0];
