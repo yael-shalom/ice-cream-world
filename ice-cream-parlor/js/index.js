@@ -34,6 +34,8 @@ let sumSalary = 0;
 let points = 0;
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+let firstTime = true;
+
 //success audio
 let coins = document.querySelector('#many-coins');
 
@@ -536,7 +538,7 @@ function nextLevel() {
 
   }
 
-  if (level === 1) {
+  if (level === 1 && firstTime) {
     btnExit = document.createElement('button');
     btnExit.textContent = 'exit';
     btnExit.classList.add('btn-exit');
@@ -547,10 +549,16 @@ function nextLevel() {
     btnNextLevel.addEventListener('click', nextLevelGame);
     nextLevelM.appendChild(btnExit);
     nextLevelM.appendChild(btnNextLevel);
+    firstTime = false;
   }
 
   if (level === 3) {
     document.querySelector('.btn-next-level').textContent = 'replay';
+  }
+
+  if(level === 1)
+  {
+    document.querySelector('.btn-next-level').textContent = 'next level';
   }
 
   localStorage.setItem('currentUser', JSON.stringify(currentUser));
@@ -587,7 +595,7 @@ function clearData(index) {
   closeDivElements();
 }
 
-function showData(index) {//////////////////////////////////////////////////////////////////////////////////////////////////////////
+function showData(index) {
   if ((iceCreamAmount + missedIceCream) >= 5 * level) {
     nextLevel();
     return;
