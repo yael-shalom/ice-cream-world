@@ -23,20 +23,20 @@ function init()
 }
 function iceCreamGame()
 {
-    window.open('../ice-cream-world/ice-cream-parlor/index.html','_self');
+    window.open('../ice-cream-parlor/index.html','_self');
    
 }
 function memory()
 {
-    window.open('../ice-cream-world/memory-game/index.html','_self');
+    window.open('../memory-game/index.html','_self');
 }
 function bull()
 {
-    window.open('../ice-cream-world/cows-and-bulls/index.html','_self');
+    window.open('../cows-and-bulls/index.html','_self');
 }
 function another()
 {
-    window.open('../ice-cream-world/colors-game/index.html','_self');
+    window.open('../colors-game/index.html','_self');
 }
 
 function closeModel(event) {

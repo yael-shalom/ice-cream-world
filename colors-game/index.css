@@ -20,6 +20,8 @@ div.flex-col > div {
     margin: 10px;
     border-radius: 5%;
     cursor: pointer;
+    font-size: 62px;
+    box-shadow: 1px 1px #771b2c;
 }
 
 .flex-col {
@@ -37,7 +39,8 @@ div.flex-col > div {
 
 h1 {
     text-align: center;
-    font-size: 70px;
+    font-size: 62px;
+    text-shadow: 1px 1px #771b2c;
 }
 
 p {
