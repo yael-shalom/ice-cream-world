@@ -11,7 +11,7 @@
         <script src="./index.js" defer></script>
     </head>
 
-    <body onload="drawScreen()">
+    <body onload="checkStorage(); drawScreen();" onunload="saveStorage()">
         <h1>COLORS GAME</h1>
         <div class="flex">
             <div class="flex-col">
@@ -29,6 +29,7 @@
                 <source src="assets/SBOINGLO.WAV" type="audio/WAV">
             </audio>
             <p id="grade"></p>
+            <p id="best-grade"></p>
         </div>
     </body>
 
