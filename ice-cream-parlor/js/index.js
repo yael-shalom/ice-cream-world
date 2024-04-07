@@ -105,7 +105,7 @@ function initProductsMenu() {
   //#region cones
   for (let i = 0; i < cones.length; i++) {
     img = document.createElement('img');
-    img.src = `../assets/images/cones/icons/${cones[i]}.png`;
+    img.src = `./assets/images/cones/icons/${cones[i]}.png`;
     img.classList.add('elements-images');
     img.id = cones[i];
     img.addEventListener('click', addItem);
@@ -118,7 +118,7 @@ function initProductsMenu() {
   //#region balls
   for (let i = 0; i < balls.length; i++) {
     img = document.createElement('img');
-    img.src = `../assets/images/balls/icons/${balls[i]}.png`;
+    img.src = `./assets/images/balls/icons/${balls[i]}.png`;
     img.classList.add('elements-images');
     img.id = balls[i];
     img.addEventListener('click', addItem);
@@ -131,7 +131,7 @@ function initProductsMenu() {
   // #region decorations
   for (let i = 0; i < decorations.length; i++) {
     img = document.createElement('img');
-    img.src = `../assets/images/decorations/icons/${decorations[i]}.png`;
+    img.src = `./assets/images/decorations/icons/${decorations[i]}.png`;
     img.classList.add('elements-images');
     img.id = decorations[i];
     img.addEventListener('click', addItem);
@@ -292,7 +292,7 @@ function showPerson(index) {
   // rand boy image
   const boyId = rand(0, boys.length - 1);
   const person = document.createElement('img');
-  person.src = `../assets/images/boys/${boys[boyId]}.png`;
+  person.src = `./assets/images/boys/${boys[boyId]}.png`;
   person.classList.add(`person${personId}`);
 
   // timer
@@ -324,7 +324,7 @@ function showIceCream(index) {
 
   // יצירת אלמנט הגביע של האדם
   const cone = document.createElement('img');
-  cone.src = `../assets/images/cones/${randomIceCreamArray[index].cone}.png`;
+  cone.src = `./assets/images/cones/${randomIceCreamArray[index].cone}.png`;
   cone.classList.add('cone');
   cone.style.zIndex = zIndex++;
   container.appendChild(cone);
@@ -332,7 +332,7 @@ function showIceCream(index) {
   // יצירת הכדורים
   for (let i = 0; i < ballsAmount; i++) {
     let ball = document.createElement('img');
-    ball.src = `../assets/images/balls/${randomIceCreamArray[index].ball[i]}.png`;
+    ball.src = `./assets/images/balls/${randomIceCreamArray[index].ball[i]}.png`;
     ball.style.zIndex = zIndex++;
     container.appendChild(ball);
   }
@@ -340,7 +340,7 @@ function showIceCream(index) {
   // יצירת הקישוט
   let decoration = document.createElement('img');
   decoration.classList.add('decoration');
-  decoration.src = `../assets/images/decorations/${randomIceCreamArray[index].decoration}.png`;
+  decoration.src = `./assets/images/decorations/${randomIceCreamArray[index].decoration}.png`;
   decoration.style.zIndex = zIndex;
   container.appendChild(decoration);
 }
@@ -383,7 +383,7 @@ function throwToGarbage() {
 function addWin() {
   //change the cone color
   if (levelWin % level === 0) {
-    document.querySelector(`#coneWin${levelWin / level}-elements`).src = '../assets/images/icons/coneWin1.png';
+    document.querySelector(`#coneWin${levelWin / level}-elements`).src = './assets/images/icons/coneWin1.png';
   }
   levelWin++;
 }
@@ -397,7 +397,7 @@ function addItem(event) {
   const createdItem = document.querySelector('.created-container');
   //create the item img
   const img = document.createElement('img');
-  img.src = `../assets/images/${type}s/${event.currentTarget.id}.png`;
+  img.src = `./assets/images/${type}s/${event.currentTarget.id}.png`;
   img.style.zIndex = zIndex++;
   if (decorations.includes(event.currentTarget.id)) {
     img.classList.add('built-decoration');
@@ -598,6 +598,6 @@ function clearAll() {
     document.querySelector(`.contain-person${i + 1}`).innerHTML = "";
   }
   for (let i = 1; i <= 5; i++) {
-    document.querySelector(`#coneWin${i}-elements`).src = '../assets/images/icons/coneSilver1.png';
+    document.querySelector(`#coneWin${i}-elements`).src = './assets/images/icons/coneSilver1.png';
   }
 }
