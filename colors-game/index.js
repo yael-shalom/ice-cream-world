@@ -11,7 +11,8 @@ function checkStorage() {
         localStorage.colorsGame = JSON.stringify(colorsGame);
 
     colorsGame = JSON.parse(localStorage.colorsGame);
-    bestScoreEl.textContent = `BEST SCORE IS: ${colorsGame.bestScore}`;
+    bestScoreEl.textContent = `BEST SCORE IS: ${colorsGame.bestScore}, 
+    ${colorsGame.bestPlayer ? `for player: ${colorsGame.bestPlayer}` : 'no previous scores'}`;
 }
 
 function saveStorage() {
@@ -65,8 +66,15 @@ function drawScreen() {
             error.play();
         }
         scoreEl.innerHTML = `YOUR SCORE IS: ${score}`;
-        colorsGame.bestScore = Math.max(score, colorsGame.bestScore);
-        bestScoreEl.textContent = `BEST SCORE IS: ${colorsGame.bestScore}`;
+
+        if (score > colorsGame.bestScore) {
+            colorsGame.bestScore = score;
+            colorsGame.bestPlayer = JSON.parse(localStorage.currentUser).username || 'guest';
+
+            bestScoreEl.textContent = `BEST SCORE IS: ${colorsGame.bestScore}, 
+        ${colorsGame.bestPlayer ? `for player: ${colorsGame.bestPlayer}` : 'no previous scores'}`;
+        }
+
         clearTimeout(timeOut);
         changeColor();
     }
