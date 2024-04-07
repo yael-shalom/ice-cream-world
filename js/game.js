@@ -71,7 +71,6 @@ function initEvents() {
   //שולח לפונקצית סגירת מודל הסיום
   document.getElementsByClassName('closeFinish')[0].addEventListener('click', closeFinish);
 
-<<<<<<< HEAD
   toggle = document.getElementById('backgroundMus').firstElementChild,
     toggle.addEventListener('click', (ev) => this.music(ev));
     document.getElementById('sounds').addEventListener('click', () => music1());
@@ -79,11 +78,6 @@ function initEvents() {
    nav = document.getElementsByClassName('nav-list')[0];
   menu = document.getElementsByClassName('container1')[0];
 
-=======
-  document.getElementById('backgroundMus').firstElementChild.addEventListener('click', (ev) => music(ev));
-
-  document.getElementById('sounds').addEventListener('click', music1);
->>>>>>> 090526981a17308dd38ff309b10485cc6b573a27
 
   document.getElementsByClassName('dropbtn')[0].addEventListener('click', definition);
 }
