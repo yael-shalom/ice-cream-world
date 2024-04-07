@@ -11,16 +11,16 @@
         <script src="./index.js" defer></script>
     </head>
 
-    <body onload="drawScreen()">
+    <body onload="checkStorage(); drawScreen();" onunload="saveStorage()">
         <h1>COLORS GAME</h1>
         <div class="flex">
             <div class="flex-col">
-                <div class="sqr" id="sqr1"></div>
-                <div class="sqr" id="sqr2"></div>
+                <div id="sqr1"></div>
+                <div id="sqr2"></div>
             </div>
             <div class="flex-col">
-                <div class="sqr" id="sqr3"></div>
-                <div class="sqr" id="sqr4"></div>
+                <div id="sqr3"></div>
+                <div id="sqr4"></div>
             </div>
             <audio id="ok">
                 <source src="assets/LGBUBBLE.WAV" type="audio/WAV">
@@ -29,6 +29,7 @@
                 <source src="assets/SBOINGLO.WAV" type="audio/WAV">
             </audio>
             <p id="grade"></p>
+            <p id="best-grade"></p>
         </div>
     </body>
 
