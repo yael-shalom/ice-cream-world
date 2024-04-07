@@ -1,7 +1,9 @@
 
 function drawScreen() {
     const time = 1_000;
+    // const otherColor = "rgb(117, 231, 172)";
     const otherColor = "var(--other-color)";
+    // const sameColor = "rgb(231, 117, 155)";
     const sameColor = "var(--same-color)";
 
     const arr = document.querySelectorAll('[id^=sqr]');
