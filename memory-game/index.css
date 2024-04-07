@@ -2,6 +2,11 @@ body {
   font-family: "Edwardian Script ITC";
   background-color: aliceblue;
   color: cadetblue;
+
+  background-image:url(../colors-game/assets/backGroundAll.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .container {

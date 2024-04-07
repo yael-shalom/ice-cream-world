@@ -2,14 +2,23 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     --other-color: rgb(117, 231, 172);
     --same-color: rgb(231 117 155);
+    background-image:url(../colors-game/assets/backGroundAll.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 div.flex-col > div {
+    background-image: url(./assets/ice-cream.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: var(--same-color);
     height: 200px;
     width: 200px;
     margin: 10px;
     border-radius: 5%;
+    cursor: pointer;
 }
 
 .flex-col {
