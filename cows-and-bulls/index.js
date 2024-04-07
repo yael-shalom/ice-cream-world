@@ -1,6 +1,6 @@
 let i = 0;
 let row = 0;
-const colors = ["lightyellow", "#d6fbef", "lightblue", "rgb(195 180 222)", "lightpink", "lightgray"];
+const colors = ["lightyellow", "lightgreen", "lightblue", "lightpurple", "lightpink", "lightgray"];
 let userColors = {};
 const randColors = [];
 const message = document.getElementById("message");
@@ -18,7 +18,7 @@ function randomColors() {
 
 function clickColor(event) {
     message.style.visibility = "hidden";
-    event.currentTarget.style.backgroundColor = colors[i];
+    event.currentTarget.className = colors[i];
     userColors[event.currentTarget.id] = colors[i];
     i = (i + 1) % colors.length;
     if (isAllChecked()) {
@@ -86,7 +86,7 @@ function check(event) {
         sumPoints[k].style.border = "1px solid #e7607a";
     }
     if (cB === 4) {
-        open("./win.html");
+        open("./win.html", "_self");
     }
 }
 
