@@ -109,7 +109,9 @@ function register(event) {
         username: username.value,
         password: password.value,
         passwordRepeat: passwordRepeat.value,
-        bestScore: 0
+        bestScore: 0,
+        countGames: 0,
+        countWins: 0
     }
 
     users[user.username] = user;
@@ -118,8 +120,6 @@ function register(event) {
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
     homePage();
-    // alert("the registering succeeded"); // TODO: remove alert
-    // window.open('./gameSite.html', '_self');
     closeSignUp();
 }
 

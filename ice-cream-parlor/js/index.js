@@ -22,7 +22,7 @@ const moneyEl = document.querySelector('.money');
 
 //the win model
 let level = 1;
-let finalTime = 0, bestScore = 90, countGame = 2, countWin = 6, bestTime = 30, precentofWin = "100%";
+let bestScore = 0, countGame = 0, countWin = 0, precentofWin = "0%";
 let flag1 = 0;
 let hasIceCream = false;
 
@@ -33,6 +33,7 @@ let levelWin = 1; // גביעי ניצחון
 let sumSalary = 0;
 let points = 0;
 
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 //success audio
 let coins = document.querySelector('#many-coins');
 
@@ -461,10 +462,10 @@ function isRight() {
     iceCreamAmount++;
     addPoints();
     //save the best score of user
-    currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    currentUser.bestScore = Math.max(currentUser.bestScore, sumSalary);
-    currentUser.countGames++;
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    if (currentUser) {
+      currentUser.bestScore = Math.max(currentUser.bestScore, sumSalary);
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
   }
 }
 
@@ -498,22 +499,27 @@ function nextLevel() {
   const levelText = "Level: ",
     scoreText = "Score:",
     countOfIceText = "Amount of created ice creams: ",
-    finalTimeText = "Time:",
     bestScoreText = "Best score:",
-    bestTimeText = "Best time:",
     countGameText = "Games played: ",
     countWinText = "Victories:",
     precentofWinText = "Win percentage:";
 
   iceCreamAmount = level * 5 - missedIceCream;
-  bestScore = Math.max(sumSalary, JSON.parse(sessionStorage.getItem('currentUser')).bestScore);
-  finalTime = '-------';
-  bestTime = '-------';
-  countGame = '-------';
-  precentofWin = '-------';
-  countWin = '-------';
-  const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}`, 4: `${finalTime}`, 5: `${bestScore}`, 6: `${bestTime}`, 7: `${countGame}`, 8: `${countWin}`, 9: `${precentofWin}` }
-  const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${finalTimeText}`, 5: `${bestScoreText}`, 6: `${bestTimeText}`, 7: `${countGameText}`, 8: `${countWinText}`, 9: `${precentofWinText}` }
+  if (JSON.parse(localStorage.getItem('currentUser'))) {
+    bestScore = Math.max(sumSalary, JSON.parse(localStorage.getItem('currentUser')).bestScore);
+    countGame = currentUser.countGames++;
+    if (missedIceCream === 0)
+      countWin = JSON.parse(localStorage.getItem('currentUser')).countWins++;
+    precentofWin = countWin / countGame * 100 + '%';
+  }
+  else {
+    bestScore = 'The system has no data for you, you are guest user';
+    countGame = 'The system has no data for you, you are guest user';
+    countWin = 'The system has no data for you, you are guest user';
+    precentofWin = 'The system has no data for you, you are guest user';
+  }
+  const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}`, 4: `${bestScore}`, 5: `${countGame}`, 6: `${countWin}`, 7: `${precentofWin}` }
+  const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${bestScoreText}`, 5: `${countGameText}`, 6: `${countWinText}`, 7: `${precentofWinText}` }
 
   const titleOfWin = document.querySelector('.titleOfWin');
   const datailOfWin = document.querySelector('.datailOfWin');
@@ -522,7 +528,7 @@ function nextLevel() {
   titleOfWin.style.display = "block";
   datailOfWin.style.display = "block";
 
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 7; i++) {
 
     const element1 = document.createElement('p')
     element1.innerHTML = titles[(i + 1)] + "   " + values[(i + 1)];
@@ -542,22 +548,37 @@ function nextLevel() {
     nextLevelM.appendChild(btnExit);
     nextLevelM.appendChild(btnNextLevel);
   }
+
+  if (level === 3) {
+    document.querySelector('.btn-next-level').textContent = 'replay';
+  }
+
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  const users = JSON.parse(localStorage.getItem('allUsers'));
+  users[currentUser.username] = currentUser;
+  localStorage.setItem('allUsers', JSON.stringify(users))
 }
+
 
 function lessPoints() {
   //animation
-  const scoreDiv = document.querySelector('.floating-text1');
-  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 0);
-  scoreDiv.textContent = `-${points}`
-  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
+  if (points > 0) {
+    const scoreDiv = document.querySelector('.floating-text1');
+    setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 0);
+    scoreDiv.textContent = `-${points}`
+    setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
+  }
+
 }
 
 function addPoints() {
   //animation
-  const scoreDiv = document.querySelector('.floating-text1');
-  setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 0);
-  scoreDiv.textContent = `+${points}`
-  setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
+  if (points > 0) {
+    const scoreDiv = document.querySelector('.floating-text1');
+    setTimeout(() => { scoreDiv.classList.remove('floating-text1'); }, 0);
+    scoreDiv.textContent = `+${points}`
+    setTimeout(() => { scoreDiv.classList.add('floating-text1'); }, 20);
+  }
 }
 
 function clearData(index) {
@@ -583,7 +604,10 @@ function exit() {
 
 function nextLevelGame() {
   closeFinish();
-  level++;
+  if (level < 3)
+    level++;
+  else
+    level = 1;
   play();
 }
 
@@ -602,4 +626,3 @@ function clearAll() {
     document.querySelector(`#coneWin${i}-elements`).src = './assets/images/icons/coneSilver1.png';
   }
 }
-
