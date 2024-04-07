@@ -6,39 +6,6 @@ const usernameIn = document.getElementById('username-in');
 const passwordIn = document.getElementById('psw-in');
 const errorsIn = document.querySelectorAll('.error-in');
 
-
-//ארועי לחיצה
-init();
-
-
-function init()
-{
-
-    //כניסה למשחקים השונים
-    document.getElementById("one").addEventListener('click',iceCreamGame);
-    document.getElementById("two").addEventListener('click',memory);
-    document.getElementById("three").addEventListener('click',bull);
-    document.getElementById("four").addEventListener('click',another);
-    
-}
-function iceCreamGame()
-{
-    window.open('../ice-cream-parlor/index.html','_self');
-   
-}
-function memory()
-{
-    window.open('../memory-game/index.html','_self');
-}
-function bull()
-{
-    window.open('../cows-and-bulls/index.html','_self');
-}
-function another()
-{
-    window.open('../colors-game/index.html','_self');
-}
-
 function closeModel(event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -88,8 +55,6 @@ function login(event) {
         return;
     }
 }
-
-
 
 function register(event) {
     event.preventDefault();
