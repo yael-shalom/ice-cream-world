@@ -101,6 +101,7 @@ h1 {
   font-size: 70px;
   margin: 1rem;
   margin-bottom: 0;
+  margin-left: 30%;
 }
 
 #message {
@@ -157,4 +158,23 @@ h1 {
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
   }
+}
+
+.header{
+
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-img {
+  width: 10vh;
+  height: 10vh;
+  border-radius: 10%;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 0px;
+  margin-left: 0px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
