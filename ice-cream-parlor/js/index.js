@@ -1,6 +1,6 @@
 // products' images arrays
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
-const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5'];
+const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5', 'boy16'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'beige-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 
