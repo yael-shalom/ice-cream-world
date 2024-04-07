@@ -8,7 +8,7 @@ let score = 0;
 
 function checkStorage() {
     if (!localStorage.colorsGame || localStorage.colorsGame === 'undefined')
-        localStorage.colorsGame = JSON.stringify({ bestScore: 0, bestPlayer: '' });
+        localStorage.colorsGame = JSON.stringify(colorsGame);
 
     colorsGame = JSON.parse(localStorage.colorsGame);
     bestScoreEl.textContent = `BEST SCORE IS: ${colorsGame.bestScore}`;
