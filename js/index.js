@@ -118,8 +118,7 @@ function register(event) {
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
     homePage();
-    // alert("the registering succeeded"); // TODO: remove alert
-    // window.open('./gameSite.html', '_self');
+  
     closeSignUp();
 }
 
