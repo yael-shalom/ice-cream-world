@@ -104,6 +104,7 @@ function openDivElements(event) {
   }
 }
 
+
 // הגרלת גלידה אחת והחזרתה
 function randIceCream() {
   const randomIceCream = {};
