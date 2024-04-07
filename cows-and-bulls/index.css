@@ -1,7 +1,10 @@
 body {
   font-family: "Edwardian Script ITC", "Dana Yad AlefAlefAlef Normal",
     "Fb Cursive";
-  background-color: #fee2e84a;
+  background-image:url(../cows-and-bulls/backGroundAll.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: #e7607a;
 }
 

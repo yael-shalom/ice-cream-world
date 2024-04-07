@@ -492,27 +492,29 @@ div.nav-list {
 
 }
 
-.person1, .person2, .person3, .ice-cream-container1, .ice-cream-container2, .ice-cream-container3 {
+.person1, .person2, .person3, .ice-cream-container1, .ice-cream-container2, .ice-cream-container3,
+.timer-container1, .timer-container2, .timer-container3 {
   animation-duration: 3s;
   animation-fill-mode: forwards;
   margin-bottom: 0px;
   position: relative;
-  bottom: 25px;}
+  bottom: 25px;
+}
 
-.person1, .ice-cream-container1 {
+.person1, .ice-cream-container1, .timer-container1 {
   animation-name: enter1;
 }
 
-.person2, .ice-cream-container2 {
+.person2, .ice-cream-container2, .timer-container2 {
   animation-name: enter2;
 }
 
-.person3, .ice-cream-container3 {
+.person3, .ice-cream-container3, .timer-container3 {
   animation-name: enter3;
 }
 
 .out1, .out2, .out3 {
-  animation-delay:  2s;
+  animation-delay:  1s;
   animation-fill-mode: both;
 }
 
@@ -638,18 +640,17 @@ div.nav-list {
   position: relative;
 }
 
-#myProgress {
-  width: 40px;
-  height: 540px;
+.timer-container1, .timer-container2, .timer-container3 {
+  width: 20px;
+  height: 250px;
   background-color: #f98c79;
   border: 1px solid #f98c79;
-  grid-area: 1/5/-1/5;
+  margin-bottom: 0px;
   position: relative;
-  left: calc(100% - 85px);
-  top: calc(100% - 600px);
+  bottom: 25px;
 }
 
-#myBar {
+.timer {
   width: 100%;
   background-color: #fee7d5;
 }
