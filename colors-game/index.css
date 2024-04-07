@@ -5,11 +5,16 @@ body {
 }
 
 div.flex-col > div {
+    background-image: url(./assets/ice-cream.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: var(--same-color);
     height: 200px;
     width: 200px;
     margin: 10px;
     border-radius: 5%;
+    cursor: pointer;
 }
 
 .flex-col {
