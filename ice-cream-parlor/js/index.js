@@ -1,6 +1,6 @@
 // products' images arrays
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
-const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5', 'boy16'];
+const boys = ['child1', 'child2', 'child3', 'child4', 'child5','child6', 'child7', 'child8', 'child9', 'child10', 'child11', 'child12', 'child13', 'child14', 'child15','child16'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'beige-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 
@@ -295,7 +295,7 @@ function showPerson(index) {
   // rand boy image
   const boyId = rand(0, boys.length - 1);
   const person = document.createElement('img');
-  person.src = `./assets/images/boys/${boys[boyId]}.png`;
+  person.src = `./assets/images/children/${boys[boyId]}.png`;
   person.classList.add(`person${personId}`);
 
   // timer
