@@ -2,73 +2,224 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ICE CREAM PARLOR</title>
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/index.css">
-	<script src="./js/index.js" defer></script>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICE CREAM PARLOR</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" defer></script>
+
+
 </head>
 
-<body>
-	<h1>WELCOME TO YOUR ICE CREAM PARLOR</h1>
-	<div class="containBtn">
-		<button class="btn-sign-up" onclick="showSignUp()">Sign Up</button>
-		<button class="btn-sign-in" onclick="showLogin()">Sign In</button>
-	</div>
-	<div id="sign-up" class="modal">
-		<span onclick="closeSignUp()" class="close" title="Close Modal">&times;</span>
-		<form class="modal-content" onsubmit="register(event)">
-			<div class="container">
-				<h1>Sign Up</h1>
-				<p>Please fill in this form to create an account.</p>
-				<hr>
-				<label for="username"><b>User name</b></label>
-				<input type="text" placeholder="Enter your name" id="username" name="username" required>
-				<div class="error"></div>
+<body class="grid-container">
 
-				<label for="psw"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" id="psw" name="psw" required autocomplete="off">
-				<div class="error"></div>
+    <!-- win cones container -->
+    <div class="flexCone-row">
+        <div class="flexCone-col">
+            <div class="iconWin"><img src="../assets/images/icons/coneSilver1.png" id="coneWin1-elements"
+                    class="coneWin-elements"></div>
 
-				<label for="psw-repeat"><b>Repeat Password</b></label>
-				<input type="password" placeholder="Repeat Password" id="psw-repeat" name="psw-repeat" required>
-				<div class="error"></div>
+        </div>
+        <div class="flexCone-col">
+            <div class="iconWin"><img src="../assets/images/icons/coneSilver1.png" id="coneWin2-elements"
+                    class="coneWin-elements"></div>
 
-				<div class="clearfix">
-					<button type="button" onclick="document.getElementById('sign-up').style.display='none'"
-						class="cancelbtn">Cancel</button>
-					<button type="submit" class="signupbtn">Sign Up</button>
-				</div>
-			</div>
-		</form>
-	</div>
+        </div>
+        <div class="flexCone-col">
+            <div class="iconWin"><img src="../assets/images/icons/coneSilver1.png" id="coneWin3-elements"
+                    class="coneWin-elements"></div>
+
+        </div>
+        <div class="flexCone-col">
+            <div class="iconWin"><img src="../assets/images/icons/coneSilver1.png" id="coneWin4-elements"
+                    class="coneWin-elements"></div>
+        </div>
+
+        <div class="flexCone-col">
+            <div class="iconWin"><img src="../assets/images/icons/coneSilver1.png" id="coneWin5-elements"
+                    class="coneWin-elements"></div>
+        </div>
+    </div>
+    <!-- person and ice cream container -->
+    <div class="contain-person1"></div>
+    <div class="contain-person2"></div>
+    <div class="contain-person3"></div>
+    <!-- elements buttons container -->
+    <div class="flex-row grid">
+        <div class="flex-col cone-elements">
+            <div class="elements-btn" onclick="openDivElements(event)"><img src="../assets/images/icons/cone.png"
+                    class="elements-icon"></div>
+            <div class="none elements"></div>
+        </div>
+        <div class="flex-col ball-elements">
+            <div class="elements-btn" onclick="openDivElements(event)"><img src="../assets/images/icons/ball.png"
+                    class="elements-icon"></div>
+            <div class="none elements"></div>
+        </div>
+        <div class="flex-col decoration-elements">
+            <div class="elements-btn" onclick="openDivElements(event)"><img src="../assets/images/icons/decoration.png"
+                    class="elements-icon"></div>
+            <div class="none elements"></div>
+        </div>
+        <div class="elements-btn" onclick="throwToGarbage()"><img src="../assets/images/icons/throw.png"
+                class="elements-icon"></div>
+    </div>
+    <div class="money">YOUR SALARY: 0</div>
+    <div class="floating-text1" id="score"></div>
 
 
-	<div id="sign-in" class="modal">
-		<span onclick="closeSignIn()" class="close" title="Close Modal">&times;</span>
-		<form class="modal-content" onsubmit="login(event)">
-			<div class="container">
-				<h1>Sign In</h1>
-				<p>Please fill in this form to enter with your account.</p>
-				<hr>
-				<label for="username-in"><b>User name</b></label>
-				<input type="text" placeholder="Enter your name" id="username-in" name="username" autocomplete="off" required>
-				<div class="error-in"></div>
+    <!-- menu container -->
+    <div class="cardsAndNav">
+        <div>
 
-				<label for="psw-in"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" id="psw-in" name="psw" autocomplete="off" required>
-				<div class="error-in"></div>
+            <div class="container1">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div class="nav-list hidden">
+                <div class="nav-list-item" title="דף הבית"><a href="../index.html"><img class="menu-img img0"
+                            src="../assets/images/icons/home%20page.png" /></a></div>
+                <button id="myBtn" class="buttonNav">
+                    <div class="nav-list-item"><img class="menu-img img1" src="../assets/images/icons/how%20to.png"
+                            title="הוראות" /></div>
+                </button>
 
-				<div class="clearfix">
-					<button type="button" onclick="document.getElementById('sign-in').style.display='none'"
-						class="cancelbtn">Cancel</button>
-					<button type="submit" class="signupbtn">Sign In</button>
-				</div>
-			</div>
-		</form>
-	</div>
+                <button id="restartGame" class="buttonNav">
+                    <div class="nav-list-item"><img class="menu-img img2" src="../assets/images/icons/new%20game.png"
+                            title="התחל משחק מחדש" /></div>
+                </button>
+                <div class="start">
+                    <button id="startGame" class="buttonNav">
+                        <div class="nav-list-item"><img class="menu-img img4" src="../assets/images/icons/exit.png"
+                                title="התחל משחק" /></div>
+                    </button>
+                    <div class="iconStart" id="iconStart"><img src="../assets/images/icons/start1.png"
+                            title="לחץ כדי להתחיל " /></div>
+                </div>
+                <div class="dropdown">
+                    <button id="dropbtn" class="dropbtn buttonNav">
+                        <div class="nav-list-item"><img class="menu-img img3" src="../assets/images/icons/settings.png"
+                                title="הגדרות" /></div>
+                    </button>
+
+
+                    <div id="myDropdown" class="dropdown-content">
+                        <!-- הגדרות המוזיקה -->
+                        <!-- Rounded switch -->
+                        <div id="selectionDef">
+                            <div class="def">
+                                <div class="music">מוזיקת רקע</div>
+                                <label class="switch off" id="backgroundMus">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
+                            <div class="def">
+                                <div class="music">צלילי משחק</div>
+                                <label class="switch off" id="sounds">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- music -->
+    <!-- happy -->
+    <audio class="au1 music">
+        <source src="../assets/images/Sounds/happyMassage.mp3" />
+    </audio>
+    <!-- sad -->
+    <audio class="au2 music">
+        <source src="../assets/images/Sounds/sadMassage.mp3" />
+    </audio>
+    <!-- background -->
+    <audio id="backgroundMusic">
+        <source src="../assets/images/Sounds/backgroundMusic.mp3" />
+    </audio>
+    <!-- many coins for success -->
+    <audio id="many-coins">
+        <source src="../assets/images/Sounds/MANYCOIN.WAV" />
+    </audio>
+    <!-- adding item -->
+    <audio id="add-item">
+        <source src="../assets/images/Sounds/SHAKE1.WAV" />
+    </audio>
+
+    <!-- ice cream created by the player -->
+    <div class="created-container"> </div>
+
+
+    <!-- הוראות משחק -->
+    <!-- Trigger/Open The Modal -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>הוראות משחק</h2>
+            </div>
+            <h3>גלידה - משחק תחרות מהנה</h3>
+            <p>גד -מוכר הגלידה נבדק במהירותו!</p>
+        </div>
+
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="Div1" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content2">
+            <div class="modal-header1">
+                <h3 style='text-align: center;'>כמה הוראות, ומתחילים!</h3>
+            </div>
+            <p>
+            <p class="prule"> בתפריט תוכלו למצוא הוראות משחק, הגדרות, ועוד. •</p>
+            <p class="prule"> שימו ❤- במהלך המשחק לא תוכלו לשנות חלק מההגדרות. •</p>
+            <p class="prule"> משהו לא עובד? נסו להזכר אולי הכללים לא מתירים את הפעולה. •</p>
+            <p class="prule"> עדיין משהו לא עובד? הסתכלו בצד בחלון הפעולות. •</p>
+            <p class="prule"> עדיין לא? ספרו לנו! אולי נוכל לעזור.. •</p>
+            <br />
+            <p id="beLeft">ההוראות מנוסחות בלשון זכר אך מתאימות לגברים ונשים כאחד.
+        </div>
+    </div>
+    <audio id="many-coins">
+        <source src="../assets/images/Sounds/MANYCOIN.WAV
+        " />
+    </audio>
+
+
+    <div class="win-page">
+        <div id="nextLevel-content" class="nextLevel-content">
+
+            <span id="closeFinish" class="closeFinish">&times;</span>
+            <div class="allDatailOfWin">
+                <div id="titleOfWin" class="titleOfWin"></div>
+                <div id="datailOfWin" class="datailOfWin"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="add-item">
+        <source src="../assets/images/Sounds/SHAKE1.WAV" />
+    </audio>
+
+    <audio id="sadBoy">
+        <source src="../assets/images/Sounds/sadMassage.mp3" />
+    </audio>
+
 </body>
 
 </html>
