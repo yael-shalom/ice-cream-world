@@ -3,11 +3,11 @@ const ok = document.getElementById('ok');
 const error = document.getElementById('error');
 const bestScoreEl = document.getElementById('best-grade');
 
-let colorsGame;
+let colorsGame = { bestScore: 0, bestPlayer: '' };
 let score = 0;
 
 function checkStorage() {
-    if (!localStorage.colorsGame)
+    if (!localStorage.colorsGame || localStorage.colorsGame === 'undefined')
         localStorage.colorsGame = JSON.stringify({ bestScore: 0, bestPlayer: '' });
 
     colorsGame = JSON.parse(localStorage.colorsGame);
@@ -35,7 +35,7 @@ function drawScreen() {
         }
         document.querySelector('h1').innerHTML = s;
     }
-    
+
     colorHeader();
 
     let prev = arr[0];
