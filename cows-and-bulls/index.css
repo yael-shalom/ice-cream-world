@@ -33,12 +33,12 @@ body {
  
 .lightgreen {
   background-color: #dffff5;
-  background-image: url(./images/lightblue.png);
+  background-image: url(./images/green.png);
 }
  
 .lightblue {
-  background-color: lightblue;
-  background-image: url(./images/white.png);
+  background-color: #d1e5ec;
+  background-image: url(./images/blue.png);
 }
  
 .lightpurple {
