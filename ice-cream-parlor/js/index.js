@@ -463,6 +463,7 @@ function isRight() {
     //save the best score of user
     currentUser = JSON.parse(localStorage.getItem('currentUser'));
     currentUser.bestScore = Math.max(currentUser.bestScore, sumSalary);
+    currentUser.countGames++;
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
   }
 }
@@ -501,7 +502,7 @@ function nextLevel() {
     bestScoreText = "Best score:",
     bestTimeText = "Best time:",
     countGameText = "Games played: ",
-    countWinText = "Victories::",
+    countWinText = "Victories:",
     precentofWinText = "Win percentage:";
 
   iceCreamAmount = level * 5 - missedIceCream;
