@@ -73,7 +73,6 @@ function register(event) {
     const user = {
         username: username.value,
         password: password.value,
-        passwordRepeat: passwordRepeat.value,
         bestScore: 0,
         countGames: 0,
         countWins: 0
