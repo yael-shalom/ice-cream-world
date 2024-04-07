@@ -161,12 +161,9 @@ h1 {
   background-color: #fecfc5;
   background-position: center;
   display: block;
-
-
 }
+
 .grid-home {
-
-
   position: relative;
   z-index:-1;
 }
