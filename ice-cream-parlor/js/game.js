@@ -1,4 +1,3 @@
-//////////////////////////////////////////////////////////
 // products' images arrays
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
 const boys = ['boy1', 'boy2', 'boy3', 'boy4', 'boy5'];
@@ -7,12 +6,9 @@ const decorations = ['almonds', 'beige-nuts', 'blueberries', 'brown-nuts', 'cand
 
 //ice cream creation
 let randomIceCreamArray = [];
-//let randomIceCream = {}; /// ?????????????????
 let createdIceCream = [];
 let iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
 let intervalsArray = [];
-//let ballsAmount;
-//let zIndex = 0;
 
 //ice cream products elements
 const coneElements = document.querySelector('.cone-elements').children[1];
@@ -244,7 +240,7 @@ function startTimer(index) {
   let i = 0;
   if (i == 0) {
     i = 1;
-    const elem = document.getElementById("myBar");
+    const elem = document.getElementById("timer");
     let height = 1;
     intervalsArray[index] = setInterval(frame, 15 / 100 * 1000);
     function frame() {//////////////////////////////////////////////////////////////////////////////////////////////////////////////////

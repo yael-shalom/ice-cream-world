@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMORY GAME</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js" defer></script>
+</head>
+
+<body>
+    <div id="example" class="overlay hide" onclick="toggleExample(event.currentTarget)">
+        <img src="./images/img/1.jpg">
+    </div>
+    <div id="win" class="overlay hide" onclick="toggleExample(event.currentTarget)">
+        <p class="winM">WINNER</p>
+    </div>
+    <h1>MEMORY</h1>
+    <ul id="my-sidenav" class="sidenav">
+        <li id="easy">easy</li>
+        <li id="medium">medium</li>
+        <li id="hard">hard</li>
+        <li id="very-hard"><a  href="#cards">very hard</a></li>
+        <li id="all-cards"><a  href="#cards">all cards</a></li>
+        <li id="new-game">new game</li>
+    </ul>
+    <p>The pairs you have to find are: real and fake cake (it's not the same image) <span
+            onclick="toggleExample(example)"><u>for
+                example</u></span></p>
+    <div id="cards" class="container">
+    </div>
+</body>
+
+</html>

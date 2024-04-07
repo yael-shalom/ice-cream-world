@@ -1,0 +1,225 @@
+body {
+  font-family: "Edwardian Script ITC";
+  background-color: aliceblue;
+  color: cadetblue;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center
+}
+
+h1 {
+  text-align: center;
+  font-size: 80px;
+}
+
+span {
+  color: #355f61;
+  cursor: pointer;
+}
+
+p {
+  text-align: center;
+  font-size: 45px;
+}
+
+
+.winM {
+  text-align: center;
+  font-size: 150px;
+}
+
+.winM:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 220px;
+  height: 170px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.show .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: cadetblue;
+  border-radius: 5%;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  border: 3px solid;
+}
+
+
+/* sidebar */
+
+#my-sidenav li {
+  background-color: #355f61;
+  position: absolute;
+  color: transparent;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: -80px;
+  transition: left 0.3s, color 1s;
+  padding: 10px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 30px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+#my-sidenav li:hover {
+  left: 0;
+  color: white;
+}
+
+#easy {
+  top: 20px;
+}
+
+#medium {
+  top: 80px;
+}
+
+#hard {
+  top: 140px;
+}
+
+#very-hard {
+  top: 200px;
+}
+
+#all-cards {
+  top: 260px;
+}
+
+#new-game {
+  top: 320px;
+}
+
+/* overlay */
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none !important;
+}
+
+#example img {
+  height: 60%;
+  width: auto;
+}
+
+#win {
+  background-color: aliceblue;
+}
+
+.good {
+  color:  #db095f;
+  opacity: .7;
+  transition: 1s;
+}
