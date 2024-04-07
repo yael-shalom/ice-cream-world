@@ -17,21 +17,23 @@
 			<button class="btn-sign-up" onclick="showSignUp()">Sign Up</button>
 			<button class="btn-sign-in" onclick="showLogin()">Sign In</button>
 		</div>
-
-     
 		<div class="home">
-			<div class="titleHome"><p  id="title">ICE CREAM WORLD</p></div>
+			<div class="titleHome">
+				<p id="title">ICE CREAM WORLD</p>
+			</div>
 			<div class="oneColum">
-				<a href="./ice-cream-parlor/index.html" class="game"><img id="one" src="./assets/images/icons/iceCreameIcon.jpeg" ></a>
-				<a href="./memory-game/index.html" class="game" ><img id="two" src="./assets/images/icons/memory-game.jpeg" ></a>
+				<a href="./ice-cream-parlor/index.html" class="game"><img id="one"
+						src="./assets/images/icons/iceCreameIcon.jpeg"></a>
+				<a href="./memory-game/index.html" class="game"><img id="two"
+						src="./assets/images/icons/memory-game.jpeg"></a>
 			</div>
 			<div class="towColum">
-				<a href="./cows-and-bulls/index.html" class="game"><img id="three" src="./assets/images/icons/bull.jpeg"></a>
-				<a href="./colors-game/index.html" class="game"><img id="four" src="./assets/images/icons/colorGame.jpeg"></a>
+				<a href="./cows-and-bulls/index.html" class="game"><img id="three"
+						src="./assets/images/icons/bull.jpeg"></a>
+				<a href="./colors-game/index.html" class="game"><img id="four"
+						src="./assets/images/icons/colorGame.jpeg"></a>
 			</div>
 		</div>
-	
-
 		<div id="sign-up" class="modal">
 			<span onclick="closeSignUp()" class="close" title="Close Modal">&times;</span>
 			<form class="modal-content" onsubmit="register(event)">
@@ -49,8 +51,7 @@
 					<input type="password" placeholder="Repeat Password" id="psw-repeat" name="psw-repeat" required>
 					<div class="error"></div>
 					<div class="clearfix">
-						<button type="button" onclick="document.getElementById('sign-up').style.display='none'"
-							class="cancelbtn">Cancel</button>
+						<button class="cancelbtn" onclick="closeSignUp(); showLogin()">Sign In</button>
 						<button type="submit" class="signupbtn">Sign Up</button>
 					</div>
 				</div>
@@ -72,14 +73,12 @@
 						required>
 					<div class="error-in"></div>
 					<div class="clearfix">
-						<button type="button" onclick="document.getElementById('sign-in').style.display='none'"
-							class="cancelbtn">Cancel</button>
+						<button class="cancelbtn" onclick="closeSignIn(); showSignUp()">Sign Up</button>
 						<button type="submit" class="signupbtn">Sign In</button>
 					</div>
 				</div>
 			</form>
 		</div>
-
 	</body>
 
 </html>
