@@ -45,7 +45,7 @@ let iconStart = document.querySelector('.iconStart');
 let intervalId = setInterval(toggleBlink, 500);
 
 function rand(from, to) {
-  return Math.floor(Math.random() * (to + 1 - from) + from)
+  return Math.floor(Math.random() * (to - from + 1) + from)
 }
 
 init();
@@ -255,17 +255,19 @@ function startTimer(index) {
         document.querySelector(`.person${personId}`).classList.add(`out${personId}`);
         document.querySelector(`.ice-cream-container${personId}`).classList.add(`out${personId}`);
         document.querySelector(`.timer-container${personId}`).classList.add(`out${personId}`);
-        clearCreatedIceCream();
+        setTimeout(clearCreatedIceCream, 500);
         closeDivElements();
         setTimeout(() => { updateCreatedIceCreamCost(); deleteIceCream(index);; showData(index); }, 3000);
       }
       else {
         height++;
-        elem.style.height = height + "%";
+        if (elem && elem.style)
+          elem.style.height = height + "%";
       }
     }
   }
 }
+
 
 //פונקציה המזמנת את ההזמנה הבאה לביצוע
 function play() {
@@ -453,7 +455,7 @@ function isRight() {
       setTimeout(() => { coins.pause(); }, 2000)
     }
     sumSalary += points;
-    clearCreatedIceCream();
+    setTimeout(clearCreatedIceCream, 500);
     closeDivElements();
     document.querySelector('.money').textContent = `YOUR SALARY: ${sumSalary}`;
     iceCreamAmount++;
