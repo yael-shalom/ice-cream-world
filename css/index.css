@@ -142,6 +142,10 @@ h1 {
 /* עמוד דף הבית */
 .home{
   display: none;
+  flex-direction: row;
+  justify-content: center; /* ממרכז את התוכן אופקית */
+  align-items: center; /* ממרכז את התוכן אנכית */
+  height: 100vh; /* גובה מלא של החלון */
 }
 
 .body-home {
@@ -153,14 +157,13 @@ h1 {
   color: black;
   background-color: #fecfc5;
   background-position: center;
- display: block;
+  display: block;
 
 
 }
 .grid-home {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+
+
   position: relative;
   z-index:-1;
 }
@@ -169,11 +172,9 @@ h1 {
   font-size: 100px;
   font-weight: bold;
   font-family:Georgia, 'Times New Roman', Times, serif ;
-
-  grid-area: 1/2/4/5;
+  text-align: center;
   position: absolute;
   transform: translate(-50%, -50%);
-
   width: 100%;
   height: 100%;
   animation: slideImage 1s ease forwards;
@@ -198,11 +199,13 @@ h1 {
   /* overflow-clip-margin: content-box;
   overflow: clip; */
    z-index: 1;
+   display: block;
 
 }
 
 .game img:hover {
   transform: scale(1.05);
+  display: block;
 }
 
 
@@ -210,26 +213,29 @@ h1 {
 .first-column {
   position: relative;
   /* top: calc(100% - 400px); */
-  grid-area: 4/3/4/4;
-  display:grid;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20%;
   z-index:1;
   animation: slideLeftToPosition 1s ease-in-out forwards;
+ 
 }
 
 
 @keyframes slideLeftToPosition {
   0% {
-      left: -200%; /* מיקום התחלתי משמאל */
+      left: -100%; /* מיקום התחלתי משמאל */
   }
   100% {
       left: 0; /* מיקום סופי */
   }
 }
 .second-column {
+
   position: relative;
-  /* top: calc(100% - 400px); */
-  margin-left: -100px;
-  grid-area: 4/6/4/4;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20%;
   z-index: 1;
   animation: slideRightToPosition 1s ease-in-out forwards;
 
@@ -240,6 +246,17 @@ h1 {
       right: -100%; /* מיקום התחלתי מימין */
   }
   100% {
-      right: 0; /* מיקום סופי */
+      right: 0; 
+      /* מיקום סופי */
   }
 }
+
+
+/* @keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+} */

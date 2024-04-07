@@ -6,6 +6,39 @@ const usernameIn = document.getElementById('username-in');
 const passwordIn = document.getElementById('psw-in');
 const errorsIn = document.querySelectorAll('.error-in');
 
+
+//ארועי לחיצה
+init();
+
+
+function init()
+{
+
+    //כניסה למשחקים השונים
+    document.getElementById("one").addEventListener('click',iceCreamGame);
+    document.getElementById("two").addEventListener('click',memory);
+    document.getElementById("three").addEventListener('click',bull);
+    document.getElementById("four").addEventListener('click',another);
+    
+}
+function iceCreamGame()
+{
+    window.open('../ice-cream-world/ice-cream-parlor/index.html','_self');
+   
+}
+function memory()
+{
+    window.open('../ice-cream-world/memory-game/index.html','_self');
+}
+function bull()
+{
+    window.open('../ice-cream-world/cows-and-bulls/index.html','_self');
+}
+function another()
+{
+    window.open('../ice-cream-world/colors-game/index.html','_self');
+}
+
 function closeModel(event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -47,6 +80,7 @@ function login(event) {
     if (users[usernameIn.value].password === passwordIn.value) {
         sessionStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
         // window.open('./gameSite.html', '_self');
+        homePage();
         closeSignIn()
     }
     else {
@@ -96,22 +130,28 @@ function homePage()
   const grid=document.querySelector('.grid-container');
   const firstCol=document.querySelector('.oneColum');
   const secondCol=document.querySelector('.towColum');
-  const game=document.querySelector('.Game')
+  const game=document.querySelectorAll('.Game');
   const title=document.querySelector('.titleHome');
   const home=document.querySelector('.home');
-  const buttons=
-  home.style.display='block';
-  grid.style.display='block';
-  firstCol.style.display='block';
-  secondCol.style.display='block';
-  grid.style.display='block';
-  game.style.display='block';
+  const buttons=document.querySelector('.containBtn');
+  buttons.style.display='none';
+  home.style.display='flex';
+ 
+  console.log(game);
   title.style.display='block';
   body.classList.add('body-home')
   grid.classList.add('grid-home');
-  firstCol.classList.add('.first-column');
-  secondCol.classList.add('.second-column');
-  game.classList.add('.game');
-  title.classList.add('.title');
+  firstCol.classList.add('first-column');
+  secondCol.classList.add('second-column');
+  grid.classList.remove('body');
+  grid.classList.remove('grid-container');
+ 
+  game.forEach(function(div) {
+  div.classList.add('game');
+   });
+
+
+  title.classList.add('title');
+
 
 }
