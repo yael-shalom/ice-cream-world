@@ -83,7 +83,35 @@ function register(event) {
     localStorage.setItem('currentUser', JSON.stringify(user));
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
-    alert("the registering succeeded"); // TODO: remove alert
+    homePage();
+    // alert("the registering succeeded"); // TODO: remove alert
     // window.open('./gameSite.html', '_self');
     closeSignUp();
+}
+
+//פונקציה המביאה לדף הבית
+function homePage()
+{
+  const body=document.querySelector('body');
+  const grid=document.querySelector('.grid-container');
+  const firstCol=document.querySelector('.oneColum');
+  const secondCol=document.querySelector('.towColum');
+  const game=document.querySelector('.Game')
+  const title=document.querySelector('.titleHome');
+  const home=document.querySelector('.home');
+  const buttons=
+  home.style.display='block';
+  grid.style.display='block';
+  firstCol.style.display='block';
+  secondCol.style.display='block';
+  grid.style.display='block';
+  game.style.display='block';
+  title.style.display='block';
+  body.classList.add('body-home')
+  grid.classList.add('grid-home');
+  firstCol.classList.add('.first-column');
+  secondCol.classList.add('.second-column');
+  game.classList.add('.game');
+  title.classList.add('.title');
+
 }

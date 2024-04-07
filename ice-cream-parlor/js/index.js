@@ -601,3 +601,4 @@ function clearAll() {
     document.querySelector(`#coneWin${i}-elements`).src = './assets/images/icons/coneSilver1.png';
   }
 }
+

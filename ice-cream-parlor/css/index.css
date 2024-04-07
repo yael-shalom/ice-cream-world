@@ -221,7 +221,11 @@ div.nav-list {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-image: url(../assets/images/backGroundAll.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+ 
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -231,10 +235,13 @@ div.nav-list {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #111;
 }
+.modal-content p{
+  text-align: center;
+}
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #971699;
+  
   color: white;
 }
 
@@ -688,3 +695,7 @@ div.nav-list {
 .btn-next-level {
   margin-left: 10px;
 }
+
+
+
+

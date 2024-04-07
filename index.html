@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="./css/style.css">
 		<link rel="stylesheet" href="./css/index.css">
-		<link rel="stylesheet" href="./css/gameSite.css">
+		<!-- <link rel="stylesheet" href="./css/gameSite.css"> -->
 		<script src="./js/index.js" defer></script>
 	</head>
 
@@ -18,17 +18,21 @@
 			<button class="btn-sign-up" onclick="showSignUp()">Sign Up</button>
 			<button class="btn-sign-in" onclick="showLogin()">Sign In</button>
 		</div>
-		<div class="title"><img id="title" class="title" src="./assets/images/icons/welcom.png">
-		</div>
 
-		<div class="first-column">
-			<a href="./ice-cream-parlor/index.html" class="game"><img id="one" src="./assets/images/icons/iceCreameIcon.jpeg"></a>
-			<a href="./memory-game/index.html" class="game"><img id="two" src="./assets/images/icons/memory-game.jpeg"></a>
+     
+		<div class="home">
+			<div class="titleHome"><p  id="title" class="title">WELCOME</p></div>
+			<div class="oneColum">
+				<div class="Game"><img id="one" src="../ice-cream-world/assets/images/icons/iceCreameIcon.jpeg" ></div>
+				<div class="Game" ><img src="../ice-cream-world/assets/images/icons/memory-game.jpeg" id="two"></div>
+			</div>
+			<div class="towColum">
+				<div class="Game"> <img src="../ice-cream-world/assets/images/icons/bull.jpeg" id="three"></div>
+				<div class="Game"><img src="../ice-cream-world/assets/images/icons/colorGame.jpeg" id="four"></div>
+			</div>
 		</div>
-		<div class="second-column">
-			<a href="./cows-and-bulls/index.html" class="game"><img id="three" src="./assets/images/icons/bull.jpeg"></a>
-			<a href="colors-game/index.html" class="game"><img id="four" src="./assets/images/icons/colorGame.jpeg"></a>
-		</div>
+	
+
 		<div id="sign-up" class="modal">
 			<span onclick="closeSignUp()" class="close" title="Close Modal">&times;</span>
 			<form class="modal-content" onsubmit="register(event)">
