@@ -5,6 +5,41 @@ const errors = document.querySelectorAll('.error');
 const usernameIn = document.getElementById('username-in');
 const passwordIn = document.getElementById('psw-in');
 const errorsIn = document.querySelectorAll('.error-in');
+homePage();
+
+
+//ארועי לחיצה
+init();
+
+
+function init()
+{
+
+    //כניסה למשחקים השונים
+    document.getElementById("one").addEventListener('click',iceCreamGame);
+    document.getElementById("two").addEventListener('click',memory);
+    document.getElementById("three").addEventListener('click',bull);
+    document.getElementById("four").addEventListener('click',another);
+    
+}
+function iceCreamGame()
+{
+    window.open('./ice-cream-parlor/index.html','_self');
+
+   
+}
+function memory()
+{
+    window.open('./memory-game/index.html','_self');
+}
+function bull()
+{
+    window.open('./cows-and-bulls/index.html','_self');
+}
+function another()
+{
+    window.open('./colors-game/index.html','_self');
+}
 
 function closeModel(event) {
     if (event.target == modal) {
@@ -47,7 +82,7 @@ function login(event) {
     if (users[usernameIn.value].password === passwordIn.value) {
         sessionStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
         // window.open('./gameSite.html', '_self');
-        homePage();
+       
         closeSignIn()
     }
     else {
@@ -55,6 +90,8 @@ function login(event) {
         return;
     }
 }
+
+
 
 function register(event) {
     event.preventDefault();
@@ -73,9 +110,8 @@ function register(event) {
     const user = {
         username: username.value,
         password: password.value,
-        bestScore: 0,
-        countGames: 0,
-        countWins: 0
+        passwordRepeat: passwordRepeat.value,
+        bestScore: 0
     }
 
     users[user.username] = user;
@@ -83,37 +119,38 @@ function register(event) {
     localStorage.setItem('currentUser', JSON.stringify(user));
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
-    homePage();
+   
+  
     closeSignUp();
 }
 
 //פונקציה המביאה לדף הבית
-function homePage() {
-    const body = document.querySelector('body');
-    const grid = document.querySelector('.grid-container');
-    const firstCol = document.querySelector('.oneColum');
-    const secondCol = document.querySelector('.towColum');
-    const game = document.querySelectorAll('.Game');
-    const title = document.querySelector('.titleHome');
-    const home = document.querySelector('.home');
-    const buttons = document.querySelector('.containBtn');
-    buttons.style.display = 'none';
-    home.style.display = 'flex';
+function homePage()
+{
+  const body=document.querySelector('body');
+  const grid=document.querySelector('.grid-container');
+  const firstCol=document.querySelector('.oneColum');
+  const secondCol=document.querySelector('.towColum');
+  const game=document.querySelectorAll('.Game');
+  const title=document.querySelector('.titleHome');
+  const home=document.querySelector('.home');
+  const buttons=document.querySelector('.containBtn');
+//   buttons.style.display='none';
+  home.style.display='flex';
+  title.style.display='block';
+  body.classList.add('body-home')
+  grid.classList.add('grid-home');
+  firstCol.classList.add('first-column');
+  secondCol.classList.add('second-column');
+  grid.classList.remove('body');
+  grid.classList.remove('grid-container');
+ 
+  game.forEach(function(div) {
+  div.classList.add('game');
+   });
 
-    title.style.display = 'block';
-    body.classList.add('body-home')
-    grid.classList.add('grid-home');
-    firstCol.classList.add('first-column');
-    secondCol.classList.add('second-column');
-    grid.classList.remove('body');
-    grid.classList.remove('grid-container');
 
-    game.forEach(function (div) {
-        div.classList.add('game');
-    });
-
-
-    title.classList.add('title');
+  title.classList.add('title');
 
 
 }

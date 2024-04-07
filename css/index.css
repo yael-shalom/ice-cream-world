@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url(../assets/images/background.jpg);
+  background-image: url(../assets/images/home-background.jpeg);
   background-repeat: no-repeat;
   background-size: 100vw;
   margin: 0;
@@ -38,6 +38,7 @@ button {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  margin-top: 50px;
 }
 
 button:hover {
@@ -214,12 +215,12 @@ h1 {
 
 .first-column {
   position: relative;
-  /* top: calc(100% - 400px); */
   display: flex;
   flex-direction: column;
   margin-top: 20%;
   z-index:1;
   animation: slideLeftToPosition 1s ease-in-out forwards;
+  margin-right: 20px;
  
 }
 
@@ -238,6 +239,7 @@ h1 {
   display: flex;
   flex-direction: column;
   margin-top: 20%;
+  margin-left: 20px;
   z-index: 1;
   animation: slideRightToPosition 1s ease-in-out forwards;
 
@@ -252,13 +254,3 @@ h1 {
       /* מיקום סופי */
   }
 }
-
-
-/* @keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-} */
