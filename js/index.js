@@ -88,34 +88,32 @@ function register(event) {
 }
 
 //פונקציה המביאה לדף הבית
-function homePage()
-{
-  const body=document.querySelector('body');
-  const grid=document.querySelector('.grid-container');
-  const firstCol=document.querySelector('.oneColum');
-  const secondCol=document.querySelector('.towColum');
-  const game=document.querySelectorAll('.Game');
-  const title=document.querySelector('.titleHome');
-  const home=document.querySelector('.home');
-  const buttons=document.querySelector('.containBtn');
-  buttons.style.display='none';
-  home.style.display='flex';
- 
-  console.log(game);
-  title.style.display='block';
-  body.classList.add('body-home')
-  grid.classList.add('grid-home');
-  firstCol.classList.add('first-column');
-  secondCol.classList.add('second-column');
-  grid.classList.remove('body');
-  grid.classList.remove('grid-container');
- 
-  game.forEach(function(div) {
-  div.classList.add('game');
-   });
+function homePage() {
+    const body = document.querySelector('body');
+    const grid = document.querySelector('.grid-container');
+    const firstCol = document.querySelector('.oneColum');
+    const secondCol = document.querySelector('.towColum');
+    const game = document.querySelectorAll('.Game');
+    const title = document.querySelector('.titleHome');
+    const home = document.querySelector('.home');
+    const buttons = document.querySelector('.containBtn');
+    buttons.style.display = 'none';
+    home.style.display = 'flex';
+
+    title.style.display = 'block';
+    body.classList.add('body-home')
+    grid.classList.add('grid-home');
+    firstCol.classList.add('first-column');
+    secondCol.classList.add('second-column');
+    grid.classList.remove('body');
+    grid.classList.remove('grid-container');
+
+    game.forEach(function (div) {
+        div.classList.add('game');
+    });
 
 
-  title.classList.add('title');
+    title.classList.add('title');
 
 
 }

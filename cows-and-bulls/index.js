@@ -13,7 +13,6 @@ function randomColors() {
         if (!randColors.includes(colors[rand]))
             randColors.push(colors[rand]);
     }
-    // console.log(randColors);
 }
 
 function clickColor(event) {
@@ -64,8 +63,6 @@ function check(event) {
     const sumPoints = event.currentTarget.children;
     const v = Object.values(userColors);
     let cB = 0, cP = 0;
-    // console.log(v);
-    // console.log(randColors);
     for (let j = 0; j < v.length; j++) {
         if (randColors.includes(v[j])) {
             if (v[j] === randColors[j]) {
