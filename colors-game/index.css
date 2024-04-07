@@ -8,6 +8,8 @@ body {
     background-position: center;
 }
 
+
+
 div.flex-col > div {
     background-image: url(./assets/ice-cream.png);
     background-size: 90%;
