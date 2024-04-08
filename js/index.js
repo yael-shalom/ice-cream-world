@@ -85,12 +85,10 @@ function register(event) {
     localStorage.setItem('currentUser', JSON.stringify(user));
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
-
-
     closeSignUp();
 }
 
-//פונקציה המביאה לדף הבית
+//פונקציההמארגנת את דף הבית
 function homePage() {
     const body = document.querySelector('body');
     const grid = document.querySelector('.grid-container');
@@ -100,7 +98,6 @@ function homePage() {
     const title = document.querySelector('.titleHome');
     const home = document.querySelector('.home');
     const buttons = document.querySelector('.containBtn');
-    //   buttons.style.display='none';
     home.style.display = 'flex';
     title.style.display = 'block';
     body.classList.add('body-home')
@@ -109,10 +106,8 @@ function homePage() {
     secondCol.classList.add('second-column');
     grid.classList.remove('body');
     grid.classList.remove('grid-container');
-
     game.forEach(function (div) {
         div.classList.add('game');
     });
-
     title.classList.add('title');
 }
