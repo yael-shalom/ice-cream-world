@@ -198,12 +198,6 @@ function closeFinish() {
   document.querySelector('.win-page').style.display = 'none';
 }
 
-function closeAndStart() {
-  const modal3 = document.getElementById("Div1");
-  modal3.style.display = "none";
-  sortPlayers();
-}
-
 // When the user clicks on the button, open the modal
 function modall() {
   // Get the modal
@@ -259,7 +253,7 @@ function startTimer(index) {
         document.querySelector(`.timer-container${personId}`).classList.add(`out${personId}`);
         setTimeout(clearCreatedIceCream, 500);//////
         closeDivElements();
-        setTimeout(() => { updateCreatedIceCreamCost(); deleteIceCream(index);; showData(index); }, 3000);
+        setTimeout(() => { updateCreatedIceCreamCost(); deleteIceCream(index); showData(index); }, 3000);
       }
       else {
         height++;

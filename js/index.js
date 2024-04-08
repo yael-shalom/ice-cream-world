@@ -52,7 +52,7 @@ function login(event) {
         closeSignIn()
     }
     else {
-        errorsIn[1].textContent = "wrong password";
+        errorsIn[1].textContent = "error";
         return;
     }
 }
