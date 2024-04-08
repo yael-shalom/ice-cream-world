@@ -242,8 +242,8 @@ div.nav-list {
 
 .modal-header {
   padding: 2px 16px;
-  
   color: white;
+  text-align: center;
 }
 
 .elements-btn {
@@ -699,6 +699,9 @@ div.nav-list {
   margin-left: 10px;
 }
 
-
+p, h3 {
+  text-align: center;
+  font-weight: bolder;
+}
 
 

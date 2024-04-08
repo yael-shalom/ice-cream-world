@@ -258,7 +258,7 @@ function startTimer(index) {
         document.querySelector(`.person${personId}`).classList.add(`out${personId}`);
         document.querySelector(`.ice-cream-container${personId}`).classList.add(`out${personId}`);
         document.querySelector(`.timer-container${personId}`).classList.add(`out${personId}`);
-        setTimeout(clearCreatedIceCream, 500);
+        setTimeout(clearCreatedIceCream, 500);//////
         closeDivElements();
         setTimeout(() => { updateCreatedIceCreamCost(); deleteIceCream(index);; showData(index); }, 3000);
       }
@@ -561,10 +561,13 @@ function nextLevel() {
     document.querySelector('.btn-next-level').textContent = 'next level';
   }
 
-  localStorage.setItem('currentUser', JSON.stringify(currentUser));
-  const users = JSON.parse(localStorage.getItem('allUsers'));
-  users[currentUser.username] = currentUser;
-  localStorage.setItem('allUsers', JSON.stringify(users))
+  if(currentUser)
+  {
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    const users = JSON.parse(localStorage.getItem('allUsers'));
+    users[currentUser.username] = currentUser;
+    localStorage.setItem('allUsers', JSON.stringify(users))
+  }
 }
 
 
@@ -607,7 +610,7 @@ function showData(index) {
 }
 
 function exit() {
-  window.open('../pages/gameSite.html', '_self');
+  window.open('../index.html', '_self');
 }
 
 function nextLevelGame() {
@@ -626,7 +629,6 @@ function clearAll() {
   levelWin = 1;
   missedIceCream = 0;
   iceCreamAmount = 0;
-  flag1 = 0;
   for (let i = 0; i < level; i++) {
     document.querySelector(`.contain-person${i + 1}`).innerHTML = "";
   }
