@@ -215,7 +215,7 @@ h1 {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-top: 20%;
+  margin-top: 14%;
   z-index:1;
   animation: slideLeftToPosition 1s ease-in-out forwards;
   margin-right: 20px;
@@ -236,7 +236,7 @@ h1 {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-top: 20%;
+  margin-top: 14%;
   margin-left: 20px;
   z-index: 1;
   animation: slideRightToPosition 1s ease-in-out forwards;
