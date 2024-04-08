@@ -704,4 +704,6 @@ p, h3 {
   font-weight: bolder;
 }
 
-
+.win-text {
+  text-align: left;
+}

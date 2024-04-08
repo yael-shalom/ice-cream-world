@@ -533,6 +533,7 @@ function nextLevel() {
   for (let i = 0; i < 7; i++) {
 
     const element1 = document.createElement('p')
+    element1.classList.add('win-text');
     element1.innerHTML = titles[(i + 1)] + "   " + values[(i + 1)];
     titleOfWin.appendChild(element1);
 
