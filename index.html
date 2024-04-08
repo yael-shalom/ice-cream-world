@@ -13,8 +13,8 @@
 
 	<body class="grid-container">
 		<div class="containBtn">
-			<button class="btn-sign-up" onclick="showSignUp()">Sign Up</button>
-			<button class="btn-sign-in" onclick="showLogin()">Sign In</button>
+			<button class="btn-sign-up" onclick="showSignUp(event)">Sign Up</button>
+			<button class="btn-sign-in" onclick="showLogin(event)">Sign In</button>
 		</div>
 		<div class="home">
 			<div class="titleHome">
@@ -46,30 +46,29 @@
 					<input type="password" placeholder="Repeat Password" id="psw-repeat" name="psw-repeat" required>
 					<div class="error"></div>
 					<div class="clearfix">
-						<button class="cancelbtn" onclick="closeSignUp(); showLogin()">Sign In</button>
-						<button type="submit" class="signupbtn">Sign Up</button>
+						<button class="cancelbtn cancelbtnForm" onclick="closeSignUp(event); showLogin(event)">Sign In</button>
+						<button type="submit" class="signupbtn signupbtnForm">Sign Up</button>
 					</div>
 				</div>
 			</form>
 		</div>
 		<div id="sign-in" class="modal">
-			<span onclick="closeSignIn()" class="close" title="Close Modal">&times;</span>
+			<span onclick="closeSignIn(event)" class="close" title="Close Modal">&times;</span>
 			<form class="modal-content" onsubmit="login(event)">
 				<div class="container">
 					<h1>Sign In</h1>
 					<p>Please fill in this form to enter with your account.</p>
 					<hr>
 					<label for="username-in"><b>User name</b></label>
-					<input type="text" placeholder="Enter your name" id="username-in" name="username" autocomplete="off"
-						required>
+					<input type="text" placeholder="Enter your name" id="username-in" name="username" required>
 					<div class="error-in"></div>
 					<label for="psw-in"><b>Password</b></label>
 					<input type="password" placeholder="Enter Password" id="psw-in" name="psw" autocomplete="off"
 						required>
 					<div class="error-in"></div>
 					<div class="clearfix">
-						<button class="cancelbtn" onclick="closeSignIn(); showSignUp()">Sign Up</button>
-						<button type="submit" class="signupbtn">Sign In</button>
+						<button class="cancelbtn cancelbtnForm" onclick="closeSignIn(event); showSignUp(event)">Sign Up</button>
+						<button type="submit" class="signupbtn signupbtnForm">Sign In</button>
 					</div>
 				</div>
 			</form>

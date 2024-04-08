@@ -48,7 +48,7 @@ function login(event) {
     }
     if (users[usernameIn.value].password === passwordIn.value) {
         sessionStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
-
+        localStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
         closeSignIn()
     }
     else {
@@ -77,7 +77,9 @@ function register(event) {
         username: username.value,
         password: password.value,
         passwordRepeat: passwordRepeat.value,
-        bestScore: 0
+        bestScore: 0,
+        countGames: 0,
+        countWins: 0
     }
 
     users[user.username] = user;

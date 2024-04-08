@@ -230,7 +230,6 @@ function initLevel() {
   clearAll();
   for (let i = 0; i < level; i++) {
     randomIceCreamArray[i] = randIceCream();
-    // enterPerson(i);
     setTimeout(enterPerson, 1000, i);
   }
 }
@@ -503,41 +502,63 @@ function nextLevel() {
     countOfIceText = "Amount of created ice creams: ",
     bestScoreText = "Best score:",
     countGameText = "Games played: ",
-    countWinText = "Victories:",
-    precentofWinText = "Win percentage:";
+    // countWinText = "Victories:",
+    // precentofWinText = "Win percentage:";
 
   iceCreamAmount = level * 5 - missedIceCream;
   if (JSON.parse(localStorage.getItem('currentUser'))) {
     bestScore = Math.max(sumSalary, JSON.parse(localStorage.getItem('currentUser')).bestScore);
     countGame = currentUser.countGames++;
     if (missedIceCream === 0)
-      countWin = JSON.parse(localStorage.getItem('currentUser')).countWins++;
+      countWin = JSON.parse(localStorage.getItem('currentUser')).countWins;
+      countWin++;
     precentofWin = countWin / countGame * 100 + '%';
+
+    const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}`, 4: `${bestScore}`, 5: `${countGame}`}
+    const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${bestScoreText}`, 5: `${countGameText}`}
+  
+    const titleOfWin = document.querySelector('.titleOfWin');
+    const datailOfWin = document.querySelector('.datailOfWin');
+    titleOfWin.innerHTML = "";
+    datailOfWin.innerHTML = "";
+    titleOfWin.style.display = "block";
+    datailOfWin.style.display = "block";
+  
+    for (let i = 0; i < 5; i++) {
+  
+      const element1 = document.createElement('p')
+      element1.classList.add('win-text');
+      element1.innerHTML = titles[(i + 1)] + "   " + values[(i + 1)];
+      titleOfWin.appendChild(element1);
+  
+    }
   }
   else {
-    bestScore = 'The system has no data for you, you are guest user';
-    countGame = 'The system has no data for you, you are guest user';
-    countWin = 'The system has no data for you, you are guest user';
-    precentofWin = 'The system has no data for you, you are guest user';
-  }
-  const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}`, 4: `${bestScore}`, 5: `${countGame}`, 6: `${countWin}`, 7: `${precentofWin}` }
-  const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${bestScoreText}`, 5: `${countGameText}`, 6: `${countWinText}`, 7: `${precentofWinText}` }
-
-  const titleOfWin = document.querySelector('.titleOfWin');
-  const datailOfWin = document.querySelector('.datailOfWin');
-  titleOfWin.innerHTML = "";
-  datailOfWin.innerHTML = "";
-  titleOfWin.style.display = "block";
-  datailOfWin.style.display = "block";
-
-  for (let i = 0; i < 7; i++) {
+    const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}` }
+    const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}` }
+  
+    const titleOfWin = document.querySelector('.titleOfWin');
+    const datailOfWin = document.querySelector('.datailOfWin');
+    titleOfWin.innerHTML = "";
+    datailOfWin.innerHTML = "";
+    titleOfWin.style.display = "block";
+    datailOfWin.style.display = "block";
+  
+    for (let i = 0; i < 3; i++) {
+      const element1 = document.createElement('p')
+      element1.classList.add('win-text');
+      element1.innerHTML = titles[(i + 1)] + "   " + values[(i + 1)];
+      titleOfWin.appendChild(element1);
+    }
 
     const element1 = document.createElement('p')
     element1.classList.add('win-text');
-    element1.innerHTML = titles[(i + 1)] + "   " + values[(i + 1)];
+    element1.classList.add('win-text-guest');
+    element1.innerHTML = 'The system has no more data for you, you are guest user';
     titleOfWin.appendChild(element1);
 
   }
+
 
   if (level === 1 && firstTime) {
     btnExit = document.createElement('button');
@@ -568,6 +589,10 @@ function nextLevel() {
     const users = JSON.parse(localStorage.getItem('allUsers'));
     users[currentUser.username] = currentUser;
     localStorage.setItem('allUsers', JSON.stringify(users))
+  }
+  else {
+    document.querySelector('.btn-next-level').style.top = '200px';
+    document.querySelector('.btn-exit').style.top = '200px';
   }
 }
 
@@ -619,12 +644,15 @@ function nextLevelGame() {
   if (level < 3)
     level++;
   else
+  {
     level = 1;
+  }
   play();
 }
 
 function clearAll() {
   randomIceCreamArray = [];
+  randomIceCreamArray.length = 0;
   createdIceCream = [];
   iceCreamCost = { 'cone': 0, 'ball': 0, 'decoration': 0 };
   levelWin = 1;

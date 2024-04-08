@@ -8,7 +8,7 @@ body {
   background-size: 100vw;
   margin: 0;
   height: 100vh;
-  color: black;
+  color: #293946;
   background-color: #fecfc5;
   background-position: center;
   overflow: hidden;
@@ -690,7 +690,7 @@ div.nav-list {
   border-radius: 5px;
   position: relative;
   left: 62px;
-  top: 25px;
+  top: 150px;
   box-shadow: 2px 2px #b89be7b0;
   cursor: pointer;
 }
@@ -706,4 +706,10 @@ p, h3 {
 
 .win-text {
   text-align: left;
+}
+
+.win-text-guest {
+  position: relative;
+    top: 70px;
+    color: #7d5fff;
 }
