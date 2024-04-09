@@ -1,6 +1,6 @@
 // products' images arrays
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
-const boys = ['child1', 'child2', 'child3', 'child4', 'child5','child6', 'child7', 'child8', 'child9', 'child10', 'child11', 'child12', 'child13', 'child14', 'child15','child16'];
+const boys = ['child1', 'child2', 'child3', 'child4', 'child5','child6', 'child7', 'child8', 'child9', 'child10', 'child12', 'child13'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'beige-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 
