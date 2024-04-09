@@ -630,7 +630,7 @@ function showData(index) {
 }
 
 function exit() {
-  window.open('../index.html', '_self');
+  window.open('../our-games.html', '_self');
 }
 
 function nextLevelGame() {

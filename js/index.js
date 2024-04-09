@@ -50,6 +50,7 @@ function login(event) {
         sessionStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
         localStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
         closeSignIn()
+        window.open('../our-games.html', '_self');
     }
     else {
         errorsIn[1].textContent = "error";
@@ -88,6 +89,7 @@ function register(event) {
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
     closeSignUp();
+    window.open('../our-games.html', '_self');
 }
 
 //פונקציההמארגנת את דף הבית
@@ -112,4 +114,15 @@ function homePage() {
         div.classList.add('game');
     });
     title.classList.add('title');
+}
+
+function changeImg(event)
+{
+    event.currentTarget.src = `../assets/images/noa/1x/${event.currentTarget.id}.png`;
+}
+
+function firstImg(event)
+{
+    current = event.currentTarget;
+    current.src = `../assets/images/noa/1x/${current.id.substring(0, current.id.length - 1)}.png`;
 }

@@ -4,10 +4,12 @@
 }
 
 body {
-    font-family: Heebo-Regular;
+    font-family: 'Forte';
     --yellow: #fdd22e;
     --pink: #FF95AA;
     --purple: #8F6BA4;
     --lightblue: #02CAD9;
     --dark-pink: #EC407A;
+    --brown: #611c09;
+    --beige: #fff4d9;
 }
