@@ -118,11 +118,11 @@ function homePage() {
 
 function changeImg(event)
 {
-    event.currentTarget.src = `../assets/images/noa/1x/${event.currentTarget.id}.png`;
+    event.currentTarget.src = `./assets/images/noa/1x/${event.currentTarget.id}.png`;
 }
 
 function firstImg(event)
 {
     current = event.currentTarget;
-    current.src = `../assets/images/noa/1x/${current.id.substring(0, current.id.length - 1)}.png`;
+    current.src = `./assets/images/noa/1x/${current.id.substring(0, current.id.length - 1)}.png`;
 }
