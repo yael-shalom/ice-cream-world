@@ -40,7 +40,7 @@ let firstTime = true;
 let coins = document.querySelector('#many-coins');
 
 //timer interval
-let interval;
+// let interval;
 
 //הפעלת אנימציית חץ
 let iconStart = document.querySelector('.iconStart');
@@ -238,6 +238,7 @@ function startTimer(index) {
     const elem = document.getElementsByClassName("timer")[index];
     let height = 1;
     intervalsArray[index] = setInterval(frame, 15 / 100 * 1000);
+
     function frame() {
       if (height >= 100) {
         clearInterval(intervalsArray[index]);
@@ -251,7 +252,7 @@ function startTimer(index) {
         document.querySelector(`.person${personId}`).classList.add(`out${personId}`);
         document.querySelector(`.ice-cream-container${personId}`).classList.add(`out${personId}`);
         document.querySelector(`.timer-container${personId}`).classList.add(`out${personId}`);
-        setTimeout(clearCreatedIceCream, 500);//////
+        setTimeout(throwToGarbage, 500);
         closeDivElements();
         setTimeout(() => { updateCreatedIceCreamCost(); deleteIceCream(index); showData(index); }, 3000);
       }
@@ -363,11 +364,6 @@ function updateCreatedIceCreamCost() {
   lessPoints();
   sumSalary = Math.max(sumSalary - points, 0);
   moneyEl.textContent = `YOUR SALARY: ${Math.max(sumSalary, 0)}`;
-}
-
-function throwToGarbage() {
-  updateCreatedIceCreamCost();
-  clearCreatedIceCream();
 }
 
 function throwToGarbage() {
