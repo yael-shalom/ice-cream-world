@@ -1,6 +1,6 @@
 // products' images arrays
 const cones = ['cone8', 'cone9', 'cone10', 'cone11'];
-const boys = ['child1', 'child2', 'child3', 'child4', 'child5','child6', 'child7', 'child8', 'child9', 'child10', 'child12', 'child13'];
+const boys = ['child1', 'child2', 'child3', 'child4', 'child5', 'child6', 'child7', 'child8', 'child9', 'child10', 'child12', 'child13'];
 const balls = ['brown', 'lightblue', 'pink', 'purple', 'yellow'];
 const decorations = ['almonds', 'beige-nuts', 'blueberries', 'brown-nuts', 'candies', 'concours', 'green-almonds', 'leaf', 'strawberries'];
 
@@ -95,7 +95,7 @@ function openDivElements(event) {
 function randIceCream() {
   const randomIceCream = {};
   randomIceCream.cone = cones[rand(0, cones.length - 1)];
-  ballsAmount = rand(1, 3);
+  const ballsAmount = rand(1, 3);
   randomIceCream.ball = [];
   for (let i = 0; i < ballsAmount; i++) {
     randomIceCream.ball.push(balls[rand(0, balls.length - 1)]);
@@ -326,7 +326,7 @@ function showIceCream(index) {
   container.appendChild(cone);
 
   // יצירת הכדורים
-  for (let i = 0; i < ballsAmount; i++) {
+  for (let i = 0; i < randomIceCreamArray[index].ball.length; i++) {
     let ball = document.createElement('img');
     ball.src = `./assets/images/balls/${randomIceCreamArray[index].ball[i]}.png`;
     ball.style.zIndex = zIndex++;
@@ -499,45 +499,45 @@ function nextLevel() {
     // countWinText = "Victories:",
     // precentofWinText = "Win percentage:";
 
-  iceCreamAmount = level * 5 - missedIceCream;
+    iceCreamAmount = level * 5 - missedIceCream;
   if (JSON.parse(localStorage.getItem('currentUser'))) {
     bestScore = Math.max(sumSalary, JSON.parse(localStorage.getItem('currentUser')).bestScore);
     countGame = currentUser.countGames++;
     if (missedIceCream === 0)
       countWin = JSON.parse(localStorage.getItem('currentUser')).countWins;
-      countWin++;
+    countWin++;
     precentofWin = countWin / countGame * 100 + '%';
 
-    const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}`, 4: `${bestScore}`, 5: `${countGame}`}
-    const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${bestScoreText}`, 5: `${countGameText}`}
-  
+    const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}`, 4: `${bestScore}`, 5: `${countGame}` }
+    const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${bestScoreText}`, 5: `${countGameText}` }
+
     const titleOfWin = document.querySelector('.titleOfWin');
     const datailOfWin = document.querySelector('.datailOfWin');
     titleOfWin.innerHTML = "";
     datailOfWin.innerHTML = "";
     titleOfWin.style.display = "block";
     datailOfWin.style.display = "block";
-  
+
     for (let i = 0; i < 5; i++) {
-  
+
       const element1 = document.createElement('p')
       element1.classList.add('win-text');
       element1.innerHTML = titles[(i + 1)] + "   " + values[(i + 1)];
       titleOfWin.appendChild(element1);
-  
+
     }
   }
   else {
     const values = { 1: `${level}`, 2: `${sumSalary}`, 3: `${iceCreamAmount}` }
     const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}` }
-  
+
     const titleOfWin = document.querySelector('.titleOfWin');
     const datailOfWin = document.querySelector('.datailOfWin');
     titleOfWin.innerHTML = "";
     datailOfWin.innerHTML = "";
     titleOfWin.style.display = "block";
     datailOfWin.style.display = "block";
-  
+
     for (let i = 0; i < 3; i++) {
       const element1 = document.createElement('p')
       element1.classList.add('win-text');
@@ -572,13 +572,11 @@ function nextLevel() {
     document.querySelector('.btn-next-level').textContent = 'replay';
   }
 
-  if(level === 1)
-  {
+  if (level === 1) {
     document.querySelector('.btn-next-level').textContent = 'next level';
   }
 
-  if(currentUser)
-  {
+  if (currentUser) {
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
     const users = JSON.parse(localStorage.getItem('allUsers'));
     users[currentUser.username] = currentUser;
@@ -637,8 +635,7 @@ function nextLevelGame() {
   closeFinish();
   if (level < 3)
     level++;
-  else
-  {
+  else {
     level = 1;
   }
   play();
