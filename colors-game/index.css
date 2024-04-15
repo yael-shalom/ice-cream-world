@@ -1,11 +1,13 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    --other-color: rgb(163, 217, 230);
-    --same-color: rgb(249, 132, 169);
-    background-image:url('../colors-game/assets/backGroundAll.jpeg');
+    font-family: Forte, Helvetica, sans-serif;
+    --other-color: rgb(211 138 44);
+    --same-color: rgb(217 181 134);
+    background-image:url(../assets/images/noa/1x/רקע\ לעמוד\ המשחקים.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    margin: 0;
+    background-color: rgb(255 244 217);
 }
 
 
@@ -41,7 +43,7 @@ div.flex-col > div {
 
 h1 {
     text-align: center;
-    font-size: 62px;
+    font-size: 55px;
     text-shadow: 1px 1px #771b2c;
     margin-left: 33%;
 }
@@ -69,4 +71,10 @@ p {
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+
+  .nav-list-item {
+    position: relative;
+    left: 30px;
+    top: 30px;
   }
