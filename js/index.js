@@ -50,7 +50,7 @@ function login(event) {
         sessionStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
         localStorage.setItem('currentUser', JSON.stringify(users[usernameIn.value]));
         closeSignIn()
-        window.open('./our-games.html', '_self');
+        window.open('./menu.html', '_self');
     }
     else {
         errorsIn[1].textContent = "error";
@@ -89,7 +89,7 @@ function register(event) {
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('allUsers', JSON.stringify(users));
     closeSignUp();
-    window.open('./our-games.html', '_self');
+    window.open('./menu.html', '_self');
 }
 
 //פונקציההמארגנת את דף הבית
