@@ -491,9 +491,7 @@ function nextLevel() {
     scoreText = "Score:",
     countOfIceText = "Amount of created ice creams: ",
     bestScoreText = "Best score:",
-    countGameText = "Games played: ",
-    // countWinText = "Victories:",
-    // precentofWinText = "Win percentage:";
+    countGameText = "Games played: "
 
     iceCreamAmount = level * 5 - missedIceCream;
   if (JSON.parse(localStorage.getItem('currentUser'))) {
@@ -508,11 +506,11 @@ function nextLevel() {
     const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}`, 4: `${bestScoreText}`, 5: `${countGameText}` }
 
     const titleOfWin = document.querySelector('.titleOfWin');
-    const datailOfWin = document.querySelector('.datailOfWin');
+    const detailOfWin = document.querySelector('.datailOfWin');
     titleOfWin.innerHTML = "";
-    datailOfWin.innerHTML = "";
+    detailOfWin.innerHTML = "";
     titleOfWin.style.display = "block";
-    datailOfWin.style.display = "block";
+    detailOfWin.style.display = "block";
 
     for (let i = 0; i < 5; i++) {
 
@@ -528,11 +526,11 @@ function nextLevel() {
     const titles = { 1: `${levelText}`, 2: `${scoreText}`, 3: `${countOfIceText}` }
 
     const titleOfWin = document.querySelector('.titleOfWin');
-    const datailOfWin = document.querySelector('.datailOfWin');
+    const detailOfWin = document.querySelector('.datailOfWin');
     titleOfWin.innerHTML = "";
-    datailOfWin.innerHTML = "";
+    detailOfWin.innerHTML = "";
     titleOfWin.style.display = "block";
-    datailOfWin.style.display = "block";
+    detailOfWin.style.display = "block";
 
     for (let i = 0; i < 3; i++) {
       const element1 = document.createElement('p')
