@@ -16,7 +16,14 @@ h1 {
   font-weight: normal;
 }
 
+a {
+  color: var(--brown);
+  text-decoration: none;
+}
 
+a:hover {
+  text-shadow: 0 0 10px #b9631b;
+}
 
 .sign-up-open,
 .sign-in-open {
