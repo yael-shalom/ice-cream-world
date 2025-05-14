@@ -1,16 +1,21 @@
 body {
   font-family: "Forte", "Dana Yad AlefAlefAlef Normal",
     "Fb Cursive";
-  background-image:url(../assets/images/noa/1x/רקע\ לעמוד\ המשחקים.png);
-  background-repeat: no-repeat;
+  background-color: #fff4d9;
+  background-image: url(../assets/images/noa/1x/רקע\ לעמוד\ המשחקים.png);
   background-size: cover;
   background-position: center;
-  color:var(--other-color);
+  color: var(--other-color);
   --other-color: rgb(211 138 44);
   --same-color: rgb(217 181 134);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
-.con > div {
+.con>div {
   border: 2px solid var(--other-color);
   border-radius: 100%;
   height: 40px;
@@ -32,27 +37,27 @@ body {
   background-color: lightyellow;
   background-image: url(./images/yellow.png);
 }
- 
+
 .lightgreen {
   background-color: #dffff5;
   background-image: url(./images/green.png);
 }
- 
+
 .lightblue {
   background-color: #d1e5ec;
   background-image: url(./images/blue.png);
 }
- 
+
 .lightpurple {
   background-color: rgb(233 209 236);
   background-image: url(./images/purple.png);
 }
- 
+
 .lightpink {
   background-color: lightpink;
   background-image: url(./images/pink.png);
 }
- 
+
 .lightgray {
   background-color: lightgray;
   background-image: url(./images/brown.png);
@@ -60,7 +65,7 @@ body {
 
 
 .last,
-.last > td {
+.last>td {
   border-bottom: 0px;
 }
 
@@ -129,39 +134,49 @@ h1 {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
   }
+
   10% {
     transform: translate(-1px, -2px) rotate(-1deg);
   }
+
   20% {
     transform: translate(-3px, 0px) rotate(1deg);
   }
+
   30% {
     transform: translate(3px, 2px) rotate(0deg);
   }
+
   40% {
     transform: translate(1px, -1px) rotate(1deg);
   }
+
   50% {
     transform: translate(-1px, 2px) rotate(-1deg);
   }
+
   60% {
     transform: translate(-3px, 1px) rotate(0deg);
   }
+
   70% {
     transform: translate(3px, 1px) rotate(-1deg);
   }
+
   80% {
     transform: translate(-1px, -1px) rotate(1deg);
   }
+
   90% {
     transform: translate(1px, 2px) rotate(0deg);
   }
+
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
   }
 }
 
-.header{
+.header {
 
   display: flex;
   flex-direction: row;
