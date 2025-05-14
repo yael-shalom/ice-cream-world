@@ -252,9 +252,9 @@ function startTimer(index) {
         document.querySelector(`.person${personId}`).classList.add(`out${personId}`);
         document.querySelector(`.ice-cream-container${personId}`).classList.add(`out${personId}`);
         document.querySelector(`.timer-container${personId}`).classList.add(`out${personId}`);
-        setTimeout(throwToGarbage, 500);
+        // setTimeout(throwToGarbage, 500);
         closeDivElements();
-        setTimeout(() => { updateCreatedIceCreamCost(); deleteIceCream(index); showData(index); }, 3000);
+        setTimeout(() => {deleteIceCream(index); showData(index); }, 3000);// updateCreatedIceCreamCost(); 
       }
       else {
         height++;
